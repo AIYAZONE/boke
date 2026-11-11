@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>二十讲 · YC 斯坦福创业课精华与播客 | boke 播客收录</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iYm9rZSDmkq3lrqLmlLblvZUgbG9nbyI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTIiIGZpbGw9IiMyMjIwMWUiLz4KICA8cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSI0ODAiIGhlaWdodD0iNDgwIiByeD0iOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmRmYSIgc3Ryb2tlLW9wYWNpdHk9Ii4xMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGc+CiAgPHJlY3QgeD0iMTMyIiB5PSIyMDgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5NiIgcng9IjI2IiBmaWxsPSIjZTI2MDJjIiBmaWxsLW9wYWNpdHk9IjEuMCIvPgogIDxyZWN0IHg9IjIwOCIgeT0iMTcyIiB3aWR0aD0iNTIiIGhlaWdodD0iMTY4IiByeD0iMjYiIGZpbGw9IiNmMGEyNzMiIGZpbGwtb3BhY2l0eT0iMC44NSIvPgogIDxyZWN0IHg9IjI4NCIgeT0iMTQwIiB3aWR0aD0iNTIiIGhlaWdodD0iMjMyIiByeD0iMjYiIGZpbGw9IiNlMjYwMmMiIGZpbGwtb3BhY2l0eT0iMS4wIi8+CiAgPHJlY3QgeD0iMzYwIiB5PSIxNzIiIHdpZHRoPSI1MiIgaGVpZ2h0PSIxNjgiIHJ4PSIyNiIgZmlsbD0iI2YwYTI3MyIgZmlsbC1vcGFjaXR5PSIwLjg1Ii8+CiAgPHJlY3QgeD0iNDM2IiB5PSIyMDgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5NiIgcng9IjI2IiBmaWxsPSIjZTI2MDJjIiBmaWxsLW9wYWNpdHk9IjEuMCIvPgogIDwvZz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjAiIGZpbGw9Im5vbmUiLz4KPC9zdmc+">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
@@ -195,11 +195,100 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 #termPop .tp-h{color:#9c9086;font-size:11px;margin-top:10px;border-top:1px solid rgba(255,255,255,.13);padding-top:8px}
 @media(max-width:820px){#termPop{font-size:14px}}
 
+/* ===== 移动端适配：默认隐藏的辅助元素 ===== */
+.t-short,.tbl-hint,.ep-hint{display:none}
+#termMask{display:none!important}
+header .term{border-bottom-color:rgba(255,183,140,.6)}
+@keyframes sheetUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
 @media(max-width:820px){
-  .pod{grid-template-columns:1fr}
-  h1{font-size:38px}
-  header{padding:38px 0 30px}
-  .nav-inner{flex-wrap:wrap;overflow-x:visible}
+  html{-webkit-text-size-adjust:100%}
+  body{-webkit-tap-highlight-color:transparent}
+  .wrap{padding:0 16px 56px}
+  header{padding:30px 0 24px}
+  .brandline{margin-bottom:16px;gap:8px}
+  .brandname{font-size:12px}
+  .kicker{font-size:10px;letter-spacing:.22em;margin-bottom:12px}
+  h1{font-size:34px}
+  .sub{font-size:15px;line-height:1.65;margin-bottom:20px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat{padding:8px 6px;text-align:center;font-size:11.5px;line-height:1.4}
+  .stat b{display:block;font-size:18px;margin:0 0 2px}
+
+  /* 10 个板块一次看全：5 列 × 2 行等宽，顺序不再参差 */
+  nav{margin-bottom:22px}
+  .nav-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
+    padding:8px 12px;overflow:visible;flex-wrap:nowrap}
+  .nav-inner button{display:flex;align-items:center;justify-content:center;
+    width:100%;min-height:42px;padding:6px 2px;font-size:12.5px;line-height:1.25;border-radius:9px}
+  .t-full{display:none}
+  .t-short{display:inline}
+
+  h2{font-size:22px}
+  .lead{font-size:13px;margin-bottom:18px}
+  .card,.plain-card,.num-group,.act-col,.thesis{padding:16px}
+  .player{padding:18px}
+  .player h3{font-size:19px}
+  .notes,.bound{padding:16px}
+  .notice{font-size:13px;padding:12px 14px}
+  .gloss-group h4{margin:18px 0 8px}
+  .term-tip{font-size:12px;align-items:flex-start;padding:10px 12px;line-height:1.55}
+  .term{padding:1px 2px}
+  .term:active{background:#fdece0}
+
+  /* 表格：完整列宽 + 横向滑动，不硬压成竖排 */
+  .card,.plain-card,.gloss-group{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{min-width:560px}
+  .gtbl{min-width:460px}
+  .gtbl td:first-child{width:120px;white-space:normal}
+  .tbl-hint{display:block;font-size:11.5px;color:var(--muted);margin:0 0 8px}
+
+  /* 播客：播放器在前，剧集列表改横滑卡片 */
+  .pod{display:flex;flex-direction:column;gap:14px}
+  .pod > div:last-child{order:1}
+  .ep-hint{display:block;order:2;font-size:11.5px;color:var(--muted);margin:-4px 0 0}
+  .pod > .eplist{order:3;display:flex;gap:8px;overflow-x:auto;padding:8px;
+    -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .ep{flex:0 0 168px;scroll-snap-align:center;padding:10px 12px;margin:0;min-height:64px}
+  .ep .tt{font-size:13px}
+  audio{height:40px}
+  .dl{flex-wrap:wrap;gap:8px 14px;font-size:12px}
+
+  /* 关键数字：视图切换与搜索各占一行，数值与出处对齐 */
+  .num-bar{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px}
+  .num-views{width:100%}
+  .num-views button{flex:1;min-height:40px;padding:8px 4px;font-size:12.5px}
+  .num-bar .search{max-width:100%;width:100%}
+  .search{font-size:16px}
+  .num-row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline}
+  .num-label{grid-column:1/-1;flex:none}
+  .num-val{grid-column:1;min-width:0;text-align:left;font-size:17px}
+  .num-src{grid-column:2;min-width:0;text-align:right}
+
+  .files a{padding:10px 12px;font-size:12px}
+  footer{margin-top:32px;font-size:12px}
+}
+
+/* 平板竖屏：保留完整名称，单行横滑 */
+@media(min-width:641px) and (max-width:820px){
+  .nav-inner{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:4px;padding:10px 16px}
+  .nav-inner button{width:auto;min-height:42px;padding:9px 13px;font-size:13.5px;flex:0 0 auto}
+  .t-full{display:inline}
+  .t-short{display:none}
+}
+
+/* 手机：词条解释改为底部弹层 + 遮罩，点空白处关闭 */
+@media(max-width:640px){
+  #termPop{left:12px!important;right:12px;top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom));width:auto;max-width:none;
+    padding:18px 18px 16px;border-radius:16px;font-size:14px;
+    box-shadow:0 -10px 40px rgba(30,22,16,.34);animation:sheetUp .2s ease}
+  #termPop::before{content:"";display:block;width:36px;height:4px;border-radius:2px;
+    background:rgba(255,255,255,.28);margin:-6px auto 10px}
+  #termPop .tp-h{margin-top:12px}
+  #termMask{display:none!important;position:fixed;top:0;right:0;bottom:0;left:0;
+    z-index:80;background:rgba(24,20,16,.42)}
+  #termMask.on{display:block!important}
 }
 </style>
 </head>
@@ -223,16 +312,16 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
   </div>
 </div></header>
 <nav id="nav"><div class="nav-inner">
-  <button data-t="pod" class="on">播客收听</button>
-  <button data-t="plain">零基础白话</button>
-  <button data-t="glossary">名词注解</button>
-  <button data-t="thesis">五个底层命题</button>
-  <button data-t="model">七个模型</button>
-  <button data-t="contra">反直觉对照</button>
-  <button data-t="num">关键数字</button>
-  <button data-t="act">分级行动清单</button>
-  <button data-t="lec">20 讲索引</button>
-  <button data-t="quote">金句</button>
+  <button data-t="pod" class="on" aria-label="播客收听"><span class="t-full">播客收听</span><span class="t-short">收听</span></button>
+  <button data-t="plain" aria-label="零基础白话"><span class="t-full">零基础白话</span><span class="t-short">白话</span></button>
+  <button data-t="glossary" aria-label="名词注解"><span class="t-full">名词注解</span><span class="t-short">注解</span></button>
+  <button data-t="thesis" aria-label="五个底层命题"><span class="t-full">五个底层命题</span><span class="t-short">命题</span></button>
+  <button data-t="model" aria-label="七个模型"><span class="t-full">七个模型</span><span class="t-short">模型</span></button>
+  <button data-t="contra" aria-label="反直觉对照"><span class="t-full">反直觉对照</span><span class="t-short">反直觉</span></button>
+  <button data-t="num" aria-label="关键数字"><span class="t-full">关键数字</span><span class="t-short">数字</span></button>
+  <button data-t="act" aria-label="分级行动清单"><span class="t-full">分级行动清单</span><span class="t-short">清单</span></button>
+  <button data-t="lec" aria-label="20 讲索引"><span class="t-full">20 讲索引</span><span class="t-short">20 讲</span></button>
+  <button data-t="quote" aria-label="金句"><span class="t-full">金句</span><span class="t-short">金句</span></button>
 </div></nav>
 <div class="wrap">
 
@@ -242,6 +331,7 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
   <p class="lead">两个人聊天，6 集，一共约 30 分钟。左边点一下就能换集，也能直接下载全集。</p>
   <div class="pod">
     <div class="eplist" id="eplist"></div>
+    <div class="ep-hint">← 左右滑动切换剧集 · 共 6 集 →</div>
     <div>
       <div class="player">
         <div class="now-id" id="nowId"></div>
@@ -561,6 +651,9 @@ nav.addEventListener('click',e=>{
   b.classList.add('on');
   document.querySelectorAll('section').forEach(s=>s.classList.remove('on'));
   document.getElementById(b.dataset.t).classList.add('on');
+  if(window.innerWidth<=820){
+    window.scrollTo({top:Math.max(0,nav.offsetTop),behavior:'auto'});
+  }
 });
 const list=document.getElementById('eplist');
 const audio=document.getElementById('audio');
@@ -579,6 +672,13 @@ function select(i){
   document.getElementById('notes').innerHTML=ep.notes.map(n=>'<li>'+n+'</li>').join('');
   document.getElementById('dlEp').href=ep.file;
   audio.src=ep.file; audio.load();
+  if(list.scrollWidth>list.clientWidth+4){
+    var cur=list.querySelector('.ep.on');
+    if(cur){
+      var target=cur.offsetLeft-(list.clientWidth-cur.offsetWidth)/2;
+      list.scrollTo({left:Math.max(0,target),behavior:'smooth'});
+    }
+  }
 }
 select(0);
 function filter(inputId,tbodyId){
@@ -617,14 +717,14 @@ filter('qContra','tbContra');filter('qLec','tbLec');
 /* ===== 全站点击注解 ===== */
 let TERMS ={"CS183B": "斯坦福 2014 年秋的创业课编号，全名 How to Start a Startup。给想创业的工程师开的入门课，不是商学院课程。", "Y Combinator": "简称 YC，美国顶级创业孵化器，2005 年由 Paul Graham 等人创办。投一小笔钱、三个月密集辅导，最后办 Demo Day。Airbnb、Stripe、Dropbox 都出自这里。", "YC": "Y Combinator 的简称，美国顶级创业孵化器。这门课就是它和斯坦福一起开的。", "Stanford": "斯坦福大学。课程 CS183B 在这里开设，2014 年秋。", "OpenAI": "人工智能公司。Sam Altman 后来去做 CEO 的就是这家。", "Demo Day": "YC 每期结束时的路演日，创业公司集中向投资人展示。", "Sequoia": "红杉资本，顶级风投。「为什么是现在（Why now）」是它经典的提问。", "a16z": "Andreessen Horowitz 的简称，Marc Andreessen 与 Ben Horowitz 创办的风投。", "SV Angel": "Ron Conway 的天使投资机构。", "Greylock": "Reid Hoffman 所在的风投机构。", "Khosla Ventures": "Keith Rabois 所在的风投机构。", "Founders Fund": "Peter Thiel 创办的基金。", "SurveyMonkey": "在线问卷公司，2011 年收购了 Wufoo。", "Rocket Internet": "德国的「克隆公司」，以快速复制美国成功创业公司著称。曾想复制 Airbnb，被拒绝收购。", "Samwer": "Samwer 兄弟，德国 Rocket Internet 的创办者，以快速复制创业公司出名。", "Sam Altman": "2014 年任 YC 总裁，这门课的发起人，主讲 L1 / L2 / L20；后来成为 OpenAI CEO。", "Dustin Moskovitz": "Facebook 联合创始人，后来创办 Asana。L1 里讲「当 CEO 其实所有人都是你老板」。", "Paul Graham": "YC 创办人、程序员兼随笔作家。L3 讲「别硬想点子，活在未来」。文中简写 PG。", "PG": "Paul Graham 的缩写，YC 创办人。L3 主讲。", "Peter Thiel": "PayPal 联合创始人、Founders Fund 创办人。L5 讲垄断与竞争，名言「竞争是留给失败者的」。", "Reid Hoffman": "LinkedIn 联合创始人、Greylock 合伙人。L13 讲怎么在坚持与转向之间做判断。", "Marc Andreessen": "网景浏览器创办人、a16z 联合创办人。L9 讲融资。", "Adora Cheung": "Homejoy 联合创始人。L4 讲从零用户到增长：验证问题、做 MVP、跑渠道。", "Alex Schultz": "Facebook 早期增长负责人。L6 讲留存、北极星指标与魔法时刻。", "Kevin Hale": "Wufoo 联合创始人。L7 讲让用户热爱产品，主张让工程师轮流做客服。", "Walker Williams": "Teespring 联合创始人。L8 讲做不可规模化的事、公关与起步。", "Justin Kan": "Justin.tv / Twitch 联合创始人。L8 客座讲者。", "Stanley Tang": "DoorDash 联合创始人。L8 讲手工验证起步。", "Ron Conway": "SV Angel 创办人，知名天使投资人。L9 讲融资。", "Parker Conrad": "Zenefits / Rippling 创办人。L9 客座讲者。", "Alfred Lin": "红杉资本合伙人，曾任 Zappos COO。L10 讲公司文化。", "Brian Chesky": "Airbnb 联合创始人。L10 讲文化，那句「乔布斯不会来睡你家沙发，但我会」就是他说的。", "Patrick Collison": "Stripe 联合创始人（弟弟）。L11 讲前 10 名员工怎么找。", "John Collison": "Stripe 联合创始人（哥哥）。L11 客座讲者。", "Ben Silbermann": "Pinterest 联合创始人。L11 讲早期招人。", "Aaron Levie": "Box 联合创始人。L12 讲企业软件为什么是当时最好的时机。", "Emmett Shear": "Justin.tv / Twitch 联合创始人。L16 讲怎么做用户访谈。", "Hosain Rahman": "Jawbone 创办人。L17 讲硬件全栈与 WHYS 方法。", "Kirsty Nathoo": "YC 财务负责人。L18 讲法务财务人事的实务坑。", "Carolynn Levy": "YC 法务负责人，SAFE 协议的推动者之一。L18 客座讲者。", "Tyler Bosmeny": "Clever 联合创始人。L19 讲创始人亲自销售与极简 pitch。", "Keith Rabois": "Khosla Ventures 投资人，曾任 Square / OpenDoor 高管。L14 讲运营。", "Ben Horowitz": "a16z 联合创办人。L15 讲管理，主张关键决策要透过全公司每个人的眼睛看。", "YC Partners": "YC 的合伙人团队，L19 里参与投资人会谈模拟。", "Airbnb": "短租平台。课里反复出现：睡陌生人沙发的点子、免费替房东拍专业照、花约半年招第一名工程师、拒绝被克隆公司收购。", "Stripe": "在线支付公司。课里的例子是「让工程师第一天就提交代码」，以及重视书面文化。", "DoorDash": "外卖平台。最早把餐厅菜单做成 PDF、留个手机号，一小时上线，第一单创始人自己开车送。", "Wufoo": "Kevin Hale 创办的在线表单工具。十个人、融资约 11.8 万美元、几乎零广告费，靠口碑增长，被收购时回报约 29,561%。", "Homejoy": "Adora Cheung 创办的家政平台。用来讲一句话定位、付费验证，以及「最终成的是第 13 个点子」。", "Pathjoy": "Homejoy 的前身/早期名称，Adora Cheung 的同一个家政创业项目。", "Zappos": "卖鞋起家的电商，以客服文化著称。曾把 37 条价值观花一整年精简到 10 条。", "Twitch": "游戏直播平台，从 Justin.tv 拆分出来。L8 / L16 都拿它当例子。", "Justin.tv": "Justin Kan 等人创办的直播网站，Twitch 的前身。", "Jawbone": "做无线音箱与可穿戴设备的公司，Jambox 是它的产品。L17 案例。", "Jambox": "Jawbone 的无线音箱。发布时无线音箱品类占比几乎为零，到 2013 年圣诞已占音箱市场约 78%。", "Kayak": "旅游搜索引擎。工程区装了红色热线，客服一接电话就直接触发工程师修 bug。", "Facebook": "社交网络。课里的关键例子：14 天加到 10 个好友、社区 12 小时翻译完法语站、最终支持 104 种语言。", "Google": "搜索引擎公司。L5 里用来对比：搜索份额约 66%，却对外讲成「广告公司」只占 3.5%，显得竞争很激烈。", "Amazon": "电商公司。Thiel 举它起步只卖书，说明「从小垄断起步」。", "PayPal": "在线支付公司，Peter Thiel 联合创办。起步只盯易贝上约两万个大卖家。", "eBay": "易贝，拍卖电商网站。PayPal 最早就是从它的大卖家切进去的。", "Yahoo": "早期门户网站。Paul Graham 举它说明好点子常常是从副业长出来的。", "Apple": "苹果公司。同样被 PG 拿来当「副业长成大公司」的例子。", "iPhone": "苹果手机。Brian Chesky 那句玩笑：「你买 iPhone 时乔布斯不会来睡你家沙发，但我会。」", "SEO": "搜索引擎优化，让网站在搜索结果里排得更靠前的做法。", "PR": "公关（public relations）。课里的建议很反直觉：早期别雇公关公司，PR 常是虚荣指标。", "PMF": "Product-Market Fit，产品市场契合。判断标准不是「有人说好」，而是留存曲线能走平——有一批人真的离不开你。", "CLV": "Customer Lifetime Value，客户终身价值：一个客户整个使用期带来的总利润。也写作 LTV。", "LTV": "同 CLV，客户终身价值。", "CAC": "Customer Acquisition Cost，获客成本：平均花多少钱得到一个客户。CAC = CPC ÷ 转化率。", "CPC": "每次点击成本（Cost Per Click），广告投放里按点击计费的价格。", "CLV − CAC": "单位经济的最简判断：一个客户赚的必须多过获取他花的。课里还要求别等太久回本。", "CLV−CAC": "单位经济判断：一个客户赚的必须多过获取他花的，且回本别超过 3 个月。", "CLV/CAC": "客户终身价值与获客成本的比值，用来衡量一个客户划不划算。", "cohort": "同期群：同一批（比如同一个月注册）的用户。按它画留存曲线，才看得出趋势。", "churn": "流失，用户不再使用产品。增长 = 新进来的人 − 走掉的人，所以防流失和拉新等价。", "Retention": "留存：用户过一段时间后还在用。Alex Schultz 称它是增长里最重要的一件事。", "magic moment": "魔力时刻：用户第一次「啊，原来这东西是干这个的」那一瞬。Facebook 的是看到朋友的脸。", "北极星指标": "全公司只认一个核心指标（月活 / 订单 / 入住晚数等），长期不改，避免各报各好看的数字。", "vanity metric": "虚荣指标：好看但不指导决策的数字，比如累计注册数、媒体曝光量。", "traction": "真实增长证据：用户数、留存、收入在涨。pitch 里必须有，比形容词管用。", "detractor": "贬损者：体验很差、会到处说你坏话的用户。一个贬损者足以抵消十个拥护者。", "champion": "拥护者：极度满意、会主动推荐你的用户。", "power user": "重度用户，用得最多最深的那批人。做产品要盯他们，做增长反而要盯快流失的边际用户。", "growth": "增长。课里强调它必须建立在留存之上，否则就是往漏水的桶里加水。", "hyper growth": "超高速增长。这门课所有建议只适用于追求这类增长、想做成超大公司的创业。", "K": "病毒系数：每个用户平均带来几个新用户。小于 1 会衰减，大于 1 才能指数放大。", "MVP": "最小可用产品（Minimum Viable Product）。重点是 viable——真能解决问题，不是「功能少」就行。", "pivot": "转型：方向不对时换个做法。课里提醒别把频繁 pivot 当成勤奋。", "stealth": "隐身开发，悄悄做不对外说。课里认为除非起步就要几千万美元，否则毫无意义。", "non-users": "完全不用你产品的人。访谈时最容易被忽略，却最能说明市场为什么做不大。", "Mom test": "别问「你会用吗」（连妈妈都会说会），只问对方过去真实做过什么。用来避免被客气话骗到。", "SDD": "Support Driven Development，让写代码的人轮流做客服，被同一个问题问烦了就主动去修。", "knowledge gap": "用户「不懂怎么用」与产品「假定他懂」之间的落差，早期流失的常见原因。", "WHYS": "Jawbone 的方法：反复追问为什么，找到用户「离了就活不了」的关键时刻。", "Hero Experiences": "Jawbone 的说法：把资源全押在少数几个让用户觉得「太值了」的瞬间上。", "SISP": "Solution In Search of Problem：先有解法再去找问题，YC 眼里的大忌。", "QA": "质量保证 / 测试。课里说「让开发者亲自做客服是最优雅的 QA」。", "last mover": "与「先发优势」相反：最后进场并长期待着的人。Thiel 认为值钱的是持久性，约 3/4 价值来自十年后的利润。", "Why now": "为什么是现在：两年前为什么做不成，两年后为什么太晚。红杉的经典提问，答不上就先别动手。", "Unpopular but right": "「不受欢迎但正确」。PG 的说法：好点子起初听着都很糟，一听就好会招来一堆竞争者。", "investment thesis": "投资论点：「我知道什么别人还不知道」。Reid Hoffman 用它决定该坚持还是转向。", "DCF": "现金流折现，把未来多年的利润折算成今天的价值。Thiel 用它说明长期利润才是大头。", "wedge": "楔子：切入企业市场的一个极窄口子，做在位者做不到或不愿做的事。", "Competition is for losers": "「竞争是留给失败者的」。Thiel 名言：竞争会吃掉利润，垄断才有余力做长期的事。", "vesting": "股权归属：分 4 年逐月兑现，防止合伙人干半年就走还带走一大块。", "cliff": "满 1 年才兑现第一笔股权，1 年内离开一股不拿。标准组合是「4 年 vesting + 1 年 cliff」。", "refresher": "每年再补给老员工约 3%–5% 的股权，防止被稀释后失去动力。", "near-equal": "联合创始人股权近乎均分，反对「谁想出点子谁多拿」。", "Hero Mode": "创始人凡事亲自救火的状态。20 人还撑得住，30 人一定崩。", "pairing indicator": "成对指标：任何一个指标都配一个反向指标，防止为了好看而作弊。", "repeatable innovation": "从「偶尔做出好东西」变成「能持续做出好东西」，Sam Altman 认为这是后期最难的转身。", "cofounder dating": "临时速配式找联合创始人，Sam Altman 明确反对。", "Wiki": "公司内部共写的文档库。PMF 之后要把「怎么做、为什么」写进去，新员工必读。", "CEO": "首席执行官。课里反复说早期 CEO 就是第一个销售、也是增长负责人。", "Delaware C-Corp": "美国特拉华州注册的股份公司，VC 投资的标准载体，课里建议几乎一律用它。中国公司不适用。", "SAFE": "未来股权简单协议：先投钱、不定价，下一轮定价时再转成股份。由 YC 推出。", "cap": "估值上限，SAFE 里约定的最高转股估值。定得太低，后面接定价轮时早期股份会被大幅稀释。", "83(b)": "美国税法的一项选择：拿到受限股权后 30 天内申报，让税基按「现在几乎不值钱」算。漏报可能背巨额税单，且要留存寄送凭证。", "accredited investors": "美国「合格投资人」，收入或资产达到门槛的人。向不合格者募资会违法。", "W2": "美国正式雇员的报税表。与 1099（外包）分错会带来税务与劳动法风险。", "1099": "美国外包人员（contractor）的报税表，对应 W2 的正式雇员。", "payroll": "工资发放与代扣代缴系统。公司招人后必须正规接入，别用私人转账糊弄。", "pitch": "向投资人做的简短陈述。课里主张压到 30 秒三句：做什么、市场多大、有什么真实增长证据。", "30/70": "销售通话的时间分配：你讲 30%，让对方讲 70%。把功能宣讲换成开放式提问。", "Stock Purchase Agreement": "股权购买协议，签完才算真正拿到股份。", "VC": "风险投资（Venture Capital），也指风险投资机构。", "Show Notes": "播客每集的文字说明，列出本集要点与时间线。", "MP3": "最常见的音频文件格式，这里的播客音频都是 MP3。", "PDF": "便携式文档格式。DoorDash 最早就是把餐厅菜单做成 PDF 挂上网。", "batch": "YC 每年分批次孵化创业公司，一期叫一个 batch。", "champions": "拥护者（champion 的复数）：极度满意、会主动推荐你的用户。", "cofounder": "联合创始人。课里说宁可没有，也别要个糟糕的；找合伙人只从多年熟识的人里挑。", "employees": "员工、雇员。Sam Altman 用「20 人还行、30 人就崩」说明组织规模阈值。"};
 let TERM_RE = null;
-function escRe(k){ return k.replace(/[.*+?^${}()|[\]\\/]/g, '\$&'); }
+function escRe(k){ return k.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&'); }
 function rebuildRE(){
   const ks = Object.keys(TERMS).sort(function(a,b){ return b.length - a.length; });
   TERM_RE = new RegExp('(^|[^A-Za-z0-9])(' + ks.map(escRe).join('|') + ')(?![A-Za-z0-9])', 'g');
 }
 rebuildRE();
 
-const SKIP = 'script,style,input,textarea,select,a,.gloss-group,.files,#termPop,#termTip,.term,abbr';
+const SKIP = 'script,style,input,textarea,select,a,.gloss-group,.files,#termPop,#termTip,.term,abbr,.kicker,.brandline';
 const pop = document.getElementById('termPop');
 
 function annotate(root){
@@ -668,7 +768,7 @@ function showPop(el){
     + '<div class="tp-h">点空白处关闭 · 更多词条见「名词注解」</div>';
   pop.querySelector('.tp-k').textContent = k;
   pop.querySelector('.tp-v').textContent = v;
-  pop.style.display = 'block';
+  pop.style.display = 'block'; window._popAt = Date.now();
   const r = el.getBoundingClientRect();
   const w = pop.offsetWidth, h = pop.offsetHeight;
   let left = r.left, top = r.bottom + 8;
@@ -677,8 +777,14 @@ function showPop(el){
   if(top + h > window.innerHeight - 12) top = Math.max(12, r.top - h - 8);
   pop.style.left = left + 'px'; pop.style.top = top + 'px';
   pop.querySelector('.tp-x').onclick = hidePop;
+  if(window.matchMedia && window.matchMedia('(max-width:640px)').matches){
+    var m=document.getElementById('termMask'); if(m) m.classList.add('on');
+  }
 }
-function hidePop(){ pop.style.display = 'none'; }
+function hidePop(){
+  pop.style.display = 'none';
+  var m=document.getElementById('termMask'); if(m) m.classList.remove('on');
+}
 
 document.addEventListener('click', function(e){
   const x = e.target.closest && e.target.closest('.term');
@@ -691,7 +797,9 @@ document.addEventListener('keydown', function(e){
     e.preventDefault(); showPop(e.target);
   }
 });
-window.addEventListener('scroll', hidePop, true);
+window.addEventListener('scroll', function(){
+  if(window.innerWidth>640 && Date.now()-(window._popAt||0)>350) hidePop();
+}, true);
 window.addEventListener('resize', hidePop);
 
 /* 兜底：若仍有旧式悬停注解，把解释并入词典再交给统一逻辑 */
@@ -773,3 +881,23 @@ annotate(document.getElementById('notes'));
 </script>
 
 </body></html>
+
+<script>
+/* ===== 移动端辅助：词条遮罩 + 表格横滑提示 ===== */
+(function(){
+  var mask=document.createElement('div');
+  mask.id='termMask'; mask.setAttribute('aria-hidden','true');
+  mask.addEventListener('click',function(){ if(window.hidePop) window.hidePop(); });
+  document.body.appendChild(mask);
+
+  function addHint(c){
+    if(!c.querySelector('table')) return;
+    var h=document.createElement('div');
+    h.className='tbl-hint';
+    h.textContent='← 左右滑动查看完整表格 →';
+    c.insertBefore(h,c.firstChild);
+  }
+  document.querySelectorAll('.card,.plain-card').forEach(addHint);
+  var g=document.querySelector('.gloss-group'); if(g) addHint(g);
+})();
+</script>
