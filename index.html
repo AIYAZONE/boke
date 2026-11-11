@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>二十讲 · YC 斯坦福创业课精华与播客</title>
+<style>
+:root{
+  --bg:#f7f5f1; --paper:#fffdfa; --ink:#1d1c1a; --muted:#77716a; --line:#e8e2d9;
+  --accent:#e2602c; --accent-soft:#fdf0e9; --dark:#22201e; --dark2:#2e2b28;
+  --p0:#d8423a; --p1:#e08a24; --p2:#4b7f6a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+ line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+header{background:linear-gradient(135deg,#262320 0%,#3a332c 55%,#5a3a25 100%);color:#fff;padding:56px 0 42px;margin-bottom:0}
+header .wrap{padding-bottom:0}
+.kicker{font-size:12px;letter-spacing:.32em;color:#e9b28f;text-transform:uppercase;margin-bottom:18px}
+h1{font-size:52px;line-height:1.1;margin:0 0 12px;font-weight:800;letter-spacing:-.02em}
+h1 em{font-style:normal;color:#ff9b68}
+.sub{font-size:17px;color:#d9d1c7;max-width:720px;margin:0 0 28px}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 16px;font-size:13px;color:#efe8df}
+.stat b{font-size:19px;color:#fff;margin-right:6px;font-variant-numeric:tabular-nums}
+nav{position:sticky;top:0;z-index:20;background:rgba(247,245,241,.94);backdrop-filter:blur(10px);
+ border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:10px 24px;margin-bottom:34px}
+nav button{white-space:nowrap;border:0;background:transparent;color:var(--muted);font-size:14px;
+ padding:9px 15px;border-radius:9px;cursor:pointer;font-family:inherit;transition:.15s}
+nav button:hover{background:#efe9e0;color:var(--ink)}
+nav button.on{background:var(--dark);color:#fff}
+section{display:none;animation:fade .28s ease}
+section.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+.lead{color:var(--muted);font-size:14px;margin:0 0 24px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;
+ box-shadow:0 2px 14px rgba(60,45,30,.045)}
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.thesis{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;overflow:hidden}
+.thesis:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.t-no{font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:10px}
+.t-title{font-size:17px;font-weight:700;margin-bottom:8px}
+.t-body{font-size:13.5px;color:#514b45;line-height:1.75}
+.t-src{margin-top:12px;font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;background:#f2ece3;color:#5e574f;font-weight:600;font-size:12.5px;
+ padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{color:var(--accent)}
+th .arrow{font-size:10px;opacity:.45;margin-left:4px}
+td{padding:11px 12px;border-bottom:1px solid #f0ebe3;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#fdf8f2}
+.num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent);width:56px}
+.strong{font-weight:650}
+.muted{color:var(--muted)}
+.old{color:#8a8078;text-decoration:line-through;text-decoration-color:#d8cfc4}
+.new{color:#1d1c1a;font-weight:550}
+.tag{display:inline-block;background:var(--accent-soft);color:#b34a1c;border:1px solid #f6d9c8;
+ border-radius:6px;padding:1px 7px;font-size:11.5px;white-space:nowrap;font-weight:600}
+.pri{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;font-weight:700;color:#fff}
+.pri.p0{background:var(--p0)}.pri.p1{background:var(--p1)}.pri.p2{background:var(--p2)}
+.search{width:100%;max-width:320px;padding:9px 13px;border:1px solid var(--line);border-radius:9px;
+ background:#fff;font-size:13.5px;font-family:inherit;margin-bottom:16px;outline:none}
+.search:focus{border-color:var(--accent)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.quote{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px}
+.q-en{font-size:13.5px;color:#4a443e;font-style:italic;margin-bottom:8px}
+.q-cn{font-size:13px;color:var(--muted);margin-bottom:10px}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.act-col{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
+.act-head{font-size:19px;font-weight:800;margin-bottom:6px}
+.act-head span{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.act-head.p0{color:var(--p0)}.act-head.p1{color:var(--p1)}.act-head.p2{color:var(--p2)}
+.act-col ul{margin:14px 0 0;padding-left:0;list-style:none}
+.act-col li{font-size:13px;padding:9px 0 9px 24px;border-bottom:1px dashed #eee7dd;position:relative;line-height:1.65}
+.act-col li:last-child{border-bottom:0}
+.act-col li:before{content:"□";position:absolute;left:2px;top:8px;color:var(--accent);font-size:15px}
+/* podcast */
+.pod{display:grid;grid-template-columns:300px 1fr;gap:20px}
+.eplist{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px;height:max-content}
+.ep{padding:13px 14px;border-radius:11px;cursor:pointer;border:1px solid transparent;margin-bottom:4px;transition:.15s}
+.ep:hover{background:#f7f1e9}
+.ep.on{background:var(--dark);border-color:var(--dark)}
+.ep .id{font-size:11px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.ep.on .id{color:#ffab7c}
+.ep .tt{font-size:13.5px;font-weight:600;line-height:1.45;margin:3px 0 4px}
+.ep.on .tt{color:#fff}
+.ep .mm{font-size:11.5px;color:var(--muted)}
+.ep.on .mm{color:#b8aea4}
+.player{background:var(--dark);color:#fff;border-radius:16px;padding:26px}
+.player .now-id{font-size:11px;letter-spacing:.2em;color:#ffab7c;font-weight:700}
+.player h3{font-size:23px;margin:8px 0 4px;font-weight:750}
+.player .now-sub{font-size:13px;color:#a9a099;margin-bottom:20px}
+audio{width:100%;height:44px;border-radius:9px;background:#3a3531}
+.dl{display:inline-flex;gap:14px;margin-top:14px;font-size:12.5px}
+.dl a{color:#ffb489}
+.notes{margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
+.notes h4{font-size:14px;margin:0 0 12px;color:var(--ink)}
+.notes ul{margin:0;padding-left:18px}
+.notes li{font-size:13.5px;color:#4d4741;padding:5px 0}
+.bound{background:#fbf3ec;border:1px solid #f0dccb;border-radius:14px;padding:20px 22px;margin-top:26px}
+.bound h4{margin:0 0 8px;font-size:15px;color:#a4471d}
+.bound ul{margin:0;padding-left:18px}
+.bound li{font-size:13px;color:#6b5a4d;padding:3px 0}
+footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+.files{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.files a{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:8px 13px;font-size:12.5px;color:var(--ink)}
+.files a:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:820px){.pod{grid-template-columns:1fr}h1{font-size:38px}header{padding:38px 0 30px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="kicker">Stanford CS183B · Y Combinator · 2014</div>
+  <h1>二十<em>讲</em></h1>
+  <p class="sub">把 Sam Altman 与 YC 在斯坦福开的《如何创业》20 讲、16 小时 10 分，压成一份可查的精华手册，和一季可以听的中文播客。</p>
+  <div class="stats">
+    <div class="stat"><b>20</b> 讲</div>
+    <div class="stat"><b>17</b> 位讲者</div>
+    <div class="stat"><b>5</b> 编结构</div>
+    <div class="stat"><b>41</b> 分钟播客</div>
+    <div class="stat"><b>6</b> 集音频</div>
+    <div class="stat"><b>8</b> 千字提炼</div>
+  </div>
+</div></header>
+<nav id="nav">
+  <button data-t="pod" class="on">🎧 播客收听</button>
+  <button data-t="thesis">五个底层命题</button>
+  <button data-t="model">七个模型</button>
+  <button data-t="contra">反直觉对照</button>
+  <button data-t="num">关键数字</button>
+  <button data-t="act">分级行动清单</button>
+  <button data-t="lec">20 讲索引</button>
+  <button data-t="quote">金句</button>
+</nav>
+<div class="wrap">
+
+<section id="pod" class="on">
+  <h2>播客收听</h2>
+  <p class="lead">双人对话 · 中文双音色合成 · 6 集共约 41 分钟。点击左侧切换分集，也可直接下载全集连播。</p>
+  <div class="pod">
+    <div class="eplist" id="eplist"></div>
+    <div>
+      <div class="player">
+        <div class="now-id" id="nowId"></div>
+        <h3 id="nowTitle"></h3>
+        <div class="now-sub" id="nowSub"></div>
+        <audio id="audio" controls preload="metadata"></audio>
+        <div class="dl">
+          <a id="dlEp" href="#" download>↓ 下载本集 MP3</a>
+          <a href="podcast/YC20_full.mp3" download>↓ 下载全集连播（约 41 分钟）</a>
+        </div>
+      </div>
+      <div class="notes"><h4>本集 Show Notes</h4><ul id="notes"></ul></div>
+    </div>
+  </div>
+  <div class="bound">
+    <h4>使用边界</h4>
+    <ul>
+      <li>全课建议只适用于追求超高速增长的公司；小生意与生活方式型公司不适用。</li>
+      <li>案例与数字集中在 2014 年之前，用于建立量级感与判断框架，非当下统计数据。</li>
+      <li>特拉华州公司、83(b)、合格投资人、工资税等均为美国法域实务，其他地区需本地专业意见。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="thesis"><h2>五个底层命题</h2><p class="lead">整门课可压缩为这 5 句，其余 20 讲都是展开与证据。</p><div class="grid5"><div class="thesis"><div class="t-no">01</div><div class="t-title">创意先行，公司其次</div><div class="t-body">只有「不工作时最常想起」、且开公司是最优解法时才动手；好公司通常要熬十年。</div><div class="t-src">L1 / L3</div></div>
+<div class="thesis"><div class="t-no">02</div><div class="t-title">深爱优于泛喜</div><div class="t-body">宁做少数人深爱，不做很多人有点喜欢；100 个爱你的人胜过 100 万个有点喜欢你的人。</div><div class="t-src">L1 / L10</div></div>
+<div class="thesis"><div class="t-no">03</div><div class="t-title">留存是增长唯一地基</div><div class="t-body">增长 = 转化率 − 流失；留存曲线不趋平，一切增长战术都是漏水的桶。</div><div class="t-src">L6 / L7</div></div>
+<div class="thesis"><div class="t-no">04</div><div class="t-title">从小垄断起步，赚远期现金</div><div class="t-body">价值 = 创造 X × 捕获 Y%；两三个月拿下最小市场 25% 份额，做 last mover。</div><div class="t-src">L5</div></div>
+<div class="thesis"><div class="t-no">05</div><div class="t-title">创始人亲手做，组织最后转身</div><div class="t-body">早期访谈、销售、客服、派单全自己上；PMF 之后最难的是从做产品变成建公司。</div><div class="t-src">L8 / L19 / L20</div></div></div></section>
+
+<section id="model"><h2>七个可复用模型</h2><p class="lead">能直接搬到任何项目上的公式，其余内容多为案例。</p>
+<div class="card"><table><thead><tr><th>#</th><th>模型</th><th>公式 / 阈值</th><th>决策含义</th><th>出处</th></tr></thead><tbody><tr><td class="num">1</td><td class="strong">成败五因子</td><td>结果 = 创意 × 产品 × 团队 × 执行 × 运气；运气是 0 到 10000 的随机数</td><td class="muted">只能控前四项，做到极致才有资格谈运气</td><td><span class="tag">L1</span></td></tr>
+<tr><td class="num">2</td><td class="strong">价值双变量</td><td>公司价值 = 创造的 X × 捕获的 Y%，两变量独立</td><td class="muted">创造了价值 ≠ 赚到钱（航空业 X 巨大、Y≈0）</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num">3</td><td class="strong">增长恒等式</td><td>增长 = 转化率 − 流失</td><td class="muted">转化率 +1% 与流失 −1% 等效，但降流失更便宜</td><td><span class="tag">L7</span></td></tr>
+<tr><td class="num">4</td><td class="strong">单位经济</td><td>CLV − CAC &gt; 0；CAC = CPC ÷ 转化率；回本 ≤ 3 个月安全，&gt; 12 个月危险</td><td class="muted">分清真增长与买来的增长，按 cohort 分市场算</td><td><span class="tag">L4</span></td></tr>
+<tr><td class="num">5</td><td class="strong">病毒系数</td><td>K = 邀请链路各级转化率连乘；0.99 走平死掉，1.01 持续指数增长</td><td class="muted">只留一个北极星指标，最快送到 magic moment</td><td><span class="tag">L2 / L6</span></td></tr>
+<tr><td class="num">6</td><td class="strong">风险洋葱</td><td>创业是一长串叠加风险，每轮融资剥掉 2–3 层</td><td class="muted">融资额与本轮要消除的风险对齐，而非与故事对齐</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num">7</td><td class="strong">组织阈值</td><td>20–25 人扁平最优，30 人结构整体失效；每人恰好 1 个经理</td><td class="muted">PMF 后主职从做产品变成建公司</td><td><span class="tag">L20</span></td></tr></tbody></table></div></section>
+
+<section id="contra"><h2>反直觉对照表</h2><p class="lead">18 条「通常以为」与课程结论的正面对撞。可输入关键词过滤。</p>
+<input class="search" id="qContra" placeholder="过滤：增长 / 股权 / 融资 / 用户 …">
+<div class="card"><table><thead><tr><th>#</th><th>通常以为</th><th>课程结论</th><th>出处</th></tr></thead><tbody id="tbContra"><tr><td class="num">1</td><td class="old">点子不重要，赶紧开干多 pivot</td><td class="new">糟糕创意上的出色执行哪儿也去不了；成功 pivot 多转向创始人自己想要的东西</td><td><span class="tag">L1</span></td></tr>
+<tr><td class="num">2</td><td class="old">市场越大越好</td><td class="new">巨大现有市场往往意味着竞争过多；该从小到几乎无价值的市场切入</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num">3</td><td class="old">先发有优势</td><td class="new">值钱的是 last mover；约 3/4 价值在十年后现金流，持久性被系统性低估</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num">4</td><td class="old">增长靠增长黑客 / 病毒传播</td><td class="new">留存不趋平就别碰任何增长战术；增长黑客应「在心里译成胡扯」</td><td><span class="tag">L3 / L6</span></td></tr>
+<tr><td class="num">5</td><td class="old">按自己或重度用户优化</td><td class="new">做产品盯重度用户，驱动增长要盯一年收不到一条通知的边际用户</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num">6</td><td class="old">颠覆行业就别陷进去</td><td class="new">新手反而该亲自当一两个月「行业里的螺丝钉」</td><td><span class="tag">L4</span></td></tr>
+<tr><td class="num">7</td><td class="old">广发问卷、把用户提的功能都做上</td><td class="new">问卷只回收爱与恨两极；用户只会要一匹更快的马</td><td><span class="tag">L4 / L16</span></td></tr>
+<tr><td class="num">8</td><td class="old">完美再发布、越晚越安全</td><td class="new">除非起步要几千万美元， stealth 毫无意义</td><td><span class="tag">L4</span></td></tr>
+<tr><td class="num">9</td><td class="old">客服是杂活，尽早外包</td><td class="new">开发者亲自做客服是最优雅的 QA；不回复是早期流失最大原因之一</td><td><span class="tag">L7</span></td></tr>
+<tr><td class="num">10</td><td class="old">先建好系统才能上线</td><td class="new">做不可规模化的事是起步最大竞争优势，且应尽可能久地做</td><td><span class="tag">L8</span></td></tr>
+<tr><td class="num">11</td><td class="old">获客有银弹、免费送能拉新</td><td class="new">首批用户只能创始人一个个磕；免费只制造虚假安全感</td><td><span class="tag">L8</span></td></tr>
+<tr><td class="num">12</td><td class="old">人多 = 公司更真更酷</td><td class="new">人多带来高烧钱、复杂与决策缓慢；该为人少还干成很多事自豪</td><td><span class="tag">L2</span></td></tr>
+<tr><td class="num">13</td><td class="old">股权省着给员工、多给投资人</td><td class="new">反了：员工长年建造公司，YC 里对早期员工最慷慨的公司往往最成功</td><td><span class="tag">L2</span></td></tr>
+<tr><td class="num">14</td><td class="old">文化是软指标、扁平化很酷</td><td class="new">文化有 11.8% 对近两倍的回报数据；扁平在 20 人最优、30 人灾难</td><td><span class="tag">L10 / L20</span></td></tr>
+<tr><td class="num">15</td><td class="old">多招人就能多出货</td><td class="new">招来的多是弹药，产能由稀缺的「桶」决定</td><td><span class="tag">L14</span></td></tr>
+<tr><td class="num">16</td><td class="old">融资是难关、路演要磨到极致</td><td class="new">融资是创始人所有事里最容易的一件；融到资不等于成功</td><td><span class="tag">L9 / L19</span></td></tr>
+<tr><td class="num">17</td><td class="old">公司做大才需要公关公司</td><td class="new">最大的公关窍门就是别雇公关公司；公关是虚荣指标</td><td><span class="tag">L20</span></td></tr>
+<tr><td class="num">18</td><td class="old">谁想出点子谁该多分股权</td><td class="new">执行远大于点子，顶级 YC 公司没有显著不均分的例子</td><td><span class="tag">L18</span></td></tr></tbody></table></div></section>
+
+<section id="num"><h2>关键数字速查</h2><p class="lead">数值列仅含纯数字，点击表头可排序；单位与语境见「含义」列。</p>
+<input class="search" id="qNum" placeholder="过滤：留存 / 稀释 / 归属 / 访谈 …">
+<div class="card"><table id="tblNum"><thead><tr><th class="sortable" id="thVal">数值 <span class="arrow">↕</span></th><th>含义</th><th>出处</th></tr></thead><tbody id="tbNum"><tr><td class="num sortable-val">10000</td><td>成败公式里运气随机数的上限</td><td><span class="tag">L1</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>好公司通常要熬的年数</td><td><span class="tag">L1</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>每周产品应提升的百分比（复利极快）</td><td><span class="tag">L1</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>专有技术须优于次优方案的倍数</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num sortable-val">25</td><td>两三个月内应在最小市场拿下的份额下限（%）</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num sortable-val">75</td><td>现金流折现中来自十年后现金流的价值占比下限（%）</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num sortable-val">66</td><td>Google 当年搜索份额（%），对外讲成 3.5%</td><td><span class="tag">L5</span></td></tr>
+<tr><td class="num sortable-val">97</td><td>约 15 家离群值公司贡献的当年全行业 VC 回报（%）</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num sortable-val">4000</td><td>每年想融风险资本的公司数</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num sortable-val">200</td><td>每年拿到顶级 VC 投资的公司数</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num sortable-val">15</td><td>每年最终做到 1 亿美元营收的公司数</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num sortable-val">15</td><td>种子轮建议稀释上限（%）</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num sortable-val">30</td><td>A 轮建议稀释上限（%）</td><td><span class="tag">L9</span></td></tr>
+<tr><td class="num sortable-val">80</td><td>社交产品首批用户月活留存须接近的基准（%）</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">30</td><td>电商月活留存已属很好的上限（%）</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">14</td><td>Facebook 魔法时刻的天数（14 天加 10 个好友）</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>Facebook 魔法时刻的好友数</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">100</td><td>Facebook 加一个目录后 SEO 流量增长倍数</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">12</td><td>法语站点由社区翻译完成的小时数</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">104</td><td>Facebook 支持的语言数</td><td><span class="tag">L6</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>一个贬损者足以抵消的拥护者数</td><td><span class="tag">L8</span></td></tr>
+<tr><td class="num sortable-val">60</td><td>落地页验证需求的上线分钟数（DoorDash 1 小时）</td><td><span class="tag">L8</span></td></tr>
+<tr><td class="num sortable-val">3</td><td>CLV/CAC 回本的安全月数上限</td><td><span class="tag">L4</span></td></tr>
+<tr><td class="num sortable-val">12</td><td>CLV/CAC 回本进入危险区的月数</td><td><span class="tag">L4</span></td></tr>
+<tr><td class="num sortable-val">13</td><td>Homejoy 最终形态是第几个完整试过的点子</td><td><span class="tag">L4</span></td></tr>
+<tr><td class="num sortable-val">30</td><td>应投入帮助文档的工程时间占比（%）</td><td><span class="tag">L7</span></td></tr>
+<tr><td class="num sortable-val">6</td><td>用户访谈通常够用的人数下限</td><td><span class="tag">L16</span></td></tr>
+<tr><td class="num sortable-val">8</td><td>用户访谈通常够用的人数上限</td><td><span class="tag">L16</span></td></tr>
+<tr><td class="num sortable-val">0</td><td>Jambox 发布时无线音箱的市场占比（%）</td><td><span class="tag">L17</span></td></tr>
+<tr><td class="num sortable-val">78</td><td>2013 年圣诞无线音箱在音箱市场的占比（%）</td><td><span class="tag">L17</span></td></tr>
+<tr><td class="num sortable-val">2</td><td>理想创始团队人数下限</td><td><span class="tag">L2 / L13</span></td></tr>
+<tr><td class="num sortable-val">3</td><td>理想创始团队人数上限</td><td><span class="tag">L2 / L13</span></td></tr>
+<tr><td class="num sortable-val">9</td><td>某期开班前临时加 cofounder 且一年内散伙的公司数</td><td><span class="tag">L2</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>建议给前 10 名员工的股权占比（%）</td><td><span class="tag">L2</span></td></tr>
+<tr><td class="num sortable-val">25</td><td>招聘应占创始人时间的比例上限（%）</td><td><span class="tag">L2</span></td></tr>
+<tr><td class="num sortable-val">5</td><td>Airbnb 面试第一名员工花的月数</td><td><span class="tag">L2</span></td></tr>
+<tr><td class="num sortable-val">11</td><td>1994–2013 年最佳雇主股票回报（%），近大盘两倍</td><td><span class="tag">L10</span></td></tr>
+<tr><td class="num sortable-val">20</td><td>扁平结构仍最优的人数上限</td><td><span class="tag">L20</span></td></tr>
+<tr><td class="num sortable-val">30</td><td>扁平结构整体失效的人数阈值</td><td><span class="tag">L20</span></td></tr>
+<tr><td class="num sortable-val">5</td><td>每年应再发给员工的 refresher 股权上限（%）</td><td><span class="tag">L20</span></td></tr>
+<tr><td class="num sortable-val">10</td><td>检验对齐度时随机抽问的员工数</td><td><span class="tag">L20</span></td></tr>
+<tr><td class="num sortable-val">50</td><td>注册出错后律所账单金额（万美元）</td><td><span class="tag">L18</span></td></tr>
+<tr><td class="num sortable-val">45</td><td>低 cap 协议叠加定价轮后可能让出的股权（%）</td><td><span class="tag">L18</span></td></tr>
+<tr><td class="num sortable-val">4</td><td>标准股权归属年数</td><td><span class="tag">L2 / L18</span></td></tr>
+<tr><td class="num sortable-val">1</td><td>标准 cliff 年数</td><td><span class="tag">L2 / L18</span></td></tr></tbody></table></div></section>
+
+<section id="act"><h2>分优先级行动清单</h2><p class="lead">P0 决定生死 · P1 验证与增长 · P2 组织与合规。</p><div class="acts"><div class="act-col"><div class="act-head p0">P0 <span>决定生死 · 不做别开工</span></div><ul><li>用「不工作时最常想起哪个点子」锁定唯一要做的创意（L1）</li>
+<li>一句话写清创意，回答 Why now：为何两年前做不成、两年后太晚（L1）</li>
+<li>确认市场看增长率而非当前规模；写下客观市场，剔除叙事（L1 / L5）</li>
+<li>只做产品、见用户，暂停 PR、参会、招顾问与谈合作（L1）</li>
+<li>用一句话写出问题，并找真人验证别人也真有这个问题（L4）</li>
+<li>写下五类要访谈的人及最重要的一类，访谈只追问现状行为（L16）</li>
+<li>只从多年熟识的人里选联合创始人，拒绝速配（L2）</li>
+<li>合作头几周签下近乎均分的股权，全员 4 年 vesting + 1 年 cliff（L2 / L18）</li></ul></div><div class="act-col"><div class="act-head p1">P1 <span>验证与增长 · 0 → PMF</span></div><ul><li>手工招募种子用户，把反馈—改产品—再验证压到每周提升 10%（L1）</li>
+<li>把定位压成一句话，MVP 最小功能集也要真解决问题（L4）</li>
+<li>尽快走到能收费；让对方预付或掏信用卡是最强验证（L4 / L16）</li>
+<li>每周只跑一个渠道，按 CLV − CAC、3 个月回本线判断可持续（L4）</li>
+<li>按 cohort 画留存曲线，确认趋平后再决定投不投增长（L6）</li>
+<li>由 CEO 定一个对内对外一致、长期不改的北极星指标（L6）</li>
+<li>找出 magic moment，把注册与落地页改到让用户最快抵达（L6）</li>
+<li>亲自当司机、客服和地推，把最愤怒客户的问题补救到位（L8）</li>
+<li>用 30/70 法则重做销售提纲，把功能宣讲换成开放式提问（L19）</li>
+<li>把 30 秒 pitch 压成三句，用 Mom test 检验（L19）</li></ul></div><div class="act-col"><div class="act-head p2">P2 <span>组织与合规 · PMF → 规模化</span></div><ul><li>给每人明确且唯一的经理，写成全员可见的汇报结构图（L20）</li>
+<li>把 how 与 why 写进 Wiki，让每位新员工必读（L20）</li>
+<li>设薪酬区间、高频绩效反馈与每年 3%–5% refresher 股权（L20）</li>
+<li>随机抽 10 名员工复述前三大目标，检验对齐度（L20）</li>
+<li>用红笔把每个项目删到只剩 1–3 件事，给单一指标配反向指标（L14）</li>
+<li>做关键决策前先列出「不在房间里的人」会怎么解读它（L15）</li>
+<li>列出全部风险清单，按轮次把每轮要消除的风险与融资额对齐（L9）</li>
+<li>用标准模板注册公司，归档签字文件，提交 83(b) 并留凭证（L18）</li>
+<li>接入 payroll、按最低工资发薪、区分雇员与外包，只向合格投资人募资（L18）</li></ul></div></div></section>
+
+<section id="lec"><h2>二十讲一句话索引</h2><p class="lead">按 L 号导航，优先级对应行动清单的分级。</p>
+<input class="search" id="qLec" placeholder="过滤：讲者 / 主题 / L 号 …">
+<div class="card"><table><thead><tr><th>L</th><th>主题</th><th>主讲人</th><th>一句话</th><th>优先级</th></tr></thead><tbody id="tbLec"><tr><td class="strong">L1</td><td>如何创办一家初创公司</td><td class="muted">Sam Altman</td><td>拆四要素与产品铁律，回答该不该创业</td><td><span class="pri p0">P0</span></td></tr>
+<tr><td class="strong">L2</td><td>创意、产品、团队与执行（二）</td><td class="muted">Sam Altman</td><td>讲透联合创始人、招聘、股权与执行强度</td><td><span class="pri p0">P0</span></td></tr>
+<tr><td class="strong">L3</td><td>创业的反直觉之处与创意</td><td class="muted">Paul Graham</td><td>别硬想点子，活在未来、只管去学</td><td><span class="pri p0">P0</span></td></tr>
+<tr><td class="strong">L4</td><td>打造产品、与用户交流并实现增长</td><td class="muted">Adora Cheung</td><td>从零用户到增长：验证问题、做 MVP、跑渠道</td><td><span class="pri p0">P0</span></td></tr>
+<tr><td class="strong">L5</td><td>商业战略与垄断理论</td><td class="muted">Peter Thiel</td><td>用垄断框架创造并长期捕获价值</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L6</td><td>增长</td><td class="muted">Alex Schultz</td><td>以留存为根基，讲北极星指标与魔法时刻</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L7</td><td>打造用户热爱的产品（上）</td><td class="muted">Kevin Hale</td><td>靠细节与客服做出用户热爱的产品</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L8</td><td>做不可规模化的事、公关与起步</td><td class="muted">Walker Williams</td><td>靠手工验证起步，讲清公关的目标与打法</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L9</td><td>如何融资</td><td class="muted">Marc Andreessen</td><td>VC 如何挑公司、各轮定价，生意好过路演</td><td><span class="pri p2">P2</span></td></tr>
+<tr><td class="strong">L10</td><td>公司文化与团队建设（上）</td><td class="muted">Alfred Lin</td><td>定义文化、提炼价值观，用它招人和决策</td><td><span class="pri p2">P2</span></td></tr>
+<tr><td class="strong">L11</td><td>公司文化与团队建设（下）</td><td class="muted">Patrick Collison</td><td>前 10 人怎么找、怎么识别与上手</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L12</td><td>销售与营销</td><td class="muted">Aaron Levie</td><td>企业软件为何是最好时机，如何楔入</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L13</td><td>如何成为伟大的创始人</td><td class="muted">Reid Hoffman</td><td>用投资论点驾驭坚持与转向的悖论</td><td><span class="pri p0">P0</span></td></tr>
+<tr><td class="strong">L14</td><td>如何运营公司</td><td class="muted">Keith Rabois</td><td>编辑式管理、桶与弹药、成对指标</td><td><span class="pri p2">P2</span></td></tr>
+<tr><td class="strong">L15</td><td>如何管理</td><td class="muted">Ben Horowitz</td><td>关键决策要透过全公司每个人的眼睛看</td><td><span class="pri p2">P2</span></td></tr>
+<tr><td class="strong">L16</td><td>如何做用户访谈</td><td class="muted">Emmett Shear</td><td>不展示产品、不问功能，挖真实问题</td><td><span class="pri p0">P0</span></td></tr>
+<tr><td class="strong">L17</td><td>打造用户热爱的产品（下）</td><td class="muted">Hosain Rahman</td><td>硬件全栈、WHYS 与 Hero Experiences</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L18</td><td>创业实务：法务财务人事</td><td class="muted">Kirsty Nathoo</td><td>用最标准手续避开最疼的法律财务坑</td><td><span class="pri p2">P2</span></td></tr>
+<tr><td class="strong">L19</td><td>销售、路演与投资人会谈模拟</td><td class="muted">Tyler Bosmeny</td><td>创始人亲自卖、30/70 与极简 pitch</td><td><span class="pri p1">P1</span></td></tr>
+<tr><td class="strong">L20</td><td>结语与后期阶段建议</td><td class="muted">Sam Altman</td><td>PMF 之后必须完成的组织与心态转型</td><td><span class="pri p2">P2</span></td></tr></tbody></table></div></section>
+
+<section id="quote"><h2>十条最该记住的原话</h2><p class="lead">中英对照，按讲次排列。</p><div class="quotes"><div class="quote"><div class="q-en">“Build something that a small number of users love.”</div><div class="q-cn">去做一件让少数用户深爱的东西。</div><span class="tag">L1</span></div>
+<div class="quote"><div class="q-en">“Great execution towards a terrible idea will get you nowhere.”</div><div class="q-cn">朝着糟糕创意的出色执行，到头来哪儿也去不了。</div><span class="tag">L1</span></div>
+<div class="quote"><div class="q-en">“What you need is expertise in your own users.”</div><div class="q-cn">需要的不是创业专长，而是对你自己用户的专长。</div><span class="tag">L3</span></div>
+<div class="quote"><div class="q-en">“Competition is for losers.”</div><div class="q-cn">竞争是留给失败者的。</div><span class="tag">L5</span></div>
+<div class="quote"><div class="q-en">“Retention is the single most important thing for growth.”</div><div class="q-cn">留存是增长中最重要的一件事。</div><span class="tag">L6</span></div>
+<div class="quote"><div class="q-en">“One detractor is enough to reverse the progress of 10 champions.”</div><div class="q-cn">一个体验极差的贬损者，足以抵消十个拥护者。</div><span class="tag">L8</span></div>
+<div class="quote"><div class="q-en">“It&#x27;s better to have no cofounder than to have a bad cofounder.”</div><div class="q-cn">宁可没有联合创始人，也别要个糟糕的。</div><span class="tag">L2</span></div>
+<div class="quote"><div class="q-en">“See the decision through the eyes of the company as a whole.”</div><div class="q-cn">做关键决策时，必须能透过整个公司这双眼睛来看它。</div><span class="tag">L15</span></div>
+<div class="quote"><div class="q-en">“You are almost always better off making your business better than your pitch better.”</div><div class="q-cn">把生意做得更好，几乎总比把路演说得更好更划算。</div><span class="tag">L9</span></div>
+<div class="quote"><div class="q-en">“What works totally fine at 20 employees is disastrous at 30.”</div><div class="q-cn">20 人时完全没问题的做法，到 30 人就是灾难。</div><span class="tag">L20</span></div></div></section>
+
+<footer>
+  源文档：《如何创业_YC_斯坦福公开课(20集).docx》 · 二次提炼与播客生成于 2026-11-11 · 内容仅作学习整理，版权归原课程与讲者所有。
+  <div class="files">
+    <a href="如何创业_YC二十讲_精华提炼版.md">📄 精华提炼版（Markdown）</a>
+    <a href="播客逐字稿与ShowNotes.md">📄 播客逐字稿 + Show Notes</a>
+    <a href="podcast/YC20_full.mp3">🎧 全集 MP3</a>
+  </div>
+</footer>
+</div>
+<script>
+const EPS = [{"id": "EP00", "file": "podcast/EP00_opening.mp3", "title": "开场 · 为什么 2014 年的一门课今天还值得听", "subtitle": "二十讲的坐标、适用边界与收听路线", "notes": ["Stanford CS183B《How to Start a Startup》(2014)：20 讲、16 小时 10 分、17 位客座讲者", "主讲阵容：Sam Altman、Paul Graham、Peter Thiel、Reid Hoffman、Marc Andreessen 等", "适用边界：只适用于追求超高速增长的公司；案例与数字集中在 2014 年前；法务为美国法域", "收听路线：五编对应五个创业阶段，判断 / 产品 / 增长 / 组织 / 资本"], "duration": 104.0, "turns": 10}, {"id": "EP01", "file": "podcast/EP01_direction.mp3", "title": "EP01 · 判断与方向：该不该做，做什么", "subtitle": "第 I 编｜L1 / L3 / L5 / L13", "notes": ["成败公式：创意 × 产品 × 团队 × 执行 × 运气，运气是零到一万的随机数", "创意先行、创业其次；好公司通常要熬十年；好点子起初听起来很糟", "市场看增长率不看规模，且市场造不出来；Why now 答不上就别动手", "PG：别硬想点子，活在未来，只管去学；Growth Hacks 在心里译成胡扯", "Thiel：价值 = 创造 X × 捕获 Y%；从小市场 25% 份额起步，做 last mover，技术好十倍", "Reid：拆掉全能创始人神话，用投资论点驾驭坚持与转向"], "duration": 386.8, "turns": 36}, {"id": "EP02", "file": "podcast/EP02_product.mp3", "title": "EP02 · 产品与用户：造什么，给谁，怎么验证", "subtitle": "第 II 编｜L4 / L7 / L16 / L17", "notes": ["一句话说清问题，先当行业里的一颗螺丝钉；MVP 里被跳过的是 viable", "诚实曲线：付费才拿到真话；一次只跑一个渠道；CLV − CAC，三个月回本", "增长 = 转化率 − 流失；SDD 让开发做客服；三成工程时间投文档", "访谈只问现状行为，找谁聊和问什么同样重要；六到八人够；刻意找非用户", "不问意愿问行为；Jambox 从零到七成八；WHYS 与 Hero Experiences"], "duration": 479.3, "turns": 48}, {"id": "EP03", "file": "podcast/EP03_growth.mp3", "title": "EP03 · 增长与市场：怎么获客，怎么卖", "subtitle": "第 III 编｜L6 / L8 / L12 / L19", "notes": ["留存是增长第一要务；按 cohort 画曲线，趋平才有产品市场契合", "只留一个北极星指标；magic moment 是十四天加十个好友；增长要盯边际用户", "DoorDash 一小时落地页验证需求；一个贬损者抵十个拥护者；别免费送", "企业 IT 三点七万亿美元 vs 消费约一千七百亿；底层要素变化 + 楔子 + 非对称", "创始人就是第一个销售；创新者只占百分之二点五；三十比七十法则；maybes 致命"], "duration": 522.7, "turns": 54}, {"id": "EP04", "file": "podcast/EP04_team.mp3", "title": "EP04 · 团队与组织：谁来干，怎么管", "subtitle": "第 IV 编｜L2 / L10 / L11 / L14 / L15 / L20", "notes": ["联合创始人闹翻是头号死因；九家临时加人的团队一年内全部散伙", "近乎均分股权、四年归属加一年 cliff；尽量不招人；前 10 人给约 10% 股权", "执行 = 聚焦 + 强度；病毒系数零点九九死、一点零一指数增长", "文化是实际奖惩什么；最佳雇主回报 11.8%，近大盘两倍；文化更像园艺", "领导者是编辑；桶与弹药；成对指标；关键决策要透过全公司每个人的眼睛看", "20 人还行、30 人就崩；走出 Hero Mode；每年再发 3% 到 5% 股权"], "duration": 582.2, "turns": 53}, {"id": "EP05", "file": "podcast/EP05_capital.mp3", "title": "EP05 · 资本与合规，以及全课收束", "subtitle": "第 V 编｜L9 / L18 ＋ 五编总结", "notes": ["每年约 4000 家想融、200 家拿到顶级 VC、15 家贡献约 97% 回报", "投强项而非无弱点；风险洋葱逐层剥离；生意做好胜过路演讲好", "种子稀释 10%–15%，A 轮 20%–30%；承诺后立刻邮件确认", "一律特拉华州 C 类股份公司；83(b) 留凭证；四年归属加一年 cliff", "SAFE 叠加稀释可达 45%；只向合格投资人募资；别拿投资人的钱去拉斯维加斯", "全课三句话总结与今天就能动手的三件事"], "duration": 393.0, "turns": 38}];
+const nav=document.getElementById('nav');
+nav.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('on'));
+  document.getElementById(b.dataset.t).classList.add('on');
+});
+const list=document.getElementById('eplist');
+const audio=document.getElementById('audio');
+EPS.forEach((ep,i)=>{
+  const d=document.createElement('div'); d.className='ep'+(i===0?' on':''); d.dataset.i=i;
+  d.innerHTML='<div class="id">'+ep.id+'</div><div class="tt">'+ep.title+'</div><div class="mm">'+Math.floor(ep.duration/60)+' 分 '+String(Math.floor(ep.duration%60)).padStart(2,'0')+' 秒 · '+ep.turns+' 轮对话</div>';
+  d.onclick=()=>select(i);
+  list.appendChild(d);
+});
+function select(i){
+  const ep=EPS[i];
+  document.querySelectorAll('.ep').forEach((x,j)=>x.classList.toggle('on',j===i));
+  document.getElementById('nowId').textContent=ep.id+' · '+ep.subtitle;
+  document.getElementById('nowTitle').textContent=ep.title;
+  document.getElementById('nowSub').textContent='本集 '+ep.turns+' 轮对话 · 约 '+Math.round(ep.duration)+' 秒';
+  document.getElementById('notes').innerHTML=ep.notes.map(n=>'<li>'+n+'</li>').join('');
+  document.getElementById('dlEp').href=ep.file;
+  audio.src=ep.file; audio.load();
+}
+select(0);
+function filter(inputId,tbodyId){
+  const inp=document.getElementById(inputId), tb=document.getElementById(tbodyId);
+  inp.addEventListener('input',()=>{
+    const q=inp.value.trim().toLowerCase();
+    [...tb.rows].forEach(r=>r.style.display=(!q||r.textContent.toLowerCase().includes(q))?'':'none');
+  });
+}
+filter('qContra','tbContra');filter('qNum','tbNum');filter('qLec','tbLec');
+let asc=true;
+document.getElementById('thVal').onclick=()=>{
+  const tb=document.getElementById('tbNum');
+  const rows=[...tb.rows].sort((a,b)=>asc?(+a.cells[0].textContent)-(+b.cells[0].textContent):(+b.cells[0].textContent)-(+a.cells[0].textContent));
+  asc=!asc; rows.forEach(r=>tb.appendChild(r));
+  document.querySelector('#thVal .arrow').textContent=asc?'↑':'↓';
+};
+</script>
+</body></html>
