@@ -16,7 +16,6 @@
 | `如何创业_YC二十讲_精华提炼版.md` | 7.1 万字 → 约 8 千字核心手册 |
 | `播客逐字稿与ShowNotes.md` | 6 集完整逐字稿 + 每集 Show Notes |
 | `podcast/*.mp3` | 6 集分集音频 + `YC20_full.mp3` 全集连播 |
-| `.nojekyll` | 保证 GitHub Pages 不忽略静态资源 |
 
 ## 提炼版结构（9 个模块）
 
@@ -45,15 +44,15 @@
 | EP04 | 团队与组织 | L2 / L10 / L11 / L14 / L15 / L20 | 9:42 |
 | EP05 | 资本与合规 + 全课收束 | L9 / L18 | 6:33 |
 
-## 在线播放
+## 本地使用
 
-`index.html` 引用的是相对路径 `podcast/*.mp3`，因此开启 **GitHub Pages** 后即可直接在线播放：
+克隆或下载本仓库后，直接用浏览器打开根目录的 `index.html` 即可：
 
-1. 仓库 → **Settings** → **Pages**
-2. Source 选 **Deploy from a branch**，Branch 选 `main` / `root`
-3. 保存后访问 `https://AIYAZONE.github.io/boke/`
+1. 页面内点击左侧分集列表切换音频，也可直接播放 `podcast/YC20_full.mp3` 全集连播
+2. 8 个标签页覆盖底层命题、模型、反直觉对照、关键数字、行动清单等速查内容
+3. 音频使用相对路径 `podcast/*.mp3`，需保持 `podcast/` 目录与 `index.html` 同级
 
-本地使用：直接用浏览器打开 `index.html`，点击左侧列表即可切换分集。
+页面为单文件、无外部依赖，可完全离线运行。
 
 ## 使用边界（重要）
 
