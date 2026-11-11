@@ -112,14 +112,24 @@ tbody tr:hover{background:#fdf8f2}
 audio{width:100%;height:44px;border-radius:9px;background:#3a3531}
 .dl{display:inline-flex;gap:14px;margin-top:14px;font-size:12.5px}
 .dl a{color:#ffb489}
-.notes{margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
-.notes h4{font-size:14px;margin:0 0 12px;color:var(--ink);cursor:pointer;user-select:none;
-  display:flex;align-items:center;gap:8px;outline:none}
-.notes h4:focus-visible{color:var(--accent)}
-.notes .chev{display:inline-block;font-size:12px;color:var(--muted);transition:transform .2s}
-.notes.collapsed .chev{transform:rotate(-90deg)}
+.notes{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.notes-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;
+  padding:15px 18px;color:var(--ink);outline:none;transition:background .15s;min-height:48px}
+.notes-head:hover{background:#f4efe8}
+.notes-head:active{background:#efe9e0}
+.notes-head:focus-visible{box-shadow:inset 0 0 0 2px var(--accent)}
+.nh-left{display:flex;align-items:baseline;gap:8px;min-width:0}
+.nh-title{font-size:14.5px;font-weight:700}
+.nh-count{font-size:12px;color:var(--accent);font-weight:600;white-space:nowrap}
+.nh-right{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+.nh-state{font-size:12.5px;color:var(--accent);font-weight:600}
+.chev{display:inline-block;font-size:14px;line-height:1;color:var(--accent);transition:transform .22s}
+.notes:not(.collapsed) .chev{transform:rotate(180deg)}
 .notes.collapsed ul{display:none}
-.notes ul{margin:0;padding-left:18px}
+@keyframes notesNudge{0%,100%{box-shadow:0 0 0 0 rgba(226,96,44,0)}50%{box-shadow:0 0 0 3px rgba(226,96,44,.22)}}
+.notes-head{animation:notesNudge 1.1s ease .5s 2}
+.notes ul{margin:0;padding:4px 20px 18px 38px}
 .notes li{font-size:13.5px;color:#4d4741;padding:5px 0}
 .bound{background:#fbf3ec;border:1px solid #f0dccb;border-radius:14px;padding:20px 22px;margin-top:26px}
 .bound h4{margin:0 0 8px;font-size:15px;color:#a4471d}
@@ -234,7 +244,7 @@ header .term{border-bottom-color:rgba(255,183,140,.6)}
   .card,.plain-card,.num-group,.act-col,.thesis{padding:16px}
   .player{padding:18px}
   .player h3{font-size:19px}
-  .notes,.bound{padding:16px}
+  .bound{padding:16px}
   .notice{font-size:13px;padding:12px 14px}
   .gloss-group h4{margin:18px 0 8px}
   .term-tip{font-size:12px;align-items:flex-start;padding:10px 12px;line-height:1.55}
@@ -358,7 +368,7 @@ header .term{border-bottom-color:rgba(255,183,140,.6)}
           <a href="podcast/YC20_full.mp3" download>↓ 下载全集连播（约 30 分钟）</a>
         </div>
       </div>
-      <div class="notes collapsed" id="notesBox"><h4 id="notesHead" role="button" tabindex="0" aria-expanded="false" aria-controls="notes">本集 Show Notes <span class="chev" aria-hidden="true">▾</span></h4><ul id="notes"></ul></div>
+      <div class="notes collapsed" id="notesBox"><button class="notes-head" id="notesHead" type="button" aria-expanded="false" aria-controls="notes"><span class="nh-left"><span class="nh-title">本集 Show Notes</span><span class="nh-count" id="notesCount"></span></span><span class="nh-right"><span class="nh-state" id="notesState">点击展开</span><span class="chev" aria-hidden="true">▾</span></span></button><ul id="notes"></ul></div>
     </div>
   </div>
   <div class="bound">
@@ -678,13 +688,20 @@ nav.addEventListener('click',e=>{
 /* Show Notes 默认折叠，点击标题展开/收起 */
 (function(){
   var box=document.getElementById('notesBox'), head=document.getElementById('notesHead');
+  var state=document.getElementById('notesState');
   if(!box||!head)return;
+  function sync(){
+    var collapsed=box.classList.contains('collapsed');
+    head.setAttribute('aria-expanded', String(!collapsed));
+    if(state) state.textContent=collapsed?'点击展开':'收起';
+  }
   function toggle(){
-    var c=box.classList.toggle('collapsed');
-    head.setAttribute('aria-expanded', String(!c));
+    box.classList.toggle('collapsed');
+    sync();
   }
   head.addEventListener('click',toggle);
   head.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();} });
+  sync();
 })();
 const list=document.getElementById('eplist');
 const audio=document.getElementById('audio');
@@ -701,6 +718,8 @@ function select(i){
   document.getElementById('nowTitle').textContent=ep.title;
   document.getElementById('nowSub').textContent='本集 '+ep.turns+' 轮对话 · 约 '+Math.round(ep.duration)+' 秒';
   document.getElementById('notes').innerHTML=ep.notes.map(n=>'<li>'+n+'</li>').join('');
+  var cnt=document.getElementById('notesCount');
+  if(cnt) cnt.textContent='· 共 '+ep.notes.length+' 条';
   document.getElementById('dlEp').href=ep.file;
   audio.src=ep.file; audio.load();
   if(list.scrollWidth>list.clientWidth+4){
