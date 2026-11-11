@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="280" viewBox="0 0 1000 280" role="img" aria-label="boke 播客收录">
+  <rect width="1000" height="280" rx="28" fill="#22201e"/>
+  <g transform="translate(48,28) scale(0.42)"><rect x="132" y="208" width="52" height="96" rx="26" fill="#e2602c"/><rect x="208" y="172" width="52" height="168" rx="26" fill="#f0a273"/><rect x="284" y="140" width="52" height="232" rx="26" fill="#e2602c"/><rect x="360" y="172" width="52" height="168" rx="26" fill="#f0a273"/><rect x="436" y="208" width="52" height="96" rx="26" fill="#e2602c"/></g>
+  <text x="292" y="140" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="86" font-weight="800" fill="#fffdfa" letter-spacing="-2">boke</text>
+  <text x="296" y="196" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="600" fill="#c9bdb1" letter-spacing="6">播 客 收 录</text>
+  <text x="296" y="236" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="19" fill="#c9bdb1" letter-spacing="2" opacity=".8">听点值得留下来的 · boke.aiyazone.com</text>
+</svg>

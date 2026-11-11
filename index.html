@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>二十讲 · YC 斯坦福创业课精华与播客</title>
+<title>二十讲 · YC 斯坦福创业课精华与播客 | boke 播客收录</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iYm9rZSDmkq3lrqLmlLblvZUgbG9nbyI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTIiIGZpbGw9IiMyMjIwMWUiLz4KICA8cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSI0ODAiIGhlaWdodD0iNDgwIiByeD0iOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmRmYSIgc3Ryb2tlLW9wYWNpdHk9Ii4xMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGc+CiAgPHJlY3QgeD0iMTMyIiB5PSIyMDgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5NiIgcng9IjI2IiBmaWxsPSIjZTI2MDJjIiBmaWxsLW9wYWNpdHk9IjEuMCIvPgogIDxyZWN0IHg9IjIwOCIgeT0iMTcyIiB3aWR0aD0iNTIiIGhlaWdodD0iMTY4IiByeD0iMjYiIGZpbGw9IiNmMGEyNzMiIGZpbGwtb3BhY2l0eT0iMC44NSIvPgogIDxyZWN0IHg9IjI4NCIgeT0iMTQwIiB3aWR0aD0iNTIiIGhlaWdodD0iMjMyIiByeD0iMjYiIGZpbGw9IiNlMjYwMmMiIGZpbGwtb3BhY2l0eT0iMS4wIi8+CiAgPHJlY3QgeD0iMzYwIiB5PSIxNzIiIHdpZHRoPSI1MiIgaGVpZ2h0PSIxNjgiIHJ4PSIyNiIgZmlsbD0iI2YwYTI3MyIgZmlsbC1vcGFjaXR5PSIwLjg1Ii8+CiAgPHJlY3QgeD0iNDM2IiB5PSIyMDgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5NiIgcng9IjI2IiBmaWxsPSIjZTI2MDJjIiBmaWxsLW9wYWNpdHk9IjEuMCIvPgogIDwvZz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjAiIGZpbGw9Im5vbmUiLz4KPC9zdmc+">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<meta name="description" content="斯坦福 CS183B《如何创业》20 讲的中文笔记与 6 集播客。有白话解读、名词注解和内容核对报告。">
+<meta name="theme-color" content="#22201e">
 <style>
 :root{
   --bg:#f7f5f1; --paper:#fffdfa; --ink:#1d1c1a; --muted:#77716a; --line:#e8e2d9;
@@ -18,6 +22,13 @@ a{color:var(--accent);text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
 header{background:linear-gradient(135deg,#262320 0%,#3a332c 55%,#5a3a25 100%);color:#fff;padding:56px 0 42px;margin-bottom:0}
 header .wrap{padding-bottom:0}
+
+/* 站点品牌行 */
+.brandline{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.brandmark{width:26px;height:26px;display:block}
+.brandname{font-size:13px;font-weight:650;color:#efe8df;letter-spacing:.06em}
+.brandno{font-size:11px;font-weight:700;color:#22201e;background:#ffab7c;border-radius:20px;padding:2px 9px;letter-spacing:.04em}
+
 .kicker{font-size:12px;letter-spacing:.32em;color:#e9b28f;text-transform:uppercase;margin-bottom:18px}
 h1{font-size:52px;line-height:1.1;margin:0 0 12px;font-weight:800;letter-spacing:-.02em}
 h1 em{font-style:normal;color:#ff9b68}
@@ -137,6 +148,53 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:v
 .gtbl tr.hit{background:#fff8e8}
 .gloss-empty{display:none;color:var(--muted);font-size:13px;padding:18px 0}
 abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:none}
+
+
+/* 关键数字：按主题分组 */
+.num-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.num-views{display:inline-flex;background:#efe9e0;border-radius:10px;padding:4px;gap:2px}
+.num-views button{border:0;background:transparent;color:var(--muted);font-size:13px;padding:7px 15px;
+ border-radius:7px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:.15s}
+.num-views button:hover{color:var(--ink)}
+.num-views button.on{background:var(--paper);color:var(--ink);font-weight:650;box-shadow:0 1px 4px rgba(60,45,30,.10)}
+.num-bar .search{margin-bottom:0;max-width:240px}
+.num-note{font-size:12.5px;color:var(--muted);margin:0 0 16px;line-height:1.7;min-height:20px}
+.num-group{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.num-hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.num-hd h3{font-size:16.5px;margin:0;color:var(--ink)}
+.num-hd-src{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.num-gnote{font-size:12.5px;color:var(--muted);margin:6px 0 12px;line-height:1.7}
+.num-row{display:flex;align-items:baseline;gap:14px;padding:9px 0;border-top:1px dashed #eee7dd;font-size:13.5px}
+.num-row:nth-child(1){border-top:0}
+.num-label{flex:1;color:#514b45;line-height:1.6}
+.num-val{flex:none;font-weight:750;color:var(--accent);font-size:16px;font-variant-numeric:tabular-nums;
+ white-space:nowrap;min-width:96px;text-align:right}
+.num-src{flex:none;font-size:11.5px;color:var(--muted);min-width:62px;text-align:right;white-space:nowrap}
+.num-empty{display:none;color:var(--muted);font-size:13px;padding:22px 0}
+@media(max-width:820px){
+  .num-bar .search{max-width:100%;width:100%}
+  .num-row{flex-wrap:wrap;gap:4px 10px}
+  .num-label{flex-basis:100%}
+  .num-val{min-width:0;text-align:left}
+  .num-src{min-width:0}
+}
+
+/* 全站点击注解 */
+.term-tip{background:#fdf0e9;border:1px solid #f3d3c1;border-radius:10px;padding:10px 14px;
+ font-size:12.5px;color:#8a5a3c;margin:0 0 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.6}
+.term-tip b{color:#a4471d}
+.term-tip button{flex:none;border:0;background:transparent;color:#b08a70;font-size:18px;cursor:pointer;line-height:1;padding:0 2px}
+.term{border-bottom:1px dashed var(--accent);cursor:pointer;border-radius:2px;padding:0 1px}
+.term:hover,.term:focus{background:#fdece0;outline:none;box-shadow:0 0 0 2px #fdece0}
+#termPop{position:fixed;z-index:90;display:none;max-width:min(350px,calc(100vw - 24px));
+ background:var(--dark);color:#efe8df;border-radius:12px;padding:15px 17px 13px;
+ box-shadow:0 12px 38px rgba(30,22,16,.30);font-size:13px;line-height:1.75}
+#termPop .tp-k{color:#ffab7c;font-weight:700;font-size:14px;margin-bottom:7px;padding-right:22px}
+#termPop .tp-v{color:#e9e0d6}
+#termPop .tp-x{position:absolute;right:9px;top:7px;border:0;background:transparent;color:#9c9086;font-size:19px;cursor:pointer;line-height:1}
+#termPop .tp-h{color:#9c9086;font-size:11px;margin-top:10px;border-top:1px solid rgba(255,255,255,.13);padding-top:8px}
+@media(max-width:820px){#termPop{font-size:14px}}
+
 @media(max-width:820px){
   .pod{grid-template-columns:1fr}
   h1{font-size:38px}
@@ -147,22 +205,27 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 </head>
 <body>
 <header><div class="wrap">
+  <div class="brandline">
+    <img src="brand/boke-mark.svg" alt="" class="brandmark">
+    <span class="brandname">boke · 播客收录</span>
+    <span class="brandno">No.01</span>
+  </div>
   <div class="kicker">Stanford CS183B · Y Combinator · 2014</div>
   <h1>二十<em>讲</em></h1>
-  <p class="sub">把 Sam Altman 与 YC 在斯坦福开的《如何创业》20 讲、16 小时 10 分，压成一份可查的精华手册，和一季可以听的中文播客。第一次读建议先看「零基础白话」。</p>
+  <p class="sub">2014 年 Sam Altman 和 YC 在斯坦福开了门课，20 讲、16 小时 10 分。我们把笔记整理出来，也录了一档中文播客。第一次读，建议从「零基础白话」开始。</p>
   <div class="stats">
     <div class="stat"><b>20</b> 讲</div>
     <div class="stat"><b>17</b> 场客座讲座</div>
     <div class="stat"><b>5</b> 编结构</div>
-    <div class="stat"><b>41</b> 分钟播客</div>
+    <div class="stat"><b>30</b> 分钟播客</div>
     <div class="stat"><b>6</b> 集音频</div>
     <div class="stat"><b>5</b> 千字提炼</div>
   </div>
 </div></header>
 <nav id="nav"><div class="nav-inner">
-  <button data-t="pod" class="on">🎧 播客收听</button>
-  <button data-t="plain">📖 零基础白话</button>
-  <button data-t="glossary">🔤 名词注解</button>
+  <button data-t="pod" class="on">播客收听</button>
+  <button data-t="plain">零基础白话</button>
+  <button data-t="glossary">名词注解</button>
   <button data-t="thesis">五个底层命题</button>
   <button data-t="model">七个模型</button>
   <button data-t="contra">反直觉对照</button>
@@ -173,9 +236,10 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 </div></nav>
 <div class="wrap">
 
+<div class="term-tip" id="termTip"><span>带 <b>虚线</b> 的英文词、人名、公司名，<b>点一下</b>就有中文解释；想查全部去「名词注解」页。</span><button aria-label="关闭提示" onclick="this.parentNode.style.display='none'">×</button></div>
 <section id="pod" class="on">
   <h2>播客收听</h2>
-  <p class="lead">双人对话 · 中文双音色合成 · 6 集共约 41 分钟。点击左侧切换分集，也可直接下载全集连播。</p>
+  <p class="lead">两个人聊天，6 集，一共约 30 分钟。左边点一下就能换集，也能直接下载全集。</p>
   <div class="pod">
     <div class="eplist" id="eplist"></div>
     <div>
@@ -186,29 +250,29 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
         <audio id="audio" controls preload="metadata"></audio>
         <div class="dl">
           <a id="dlEp" href="#" download>↓ 下载本集 MP3</a>
-          <a href="podcast/YC20_full.mp3" download>↓ 下载全集连播（约 41 分钟）</a>
+          <a href="podcast/YC20_full.mp3" download>↓ 下载全集连播（约 30 分钟）</a>
         </div>
       </div>
       <div class="notes"><h4>本集 Show Notes</h4><ul id="notes"></ul></div>
     </div>
   </div>
   <div class="bound">
-    <h4>使用边界</h4>
+    <h4>先说清楚适用范围</h4>
     <ul>
-      <li>全课建议只适用于追求超高速增长的公司；小生意与生活方式型公司不适用。</li>
-      <li>案例与数字集中在 2014 年之前，用于建立量级感与判断框架，非当下统计数据。</li>
-      <li>特拉华州公司、83(b)、合格投资人、工资税等均为美国法域实务，其他地区需本地专业意见。</li>
+      <li>课里讲的是奔着超高速增长去的创业。想开安稳小店、做生活方式型生意，大半建议用不上。</li>
+      <li>案例和数字集中在 2014 年以前，看个量级和思路就好，别当今天的统计。</li>
+      <li>特拉华州公司、83(b)、合格投资人这些都是美国的规矩，换个地方得重新问一遍。</li>
     </ul>
   </div>
 </section>
 
-<section id="thesis"><h2>五个底层命题</h2><p class="lead">整门课可压缩为这 5 句，其余 20 讲都是展开与证据。</p><div class="grid5"><div class="thesis"><div class="t-no">01</div><div class="t-title">创意先行，公司其次</div><div class="t-body">只有「不工作时最常想起」、且开公司是最优解法时才动手；好公司通常要熬十年。</div><div class="t-src">L1 / L3</div></div>
+<section id="thesis"><h2>五个底层命题</h2><p class="lead">如果只留五句话，大概是这些。剩下二十讲，基本都在给它们找例子、补条件。</p><div class="grid5"><div class="thesis"><div class="t-no">01</div><div class="t-title">创意先行，公司其次</div><div class="t-body">只有「不工作时最常想起」、且开公司是最优解法时才动手；好公司通常要熬十年。</div><div class="t-src">L1 / L3</div></div>
 <div class="thesis"><div class="t-no">02</div><div class="t-title">深爱优于泛喜</div><div class="t-body">宁做少数人深爱，不做很多人有点喜欢；100 个爱你的人胜过 100 万个有点喜欢你的人。</div><div class="t-src">L1 / L10</div></div>
 <div class="thesis"><div class="t-no">03</div><div class="t-title">留存是增长唯一地基</div><div class="t-body">增长 = 转化率 − 流失；留存曲线不趋平，一切增长战术都是漏水的桶。</div><div class="t-src">L6 / L7</div></div>
 <div class="thesis"><div class="t-no">04</div><div class="t-title">从小垄断起步，赚远期现金</div><div class="t-body">价值 = 创造 X × 捕获 Y%；两三个月拿下最小市场 25% 份额，做 last mover。</div><div class="t-src">L5</div></div>
 <div class="thesis"><div class="t-no">05</div><div class="t-title">创始人亲手做，组织最后转身</div><div class="t-body">早期访谈、销售、客服、派单全自己上；PMF 之后最难的是从做产品变成建公司。</div><div class="t-src">L8 / L19 / L20</div></div></div></section>
 
-<section id="model"><h2>七个可复用模型</h2><p class="lead">能直接搬到任何项目上的公式，其余内容多为案例。</p>
+<section id="model"><h2>七个可复用模型</h2><p class="lead">课里几个能拿来就用的公式，顺带写了它们大概在什么情况下才成立。</p>
 <div class="card"><table><thead><tr><th>#</th><th>模型</th><th>公式 / 阈值</th><th>决策含义</th><th>出处</th></tr></thead><tbody><tr><td class="num">1</td><td class="strong">成败五因子</td><td>结果 = 创意 × 产品 × 团队 × 执行 × 运气；运气是 0 到 10000 的随机数</td><td class="muted">只能控前四项，做到极致才有资格谈运气</td><td><span class="tag">L1</span></td></tr>
 <tr><td class="num">2</td><td class="strong">价值双变量</td><td>公司价值 = 创造的 X × 捕获的 Y%，两变量独立</td><td class="muted">创造了价值 ≠ 赚到钱（航空业 X 巨大、Y≈0）</td><td><span class="tag">L5</span></td></tr>
 <tr><td class="num">3</td><td class="strong">增长恒等式</td><td>增长 = 转化率 − 流失</td><td class="muted">转化率 +1% 与流失 −1% 等效，但降流失更便宜</td><td><span class="tag">L7</span></td></tr>
@@ -217,7 +281,7 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 <tr><td class="num">6</td><td class="strong">风险洋葱</td><td>创业是一长串叠加风险，每轮融资剥掉 2–3 层</td><td class="muted">融资额与本轮要消除的风险对齐，而非与故事对齐</td><td><span class="tag">L9</span></td></tr>
 <tr><td class="num">7</td><td class="strong">组织阈值</td><td>20–25 人扁平最优，30 人结构整体失效；每人恰好 1 个经理</td><td class="muted">PMF 后主职从做产品变成建公司</td><td><span class="tag">L20</span></td></tr></tbody></table></div></section>
 
-<section id="contra"><h2>反直觉对照表</h2><p class="lead">18 条「通常以为」与课程结论的正面对撞。可输入关键词过滤。</p>
+<section id="contra"><h2>反直觉对照表</h2><p class="lead">有些说法听着挺有道理，课里偏偏说不是这么回事。挑了 18 条放这儿，可以搜关键词。</p>
 <input class="search" id="qContra" placeholder="过滤：增长 / 股权 / 融资 / 用户 …">
 <div class="card"><table><thead><tr><th>#</th><th>通常以为</th><th>课程结论</th><th>出处</th></tr></thead><tbody id="tbContra"><tr><td class="num">1</td><td class="old">点子不重要，赶紧开干多 pivot</td><td class="new">糟糕创意上的出色执行哪儿也去不了；成功 pivot 多转向创始人自己想要的东西</td><td><span class="tag">L1</span></td></tr>
 <tr><td class="num">2</td><td class="old">市场越大越好</td><td class="new">巨大现有市场往往意味着竞争过多；该从小到几乎无价值的市场切入</td><td><span class="tag">L5</span></td></tr>
@@ -238,55 +302,91 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 <tr><td class="num">17</td><td class="old">公司做大才需要公关公司</td><td class="new">最大的公关窍门就是别雇公关公司；公关是虚荣指标</td><td><span class="tag">L20</span></td></tr>
 <tr><td class="num">18</td><td class="old">谁想出点子谁该多分股权</td><td class="new">执行远大于点子，顶级 YC 公司没有显著不均分的例子</td><td><span class="tag">L18</span></td></tr></tbody></table></div></section>
 
-<section id="num"><h2>关键数字速查</h2><p class="lead">数值列仅含纯数字，点击表头可排序；单位与语境见「含义」列。</p>
-<input class="search" id="qNum" placeholder="过滤：留存 / 稀释 / 归属 / 访谈 …">
-<div class="card"><table id="tblNum"><thead><tr><th class="sortable" id="thVal">数值 <span class="arrow">↕</span></th><th>含义</th><th>出处</th></tr></thead><tbody id="tbNum"><tr><td class="num sortable-val">10000</td><td>成败公式里运气随机数的上限</td><td><span class="tag">L1</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>好公司通常要熬的年数</td><td><span class="tag">L1</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>每周产品应提升的百分比（复利极快）</td><td><span class="tag">L1</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>专有技术须优于次优方案的倍数</td><td><span class="tag">L5</span></td></tr>
-<tr><td class="num sortable-val">25</td><td>两三个月内应在最小市场拿下的份额下限（%）</td><td><span class="tag">L5</span></td></tr>
-<tr><td class="num sortable-val">75</td><td>现金流折现中来自十年后现金流的价值占比下限（%）</td><td><span class="tag">L5</span></td></tr>
-<tr><td class="num sortable-val">66</td><td>Google 当年搜索份额（%），对外讲成 3.5%</td><td><span class="tag">L5</span></td></tr>
-<tr><td class="num sortable-val">97</td><td>约 15 家离群值公司贡献的当年全行业 VC 回报（%）</td><td><span class="tag">L9</span></td></tr>
-<tr><td class="num sortable-val">4000</td><td>每年想融风险资本的公司数</td><td><span class="tag">L9</span></td></tr>
-<tr><td class="num sortable-val">200</td><td>每年拿到顶级 VC 投资的公司数</td><td><span class="tag">L9</span></td></tr>
-<tr><td class="num sortable-val">15</td><td>每年最终做到 1 亿美元营收的公司数</td><td><span class="tag">L9</span></td></tr>
-<tr><td class="num sortable-val">15</td><td>种子轮建议稀释上限（%）</td><td><span class="tag">L9</span></td></tr>
-<tr><td class="num sortable-val">30</td><td>A 轮建议稀释上限（%）</td><td><span class="tag">L9</span></td></tr>
-<tr><td class="num sortable-val">80</td><td>社交产品首批用户月活留存须接近的基准（%）</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">30</td><td>电商月活留存已属很好的上限（%）</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">14</td><td>Facebook 魔法时刻的天数（14 天加 10 个好友）</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>Facebook 魔法时刻的好友数</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">100</td><td>Facebook 加一个目录后 SEO 流量增长倍数</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">12</td><td>法语站点由社区翻译完成的小时数</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">104</td><td>Facebook 支持的语言数</td><td><span class="tag">L6</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>一个贬损者足以抵消的拥护者数</td><td><span class="tag">L8</span></td></tr>
-<tr><td class="num sortable-val">60</td><td>落地页验证需求的上线分钟数（DoorDash 1 小时）</td><td><span class="tag">L8</span></td></tr>
-<tr><td class="num sortable-val">3</td><td>CLV/CAC 回本的安全月数上限</td><td><span class="tag">L4</span></td></tr>
-<tr><td class="num sortable-val">12</td><td>CLV/CAC 回本进入危险区的月数</td><td><span class="tag">L4</span></td></tr>
-<tr><td class="num sortable-val">13</td><td>Homejoy 最终形态是第几个完整试过的点子</td><td><span class="tag">L4</span></td></tr>
-<tr><td class="num sortable-val">30</td><td>应投入帮助文档的工程时间占比（%）</td><td><span class="tag">L7</span></td></tr>
-<tr><td class="num sortable-val">6</td><td>用户访谈通常够用的人数下限</td><td><span class="tag">L16</span></td></tr>
-<tr><td class="num sortable-val">8</td><td>用户访谈通常够用的人数上限</td><td><span class="tag">L16</span></td></tr>
-<tr><td class="num sortable-val">0</td><td>Jambox 发布时无线音箱的市场占比（%）</td><td><span class="tag">L17</span></td></tr>
-<tr><td class="num sortable-val">78</td><td>2013 年圣诞无线音箱在音箱市场的占比（%）</td><td><span class="tag">L17</span></td></tr>
-<tr><td class="num sortable-val">2</td><td>理想创始团队人数下限</td><td><span class="tag">L2 / L13</span></td></tr>
-<tr><td class="num sortable-val">3</td><td>理想创始团队人数上限</td><td><span class="tag">L2 / L13</span></td></tr>
-<tr><td class="num sortable-val">9</td><td>某期开班前临时加 cofounder 且一年内散伙的公司数</td><td><span class="tag">L2</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>建议给前 10 名员工的股权占比（%）</td><td><span class="tag">L2</span></td></tr>
-<tr><td class="num sortable-val">25</td><td>招聘应占创始人时间的比例上限（%）</td><td><span class="tag">L2</span></td></tr>
-<tr><td class="num sortable-val">5</td><td>Airbnb 面试第一名员工花的月数</td><td><span class="tag">L2</span></td></tr>
-<tr><td class="num sortable-val">11.8</td><td>1994–2013 年最佳雇主股票回报（%），近大盘两倍</td><td><span class="tag">L10</span></td></tr>
-<tr><td class="num sortable-val">20</td><td>扁平结构仍最优的人数上限</td><td><span class="tag">L20</span></td></tr>
-<tr><td class="num sortable-val">30</td><td>扁平结构整体失效的人数阈值</td><td><span class="tag">L20</span></td></tr>
-<tr><td class="num sortable-val">5</td><td>每年应再发给员工的 refresher 股权上限（%）</td><td><span class="tag">L20</span></td></tr>
-<tr><td class="num sortable-val">10</td><td>检验对齐度时随机抽问的员工数</td><td><span class="tag">L20</span></td></tr>
-<tr><td class="num sortable-val">50</td><td>注册出错后律所账单金额（万美元）</td><td><span class="tag">L18</span></td></tr>
-<tr><td class="num sortable-val">45</td><td>低 cap 协议叠加定价轮后可能让出的股权（%）</td><td><span class="tag">L18</span></td></tr>
-<tr><td class="num sortable-val">4</td><td>标准股权归属年数</td><td><span class="tag">L2 / L18</span></td></tr>
-<tr><td class="num sortable-val">1</td><td>标准 cliff 年数</td><td><span class="tag">L2 / L18</span></td></tr></tbody></table></div></section>
+<section id="num"><h2>关键数字</h2>
+<p class="lead">数字按「你正在解决什么问题」分组，语义在前、单位跟着数字一起给。想按大小或讲次看，用下面的切换。</p>
+<div class="num-bar">
+  <div class="num-views" id="numViews">
+    <button data-v="group" class="on">按主题读</button>
+    <button data-v="value">按数值</button>
+    <button data-v="lec">按讲次</button>
+  </div>
+  <input class="search" id="qNum" placeholder="过滤：留存 / 稀释 / 归属 / 访谈 …">
+</div>
+<div class="num-note" id="numNote"></div>
+<div id="numBody">
+<div class="num-group" data-g="g1">
+  <div class="num-hd"><h3>先想清楚该不该做、做什么</h3><span class="num-hd-src">L1 / L3 / L5 / L13</span></div>
+  <p class="num-gnote">这一组多是经验阈值，不是定律。用来判断方向和节奏，别当公式套。</p>
+  <div class="num-rows">
+    <div class="num-row" data-g="g1" data-i="0" data-n="10" data-lec="1" data-text="做成一家好公司，通常要熬 10 年 L1"><span class="num-label">做成一家好公司，通常要熬</span><span class="num-val">10 年</span><span class="num-src">L1</span></div>
+    <div class="num-row" data-g="g1" data-i="1" data-n="10" data-lec="1" data-text="早期产品每周该提升多少（复利很快） 10% L1"><span class="num-label">早期产品每周该提升多少（复利很快）</span><span class="num-val">10%</span><span class="num-src">L1</span></div>
+    <div class="num-row" data-g="g1" data-i="2" data-n="10000" data-lec="1" data-text="成败公式里，运气被当成多大的随机数（比喻，不是统计） 0–10000 L1"><span class="num-label">成败公式里，运气被当成多大的随机数（比喻，不是统计）</span><span class="num-val">0–10000</span><span class="num-src">L1</span></div>
+    <div class="num-row" data-g="g1" data-i="3" data-n="10" data-lec="5" data-text="专有技术要比次优方案好多少，才算真垄断 10 倍 L5"><span class="num-label">专有技术要比次优方案好多少，才算真垄断</span><span class="num-val">10 倍</span><span class="num-src">L5</span></div>
+    <div class="num-row" data-g="g1" data-i="4" data-n="25" data-lec="5" data-text="从小市场起步，两三个月内该拿下多少份额 ≥25% L5"><span class="num-label">从小市场起步，两三个月内该拿下多少份额</span><span class="num-val">≥25%</span><span class="num-src">L5</span></div>
+    <div class="num-row" data-g="g1" data-i="5" data-n="75" data-lec="5" data-text="按现金流折现，约多少价值来自十年后的利润 约 75% L5"><span class="num-label">按现金流折现，约多少价值来自十年后的利润</span><span class="num-val">约 75%</span><span class="num-src">L5</span></div>
+    <div class="num-row" data-g="g1" data-i="6" data-n="66" data-lec="5" data-text="Google 当年的搜索份额（对外只讲成 3.5%） 66% L5"><span class="num-label">Google 当年的搜索份额（对外只讲成 3.5%）</span><span class="num-val">66%</span><span class="num-src">L5</span></div>
+  </div></div>
+<div class="num-group" data-g="g2">
+  <div class="num-hd"><h3>让人来，更要让人留下来</h3><span class="num-hd-src">L6 / L7 / L8</span></div>
+  <p class="num-gnote">留存是增长的地基。看曲线是否走平，比看拉了多少新用户更要紧。</p>
+  <div class="num-rows">
+    <div class="num-row" data-g="g2" data-i="0" data-n="80" data-lec="6" data-text="社交产品首批用户的月活留存，要接近 约 80% L6"><span class="num-label">社交产品首批用户的月活留存，要接近</span><span class="num-val">约 80%</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="1" data-n="30" data-lec="6" data-text="电商的月活留存，能做到这就已经很好 约 30% L6"><span class="num-label">电商的月活留存，能做到这就已经很好</span><span class="num-val">约 30%</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="2" data-n="14" data-lec="6" data-text="Facebook 的魔力时刻：多少天内加到几个好友 14 天 / 10 个 L6"><span class="num-label">Facebook 的魔力时刻：多少天内加到几个好友</span><span class="num-val">14 天 / 10 个</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="3" data-n="70" data-lec="6" data-text="随之把留存从 60% 提到 70% L6"><span class="num-label">随之把留存从 60% 提到</span><span class="num-val">70%</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="4" data-n="100" data-lec="6" data-text="加一个目录后，SEO 流量涨了 100 倍 L6"><span class="num-label">加一个目录后，SEO 流量涨了</span><span class="num-val">100 倍</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="5" data-n="12" data-lec="6" data-text="法语站点由社区翻译完成，只花了 12 小时 L6"><span class="num-label">法语站点由社区翻译完成，只花了</span><span class="num-val">12 小时</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="6" data-n="104" data-lec="6" data-text="Facebook 最终支持的语言数 104 种 L6"><span class="num-label">Facebook 最终支持的语言数</span><span class="num-val">104 种</span><span class="num-src">L6</span></div>
+    <div class="num-row" data-g="g2" data-i="7" data-n="10" data-lec="8" data-text="一个体验极差的贬损者，足以抵消几个拥护者 10 个 L8"><span class="num-label">一个体验极差的贬损者，足以抵消几个拥护者</span><span class="num-val">10 个</span><span class="num-src">L8</span></div>
+    <div class="num-row" data-g="g2" data-i="8" data-n="60" data-lec="8" data-text="DoorDash 用 PDF 菜单验证需求，上线只用了 60 分钟 L8"><span class="num-label">DoorDash 用 PDF 菜单验证需求，上线只用了</span><span class="num-val">60 分钟</span><span class="num-src">L8</span></div>
+    <div class="num-row" data-g="g2" data-i="9" data-n="30" data-lec="7" data-text="建议投在帮助文档上的工程时间 30% L7"><span class="num-label">建议投在帮助文档上的工程时间</span><span class="num-val">30%</span><span class="num-src">L7</span></div>
+  </div></div>
+<div class="num-group" data-g="g3">
+  <div class="num-hd"><h3>东西做出来给谁、怎么验证</h3><span class="num-hd-src">L4 / L16 / L17</span></div>
+  <p class="num-gnote">验证要快、要真：找真人聊、尽快收费、用最小成本上线。</p>
+  <div class="num-rows">
+    <div class="num-row" data-g="g3" data-i="0" data-n="3" data-lec="4" data-text="客户获取成本，多久回本算安全 ≤3 个月 L4"><span class="num-label">客户获取成本，多久回本算安全</span><span class="num-val">≤3 个月</span><span class="num-src">L4</span></div>
+    <div class="num-row" data-g="g3" data-i="1" data-n="12" data-lec="4" data-text="回本超过这个时长就进危险区 &gt;12 个月 L4"><span class="num-label">回本超过这个时长就进危险区</span><span class="num-val">&gt;12 个月</span><span class="num-src">L4</span></div>
+    <div class="num-row" data-g="g3" data-i="2" data-n="13" data-lec="4" data-text="Homejoy 最终成的形态，是完整试过的第几个点子 第 13 个 L4"><span class="num-label">Homejoy 最终成的形态，是完整试过的第几个点子</span><span class="num-val">第 13 个</span><span class="num-src">L4</span></div>
+    <div class="num-row" data-g="g3" data-i="3" data-n="6" data-lec="16" data-text="用户访谈通常聊几个人就够 6–8 人 L16"><span class="num-label">用户访谈通常聊几个人就够</span><span class="num-val">6–8 人</span><span class="num-src">L16</span></div>
+    <div class="num-row" data-g="g3" data-i="4" data-n="0" data-lec="17" data-text="Jambox 发布时，无线音箱的市场占比 0% L17"><span class="num-label">Jambox 发布时，无线音箱的市场占比</span><span class="num-val">0%</span><span class="num-src">L17</span></div>
+    <div class="num-row" data-g="g3" data-i="5" data-n="78" data-lec="17" data-text="到 2013 年圣诞，这个占比变成 78% L17"><span class="num-label">到 2013 年圣诞，这个占比变成</span><span class="num-val">78%</span><span class="num-src">L17</span></div>
+  </div></div>
+<div class="num-group" data-g="g4">
+  <div class="num-hd"><h3>找谁一起干、怎么管</h3><span class="num-hd-src">L2 / L10 / L11 / L20</span></div>
+  <p class="num-gnote">关于人、股权和组织。人数阈值是 Sam Altman 的经验值，不是精确科学。</p>
+  <div class="num-rows">
+    <div class="num-row" data-g="g4" data-i="0" data-n="2" data-lec="2" data-text="理想的创始团队是几个人 2–3 人 L2 / L13"><span class="num-label">理想的创始团队是几个人</span><span class="num-val">2–3 人</span><span class="num-src">L2 / L13</span></div>
+    <div class="num-row" data-g="g4" data-i="1" data-n="9" data-lec="2" data-text="某期临时凑对加合伙人、一年内散伙的公司 9 家 L2"><span class="num-label">某期临时凑对加合伙人、一年内散伙的公司</span><span class="num-val">9 家</span><span class="num-src">L2</span></div>
+    <div class="num-row" data-g="g4" data-i="2" data-n="10" data-lec="2" data-text="建议给前 10 名员工的股权合计 约 10% L2"><span class="num-label">建议给前 10 名员工的股权合计</span><span class="num-val">约 10%</span><span class="num-src">L2</span></div>
+    <div class="num-row" data-g="g4" data-i="3" data-n="25" data-lec="2" data-text="招聘最多占创始人多少时间 25% L2"><span class="num-label">招聘最多占创始人多少时间</span><span class="num-val">25%</span><span class="num-src">L2</span></div>
+    <div class="num-row" data-g="g4" data-i="4" data-n="6" data-lec="2" data-text="Airbnb 招第一名工程师花了多久（数百场面试） 约 6 个月 L2"><span class="num-label">Airbnb 招第一名工程师花了多久（数百场面试）</span><span class="num-val">约 6 个月</span><span class="num-src">L2</span></div>
+    <div class="num-row" data-g="g4" data-i="5" data-n="11.8" data-lec="10" data-text="「最佳雇主」那份老统计的股票年回报（近大盘两倍） 11.8% L10"><span class="num-label">「最佳雇主」那份老统计的股票年回报（近大盘两倍）</span><span class="num-val">11.8%</span><span class="num-src">L10</span></div>
+    <div class="num-row" data-g="g4" data-i="6" data-n="20" data-lec="20" data-text="扁平结构还最优的人数上限 20 人 L20"><span class="num-label">扁平结构还最优的人数上限</span><span class="num-val">20 人</span><span class="num-src">L20</span></div>
+    <div class="num-row" data-g="g4" data-i="7" data-n="30" data-lec="20" data-text="过了这个人数，扁平结构整体失效 30 人 L20"><span class="num-label">过了这个人数，扁平结构整体失效</span><span class="num-val">30 人</span><span class="num-src">L20</span></div>
+    <div class="num-row" data-g="g4" data-i="8" data-n="5" data-lec="20" data-text="每年再发给员工的 refresher 股权上限 5% L20"><span class="num-label">每年再发给员工的 refresher 股权上限</span><span class="num-val">5%</span><span class="num-src">L20</span></div>
+    <div class="num-row" data-g="g4" data-i="9" data-n="10" data-lec="20" data-text="检验对齐度时，随机抽问几个员工复述前三大目标 10 人 L20"><span class="num-label">检验对齐度时，随机抽问几个员工复述前三大目标</span><span class="num-val">10 人</span><span class="num-src">L20</span></div>
+    <div class="num-row" data-g="g4" data-i="10" data-n="4" data-lec="2" data-text="标准股权归属年数 4 年 L2 / L18"><span class="num-label">标准股权归属年数</span><span class="num-val">4 年</span><span class="num-src">L2 / L18</span></div>
+    <div class="num-row" data-g="g4" data-i="11" data-n="1" data-lec="2" data-text="标准 cliff：满多久才兑现第一笔 1 年 L2 / L18"><span class="num-label">标准 cliff：满多久才兑现第一笔</span><span class="num-val">1 年</span><span class="num-src">L2 / L18</span></div>
+  </div></div>
+<div class="num-group" data-g="g5">
+  <div class="num-hd"><h3>钱从哪来、手续别踩坑</h3><span class="num-hd-src">L9 / L18</span></div>
+  <p class="num-gnote">法务与税务部分全属美国法域（2014 年前口径），换个地方得重新问一遍。</p>
+  <div class="num-rows">
+    <div class="num-row" data-g="g5" data-i="0" data-n="4000" data-lec="9" data-text="每年想融风险资本的公司 约 4000 家 L9"><span class="num-label">每年想融风险资本的公司</span><span class="num-val">约 4000 家</span><span class="num-src">L9</span></div>
+    <div class="num-row" data-g="g5" data-i="1" data-n="200" data-lec="9" data-text="其中拿到顶级 VC 投资的 约 200 家 L9"><span class="num-label">其中拿到顶级 VC 投资的</span><span class="num-val">约 200 家</span><span class="num-src">L9</span></div>
+    <div class="num-row" data-g="g5" data-i="2" data-n="15" data-lec="9" data-text="最终做到 1 亿美元营收的 约 15 家 L9"><span class="num-label">最终做到 1 亿美元营收的</span><span class="num-val">约 15 家</span><span class="num-src">L9</span></div>
+    <div class="num-row" data-g="g5" data-i="3" data-n="97" data-lec="9" data-text="十几家离群值贡献了全行业 VC 回报的 约 97% L9"><span class="num-label">十几家离群值贡献了全行业 VC 回报的</span><span class="num-val">约 97%</span><span class="num-src">L9</span></div>
+    <div class="num-row" data-g="g5" data-i="4" data-n="15" data-lec="9" data-text="种子轮建议的稀释上限 15% L9"><span class="num-label">种子轮建议的稀释上限</span><span class="num-val">15%</span><span class="num-src">L9</span></div>
+    <div class="num-row" data-g="g5" data-i="5" data-n="30" data-lec="9" data-text="A 轮建议的稀释上限 30% L9"><span class="num-label">A 轮建议的稀释上限</span><span class="num-val">30%</span><span class="num-src">L9</span></div>
+    <div class="num-row" data-g="g5" data-i="6" data-n="50" data-lec="18" data-text="注册环节出错，律所账单可能到 50 万美元 L18"><span class="num-label">注册环节出错，律所账单可能到</span><span class="num-val">50 万美元</span><span class="num-src">L18</span></div>
+    <div class="num-row" data-g="g5" data-i="7" data-n="45" data-lec="18" data-text="低 cap 叠加后续定价轮，可能让出股权 45% L18"><span class="num-label">低 cap 叠加后续定价轮，可能让出股权</span><span class="num-val">45%</span><span class="num-src">L18</span></div>
+  </div></div>
+<div class="num-group" id="numAll" style="display:none"><div class="num-rows"></div></div>
+<div class="gloss-empty" id="numEmpty">没有匹配的数字，换个关键词试试。</div>
+</div></section>
 
-<section id="act"><h2>分优先级行动清单</h2><p class="lead">P0 决定生死 · P1 验证与增长 · P2 组织与合规。</p><div class="acts"><div class="act-col"><div class="act-head p0">P0 <span>决定生死 · 不做别开工</span></div><ul><li>用「不工作时最常想起哪个点子」锁定唯一要做的创意（L1）</li>
+<section id="act"><h2>分优先级行动清单</h2><p class="lead">按「不做会怎样」分了三档，从上往下做就行。</p><div class="acts"><div class="act-col"><div class="act-head p0">P0 <span>决定生死 · 不做别开工</span></div><ul><li>用「不工作时最常想起哪个点子」锁定唯一要做的创意（L1）</li>
 <li>一句话写清创意，回答 Why now：为何两年前做不成、两年后太晚（L1）</li>
 <li>确认市场看增长率而非当前规模；写下客观市场，剔除叙事（L1 / L5）</li>
 <li>只做产品、见用户，暂停 PR、参会、招顾问与谈合作（L1）</li>
@@ -312,7 +412,7 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 <li>用标准模板注册公司，归档签字文件，提交 83(b) 并留凭证（L18）</li>
 <li>接入 payroll、按最低工资发薪、区分雇员与外包，只向合格投资人募资（L18）</li></ul></div></div></section>
 
-<section id="lec"><h2>二十讲一句话索引</h2><p class="lead">按 L 号导航，优先级对应行动清单的分级。</p>
+<section id="lec"><h2>二十讲一句话索引</h2><p class="lead">二十讲，各用一句话说完。L 号就是官方第几讲（也对应 B 站第几个分 P）；右边的 P0 / P1 / P2 是行动优先级，越靠前越该先做。</p>
 <input class="search" id="qLec" placeholder="过滤：讲者 / 主题 / L 号 …">
 <div class="card"><table><thead><tr><th>L</th><th>主题</th><th>主讲人</th><th>一句话</th><th>优先级</th></tr></thead><tbody id="tbLec"><tr><td class="strong">L1</td><td>如何创办一家初创公司</td><td class="muted">Sam Altman / Dustin Moskovitz</td><td>拆四要素与产品铁律，回答该不该创业</td><td><span class="pri p0">P0</span></td></tr>
 <tr><td class="strong">L2</td><td>创意、产品、团队与执行（二）</td><td class="muted">Sam Altman</td><td>讲透联合创始人、招聘、股权与执行强度</td><td><span class="pri p0">P0</span></td></tr>
@@ -335,7 +435,7 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 <tr><td class="strong">L19</td><td>销售、路演与投资人会谈模拟</td><td class="muted">Tyler Bosmeny / YC Partners</td><td>创始人亲自卖、30/70 与极简 pitch</td><td><span class="pri p1">P1</span></td></tr>
 <tr><td class="strong">L20</td><td>结语与后期阶段建议</td><td class="muted">Sam Altman</td><td>PMF 之后必须完成的组织与心态转型</td><td><span class="pri p2">P2</span></td></tr></tbody></table></div></section>
 
-<section id="quote"><h2>十条最该记住的原话</h2><p class="lead">中英对照，按讲次排列。</p><div class="quotes"><div class="quote"><div class="q-en">“Build something that a small number of users love.”</div><div class="q-cn">去做一件让少数用户深爱的东西。</div><span class="tag">L1</span></div>
+<section id="quote"><h2>十条最该记住的原话</h2><p class="lead">中英对照，按讲次排列。英文是原话，下方就是整句中文；句里出现的术语也能点开看。</p><div class="quotes"><div class="quote"><div class="q-en">“Build something that a small number of users love.”</div><div class="q-cn">去做一件让少数用户深爱的东西。</div><span class="tag">L1</span></div>
 <div class="quote"><div class="q-en">“Great execution towards a terrible idea will get you nowhere.”</div><div class="q-cn">朝着糟糕创意的出色执行，到头来哪儿也去不了。</div><span class="tag">L1</span></div>
 <div class="quote"><div class="q-en">“What you need is expertise in your own users.”</div><div class="q-cn">需要的不是创业专长，而是对你自己用户的专长。</div><span class="tag">L3</span></div>
 <div class="quote"><div class="q-en">“Competition is for losers.”</div><div class="q-cn">竞争是留给失败者的。</div><span class="tag">L5</span></div>
@@ -348,8 +448,8 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 
 <section id="plain">
   <h2>零基础白话解读</h2>
-  <p class="lead">不用任何商业背景。每条结论按「人话 → 为什么 → 课里的例子 → 你该怎么做」讲一遍。</p>
-  <div class="notice"><b>为什么上一版看不懂？</b> 不是你缺专业知识——这门课本来就是给工程师开的入门课。是上一版把「为什么」和案例语境砍掉了，只留结论和黑话。这一页把它们补回来；遇到不认识的人名公司名缩写，去「名词注解」页查。</div>
+  <p class="lead">假定没看过课，也不认识那些术语。每条都从「这话到底什么意思」讲起，再说它是怎么来的。</p>
+  <div class="notice"><b>上一版读着费劲，问题在我们。</b> 把「为什么」和课里的故事砍掉了，只剩结论和黑话。这门课本来就是讲给工程师听的入门课，不需要什么背景。这一页把来龙去脉补回来。不认识的人名、公司、缩写，去「名词注解」查，或者直接点正文里带虚线的词。</div>
 
   <div class="plain-card"><h3><span>先</span>这门课到底在解决什么</h3>
     <p class="pl"><span class="lb">人话</span>2014 年 YC 总裁 Sam Altman 在斯坦福开课，把过去 9 年 YC 晚宴上最好的演讲公开出来，20 讲、约 16 小时。请的不是教授，是真做成过十亿美元公司的人。</p>
@@ -362,7 +462,7 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
     <p class="pl"><span class="lb">人话</span>先有一个忍不住想解决的问题，再决定「开公司」是不是解决它的最好方式。别反过来。</p>
     <p class="pl"><span class="lb why">为什么</span>做成一家好公司通常要 <span class="plain-num">10</span> 年。动机若是「想创业」而非「这问题非解决不可」，熬到第 3 年就会放弃。Sam 的标准是 "you can't not do it"。</p>
     <p class="pl"><span class="lb eg">例子</span>好点子起初听起来都很糟：Google 是第 13 个搜索引擎，Facebook 是第 10 个社交网络且只限没钱的大学生，Airbnb 是「睡陌生人的沙发」。听着糟反而是好事——一听就好会招来一堆竞争者。PG 叫它 Unpopular but right。</p>
-    <p class="pl"><span class="lb do">怎么做</span>写下「不工作时我最常想起哪个问题」，只留一个；一句话写清创意；回答 <abbr title="为什么是现在：两年前做不成、两年后太晚">Why now</abbr>：为何两年前做不成、两年后太晚。答不上就先别动手。</p>
+    <p class="pl"><span class="lb do">怎么做</span>写下「不工作时我最常想起哪个问题」，只留一个；一句话写清创意；回答 Why now：为何两年前做不成、两年后太晚。答不上就先别动手。</p>
   </div>
 
   <div class="plain-card"><h3><span>2</span>深爱优于泛喜</h3>
@@ -375,22 +475,22 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
   <div class="plain-card"><h3><span>3</span>留存是增长唯一地基</h3>
     <p class="pl"><span class="lb">人话</span>用户会不会留下来，比拉来多少新用户更重要。留不住，拉再多也白拉。</p>
     <p class="pl"><span class="lb why">为什么</span>增长 = 新进来的人 − 走掉的人。两者影响一模一样，但减少流失通常更便宜、效果能累积，却总被拖到最后丢给 B 团队。Wufoo 让写代码的人轮流做客服，工程师被同一个问题问烦了就主动去修 bug、重写帮助文档。</p>
-    <p class="pl"><span class="lb eg">怎么判断</span>按 <abbr title="同期群：同一批（如同月注册）的用户">cohort</abbr>（同一批注册的用户）画一条线：横轴注册后第几天，纵轴还剩多少人在用。<b>趋平</b>（比如稳定在 30% 不再掉）＝ 有 <abbr title="产品市场契合：留存曲线趋平，说明产品正是市场想要的">PMF</abbr>，这时才该投增长；<b>一路下滑到 0</b> ＝ 先改产品。Facebook 发现好友数与活跃强相关，扎克伯格拍板「14 天加到 10 个好友」，留存从 60% 提到 70%。</p>
+    <p class="pl"><span class="lb eg">怎么判断</span>按 cohort（同一批注册的用户）画一条线：横轴注册后第几天，纵轴还剩多少人在用。<b>趋平</b>（比如稳定在 30% 不再掉）＝ 有 PMF，这时才该投增长；<b>一路下滑到 0</b> ＝ 先改产品。Facebook 发现好友数与活跃强相关，扎克伯格拍板「14 天加到 10 个好友」，留存从 60% 提到 70%。</p>
     <p class="pl"><span class="lb do">怎么做</span>先画留存曲线。没趋平之前，暂停一切投放、增长黑客、病毒传播。</p>
   </div>
 
   <div class="plain-card"><h3><span>4</span>从小垄断起步，赚远期现金</h3>
     <p class="pl"><span class="lb">人话</span>别一上来冲大市场。先在一个小到别人看不上的市场里做到几乎没对手，再往外扩。</p>
-    <p class="pl"><span class="lb why">为什么</span>竞争会压价、吃掉利润，公司就没余力做长期事（Thiel：「竞争是留给失败者的」）。但垄断不是靠打压对手，是靠技术比次优方案好 10 倍。公司价值 ≈ 创造的价值 X × 捕获的比例 Y%，两者独立：航空业 X 巨大却几乎不赚钱（Y≈0）。用 <abbr title="现金流折现：把未来多年利润折算成今天的价值">DCF</abbr> 算，约 3/4 价值来自十年后的利润，所以值钱的不是抢跑，而是 <b><abbr title="最后进场并长期待着的人，Thiel 认为比先发更值钱">last mover</abbr></b>——最后进场并一直待着的人。</p>
+    <p class="pl"><span class="lb why">为什么</span>竞争会压价、吃掉利润，公司就没余力做长期事（Thiel：「竞争是留给失败者的」）。但垄断不是靠打压对手，是靠技术比次优方案好 10 倍。公司价值 ≈ 创造的价值 X × 捕获的比例 Y%，两者独立：航空业 X 巨大却几乎不赚钱（Y≈0）。用 DCF 算，约 3/4 价值来自十年后的利润，所以值钱的不是抢跑，而是 <b>last mover</b>——最后进场并一直待着的人。</p>
     <p class="pl"><span class="lb eg">例子</span>Google 搜索份额约 66%，却对外讲成「广告公司」，那样只占全球广告约 3.5%，显得竞争激烈、不该被监管。Facebook 起步只做 1 万名大学生。</p>
     <p class="pl"><span class="lb do">怎么做</span>找「两三个月能拿下 25% 以上份额」的最小市场；问方案是否好 10 倍；按市场<b>增长率</b>而非当前规模判断——市场是唯一造不出来的东西。</p>
   </div>
 
   <div class="plain-card"><h3><span>5</span>创始人亲手做，组织最后转身</h3>
     <p class="pl"><span class="lb">人话</span>早期所有脏活（访谈、销售、客服、派单）创始人自己上；等产品真跑通了，最难的反而是从「做产品」转成「建公司」。</p>
-    <p class="pl"><span class="lb why">为什么</span>早期你不知道正确答案，只能靠亲手接触用户攒直觉，外包就永远拿不到真反馈。但过了 20–30 人，靠创始人一人救火（<abbr title="创始人凡事亲自救火的状态，20 人还行、30 人就崩">Hero Mode</abbr>）就崩了。</p>
+    <p class="pl"><span class="lb why">为什么</span>早期你不知道正确答案，只能靠亲手接触用户攒直觉，外包就永远拿不到真反馈。但过了 20–30 人，靠创始人一人救火（Hero Mode）就崩了。</p>
     <p class="pl"><span class="lb eg">例子</span>DoorDash 把餐厅菜单做成 PDF、留个手机号，1 小时上线，第一单自己开车送；这些手工派单后来喂出了调度算法。Stripe 让工程师第一天就提交代码。</p>
-    <p class="pl"><span class="lb do">怎么做</span><abbr title="产品市场契合：留存曲线趋平，说明产品正是市场想要的">PMF</abbr> 前别设独立增长团队，CEO 就是增长负责人；PMF 后把「怎么做、为什么」写进 Wiki，给每人唯一一个经理。</p>
+    <p class="pl"><span class="lb do">怎么做</span>PMF 前别设独立增长团队，CEO 就是增长负责人；PMF 后把「怎么做、为什么」写进 Wiki，给每人唯一一个经理。</p>
   </div>
 
   <div class="plain-card"><h3><span>式</span>七个公式，翻译成人话</h3>
@@ -398,7 +498,7 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
     <tr><td class="strong">创意×产品×团队×执行×运气</td><td>五项相乘，任一项接近 0，全盘归零。只能控前四项</td><td class="muted">一门课 0 分，其他满分也救不回</td></tr>
     <tr><td class="strong">价值 = X × Y%</td><td>创造多少价值，和能赚到多少，是两件独立的事</td><td class="muted">航空公司送几亿人，却几乎不赚钱</td></tr>
     <tr><td class="strong">增长 = 转化率 − 流失</td><td>拉新和防流失等价，但防流失更便宜</td><td class="muted">漏水的桶，先补桶再加水</td></tr>
-    <tr><td class="strong">CLV − <abbr title="获客成本：平均花多少钱得到一个客户">CAC</abbr> &gt; 0</td><td>一个客户赚的必须多过获取他花的，且别等太久回本</td><td class="muted">花 100 元广告带来只消费 80 元的客户</td></tr>
+    <tr><td class="strong">CLV − CAC &gt; 0</td><td>一个客户赚的必须多过获取他花的，且别等太久回本</td><td class="muted">花 100 元广告带来只消费 80 元的客户</td></tr>
     <tr><td class="strong">病毒系数 K</td><td>每个用户平均带来几个新用户；&lt;1 衰减，&gt;1 放大</td><td class="muted">差 0.02，长期是「消失」与「爆发」的分界</td></tr>
     <tr><td class="strong">风险洋葱</td><td>创业是一堆叠着的风险，每轮钱只消除其中 2–3 层</td><td class="muted">别一次赌全部</td></tr>
     <tr><td class="strong">20 人 / 30 人</td><td>人少靠默契，人一多没明确汇报关系就乱</td><td class="muted">20 人聚餐能打招呼，30 人靠喊就没人知道听谁的</td></tr>
@@ -408,50 +508,52 @@ abbr[title]{border-bottom:1px dashed var(--accent);cursor:help;text-decoration:n
 
   <div class="plain-card"><h3><span>路</span>按创业阶段走一遍</h3>
     <table><thead><tr><th>阶段</th><th>你在纠结</th><th>课程答案</th><th>讲次</th></tr></thead><tbody>
-    <tr><td class="strong">还没开始</td><td>该不该创业</td><td>先有忍不住要解决的问题，答得上 <abbr title="为什么是现在：两年前做不成、两年后太晚">Why now</abbr>，能接受熬十年</td><td>L1/L3/L13</td></tr>
-    <tr><td class="strong">0 → 1</td><td>做什么、给谁</td><td>一句话说清问题，找真人验证，<abbr title="最小可用产品，重点在真能解决问题">MVP</abbr> 要真解决问题，尽快收费</td><td>L4/L16/L17</td></tr>
+    <tr><td class="strong">还没开始</td><td>该不该创业</td><td>先有忍不住要解决的问题，答得上 Why now，能接受熬十年</td><td>L1/L3/L13</td></tr>
+    <tr><td class="strong">0 → 1</td><td>做什么、给谁</td><td>一句话说清问题，找真人验证，MVP 要真解决问题，尽快收费</td><td>L4/L16/L17</td></tr>
     <tr><td class="strong">1 → 10</td><td>用户不来 / 留不住</td><td>先画留存曲线，趋平才做增长；只留一个北极星指标</td><td>L6/L7/L8</td></tr>
-    <tr><td class="strong">10 → 100</td><td>要不要投广告、怎么卖</td><td>每周只跑一个渠道，按 CLV−<abbr title="获客成本：平均花多少钱得到一个客户">CAC</abbr> 判断；创始人亲自当第一个销售</td><td>L4/L12/L19</td></tr>
-    <tr><td class="strong">同时</td><td>找谁一起干、怎么分</td><td>只从多年熟识的人里选联合创始人，近乎均分，4 年 vesting + 1 年 <abbr title="满 1 年才兑现第一笔，1 年内离开一股不拿">cliff</abbr></td><td>L2/L10/L11</td></tr>
-    <tr><td class="strong">钱与手续</td><td>融资、注册、税</td><td>生意好过路演；一律 <abbr title="美国特拉华州股份公司，VC 投资的标准载体">Delaware C-Corp</abbr>；签文件、交 83(b) 并留凭证</td><td>L9/L18</td></tr>
-    <tr><td class="strong">变大后</td><td>管不动了</td><td>走出 <abbr title="创始人凡事亲自救火的状态，20 人还行、30 人就崩">Hero Mode</abbr>，每人唯一经理，写 Wiki，配反向指标</td><td>L14/L15/L20</td></tr>
+    <tr><td class="strong">10 → 100</td><td>要不要投广告、怎么卖</td><td>每周只跑一个渠道，按 CLV−CAC 判断；创始人亲自当第一个销售</td><td>L4/L12/L19</td></tr>
+    <tr><td class="strong">同时</td><td>找谁一起干、怎么分</td><td>只从多年熟识的人里选联合创始人，近乎均分，4 年 vesting + 1 年 cliff</td><td>L2/L10/L11</td></tr>
+    <tr><td class="strong">钱与手续</td><td>融资、注册、税</td><td>生意好过路演；一律 Delaware C-Corp；签文件、交 83(b) 并留凭证</td><td>L9/L18</td></tr>
+    <tr><td class="strong">变大后</td><td>管不动了</td><td>走出 Hero Mode，每人唯一经理，写 Wiki，配反向指标</td><td>L14/L15/L20</td></tr>
     </tbody></table>
   </div>
 
   <div class="plain-card"><h3><span>记</span>如果只记 10 句话</h3>
-    <p class="pl">① 别为创业而创业。② 100 个爱你的人胜过 100 万个有点喜欢的。③ 用户留不下来之前，所有增长都是漏水的桶。④ 曲线趋平才叫 <abbr title="产品市场契合：留存曲线趋平，说明产品正是市场想要的">PMF</abbr>。⑤ 从小到没人看得上的市场起步。⑥ 创造了价值 ≠ 赚得到钱。⑦ 早期脏活创始人自己干。⑧ 让写代码的人去做客服。⑨ 融资不是里程碑。⑩ 最难的是从「做产品」变成「建公司」。</p>
+    <p class="pl">① 别为创业而创业。② 100 个爱你的人胜过 100 万个有点喜欢的。③ 用户留不下来之前，所有增长都是漏水的桶。④ 曲线趋平才叫 PMF。⑤ 从小到没人看得上的市场起步。⑥ 创造了价值 ≠ 赚得到钱。⑦ 早期脏活创始人自己干。⑧ 让写代码的人去做客服。⑨ 融资不是里程碑。⑩ 最难的是从「做产品」变成「建公司」。</p>
   </div>
-  <div class="bound"><h4>使用边界</h4><ul>
-    <li>只适用于追求 <abbr title="超高速增长，本课建议只适用于追求这类增长的公司">hyper growth</abbr> 的创业；小生意与生活方式型公司不适用。</li>
-    <li>案例与数字集中在 2014 年之前，用于建立量级感，不是当下统计。</li>
-    <li><abbr title="美国特拉华州股份公司，VC 投资的标准载体">Delaware C-Corp</abbr>、83(b)、合格投资人、期权税务等均为美国法域，不可照搬。</li>
-    <li>内容准确性结论见《YC二十讲_内容准确性核对报告.md》。</li>
+  <div class="bound"><h4>先说清楚适用范围</h4><ul>
+    <li>只适用于追求 hyper growth 的创业；小生意与生活方式型公司不适用。</li>
+    <li>案例和数字集中在 2014 年以前，看个量级就好，不是当下的统计。</li>
+    <li>Delaware C-Corp、83(b)、合格投资人、期权税务这些都是美国法域的事，不能照搬。</li>
+    <li>哪些数字核过、哪些要留个心眼，写在《YC二十讲_内容准确性核对报告.md》里。</li>
   </ul></div>
 </section>
 
 <section id="glossary">
   <h2>名词注解</h2>
-  <p class="lead">人名、公司、缩写、黑话，按类分组。输入关键词可即时过滤。</p>
-  <div class="notice"><b>读法建议</b> 第一次读先看「零基础白话」；遇到不认识的词回来查这一页。全部条目另见《YC二十讲_人物事件名词注解.md》。</div>
+  <p class="lead">人名、公司、缩写、黑话，分了类。搜一下就能找到。</p>
+  <div class="notice"><b>怎么用</b> 读「零基础白话」时碰上不认识的词，回来查这一页就行。正文里带虚线的词也能直接点。另外，L1–L20 是官方讲次编号，P0 / P1 / P2 是行动优先级，这两个不算术语，就没加虚线。完整版另见《YC二十讲_人物事件名词注解.md》。</div>
   <input class="search" id="qGloss" placeholder="搜索：PMF / 83(b) / Wufoo / last mover …" style="max-width:420px">
   <div class="gloss-empty" id="glossEmpty">没有匹配的词条，换个关键词试试。</div>
-  <div class="gloss-group"><h4>课程与机构</h4><table class="gtbl"><tbody><tr><td>CS183B</td><td>斯坦福计算机系 2014 年秋课程编号，全名 How to Start a Startup。给想创业的工程师开的「一门课顶一门商科」速成课</td></tr><tr><td>Y Combinator / YC</td><td>美国顶级创业孵化器，2005 年由 Paul Graham 等创办。投一小笔钱 + 3 个月密集辅导 + Demo Day。Airbnb、Stripe、Dropbox、Twitch 都出自 YC</td></tr><tr><td>Sam Altman</td><td>2014 年任 YC 总裁，本课程发起人与 L1/L2/L20 主讲；后来成为 OpenAI CEO</td></tr><tr><td>B 站 BV1c84y1R7DU</td><td>你正在看的中文重剪版，20 集、970 分钟。分P中文标题是重编者自拟，不是官方英文原题，按 L 号对照更准</td></tr><tr><td>17 位讲者</td><td>准确说是「17 场由客座讲者主讲的讲座」；多讲为多人同台，按人头算官方署名约 25–27 人</td></tr></tbody></table></div><div class="gloss-group"><h4>投资机构</h4><table class="gtbl"><tbody><tr><td>Sequoia / 红杉资本</td><td>顶级 VC，Alfred Lin 时任合伙人；「Why now」是其经典提问</td></tr><tr><td>a16z</td><td>Andreessen Horowitz，Marc Andreessen 与 Ben Horowitz 创办的 VC</td></tr><tr><td>SV Angel</td><td>Ron Conway 的天使投资机构</td></tr><tr><td>Greylock</td><td>Reid Hoffman 所在 VC</td></tr><tr><td>Khosla Ventures</td><td>Keith Rabois 所在 VC</td></tr><tr><td>Founders Fund</td><td>Peter Thiel 的基金</td></tr></tbody></table></div><div class="gloss-group"><h4>当案例的公司</h4><table class="gtbl"><tbody><tr><td>Wufoo</td><td>Kevin Hale 创办的在线表单工具。10 人、融资约 11.8 万美元、零广告费，2011 年被 SurveyMonkey 以约 3500 万美元收购，回报 29,561%</td></tr><tr><td>Homejoy / Pathjoy</td><td>Adora Cheung 创办的家政平台。用来讲一句话定位、付费验证、第 13 个点子</td></tr><tr><td>Airbnb</td><td>短租平台。招第一名工程师花约半年、免费专业摄影、拒绝克隆公司、先于招人设计文化</td></tr><tr><td>Stripe</td><td>在线支付。工程师第一天就提交代码（push people off the cliff）、书面文化</td></tr><tr><td>DoorDash</td><td>外卖平台。PDF 菜单 + 手机号 1 小时上线，创始人亲自送第一单</td></tr><tr><td>Zappos</td><td>鞋类电商，以客服文化著称。37 条价值观花一整年精简到 10 条</td></tr><tr><td>Twitch / Justin.tv</td><td>游戏直播。用户访谈要找 non-users，资源投到「没人提过」的地方</td></tr><tr><td>Jawbone / Jambox</td><td>无线音箱与可穿戴。不问意愿问行为、WHYS、Hero Experiences</td></tr><tr><td>Kayak</td><td>旅游搜索。工程区装红色热线，客服来电直接触发修 bug</td></tr><tr><td>Rocket Internet / Samwer 兄弟</td><td>德国克隆公司，30 天雇 400 人复制 Airbnb，被 Airbnb 拒绝收购</td></tr></tbody></table></div><div class="gloss-group"><h4>增长与数据术语</h4><table class="gtbl"><tbody><tr><td>PMF</td><td>Product-Market Fit，产品市场契合。判断标准不是「有人说好」，而是留存曲线能趋平</td></tr><tr><td>留存 / Retention</td><td>用户过一段时间后还在用。增长的地基</td></tr><tr><td>cohort / 同期群</td><td>同一批（如同月注册）的用户。按它画留存曲线才看得出趋势</td></tr><tr><td>churn / 流失</td><td>用户停止使用。与转化率同等重要：增长 = 转化率 − 流失</td></tr><tr><td>CLV / LTV</td><td>客户终身价值：一个客户整个使用期带来的总利润</td></tr><tr><td>CAC</td><td>获客成本：平均花多少钱得到一个客户。CAC = CPC ÷ 转化率</td></tr><tr><td>CLV − CAC > 0</td><td>单位经济。回本 ≤3 个月算安全，>12 个月危险</td></tr><tr><td>北极星指标</td><td>全公司只认一个核心指标（MAU / sends / nights booked / GMV），长期不改</td></tr><tr><td>magic moment</td><td>魔力时刻：用户「啊，原来这东西是干这个的」那一瞬。Facebook 是「看到朋友的脸」</td></tr><tr><td>病毒系数 K</td><td>每个用户平均带来几个新用户。K<1 衰减（0.99 走平死掉），K>1 放大（1.01 指数增长）</td></tr><tr><td>power user / 边际用户</td><td>重度用户 / 几乎不用快流失的人。做产品盯前者，驱动增长要盯后者</td></tr><tr><td>detractor / champion</td><td>贬损者 / 拥护者。一个体验极差的贬损者足以抵消十个拥护者</td></tr><tr><td>vanity metric</td><td>虚荣指标：好看但不指导决策的数字，如累计注册数、PR 曝光</td></tr><tr><td>traction</td><td>真实增长证据：用户 / 留存 / 收入在涨。pitch 里必须有</td></tr></tbody></table></div><div class="gloss-group"><h4>产品与用户术语</h4><table class="gtbl"><tbody><tr><td>MVP</td><td>最小可用产品。重点在 viable（真能解决问题），不是「功能少」</td></tr><tr><td>pivot</td><td>转型换做法。课程提醒：别把频繁 pivot 当勤奋</td></tr><tr><td>stealth</td><td>隐身秘密开发。课程认为除非起步要几千万美元，否则毫无意义</td></tr><tr><td>non-users</td><td>完全不用你产品的人。访谈时最容易被忽略，却最能指出市场为什么做不大</td></tr><tr><td>Mom test</td><td>别问「你会用吗」（妈妈也会说会），只问对方过去真实做过什么</td></tr><tr><td>「更快的马」</td><td>亨利·福特典故：问用户要什么，他只会说要一匹更快的马。所以别问功能，问现状行为</td></tr><tr><td>SDD</td><td>Support Driven Development：让写代码的人轮流做客服，被问题折磨到主动去修</td></tr><tr><td>knowledge gap</td><td>用户「不懂怎么用」与产品「假定他懂」之间的落差</td></tr><tr><td>WHYS / Hero Experiences</td><td>Jawbone 方法：找到用户「离了就活不了」的关键时刻，资源全押上去</td></tr><tr><td>SISP</td><td>Solution In Search of Problem：先有解法再找问题，YC 眼里的大忌</td></tr></tbody></table></div><div class="gloss-group"><h4>战略与市场术语</h4><table class="gtbl"><tbody><tr><td>last mover</td><td>与先发相反：最后进场并长期待着的人。Thiel 认为值钱的是持久性</td></tr><tr><td>「竞争是留给失败者的」</td><td>Thiel 名言：竞争吃掉利润，垄断才有余力做长期事</td></tr><tr><td>从小垄断起步</td><td>先在小到几乎无价值的市场里两三个月拿下 25%+ 份额，再扩张</td></tr><tr><td>DCF / 现金流折现</td><td>把未来多年利润折算成今天的价值。Thiel 指出约 3/4 价值来自十年后</td></tr><tr><td>价值 = X × Y%</td><td>X=创造的价值，Y=捕获的比例，两者独立。航空业 X 大、Y≈0</td></tr><tr><td>wedge / 楔子</td><td>切入企业市场的一个极窄口子，做在位者做不到或不愿做的事</td></tr><tr><td>Why now</td><td>为什么是现在：两年前做不成、两年后太晚。答不上就别动手</td></tr><tr><td>Unpopular but right</td><td>好点子起初听起来很糟、没人认同，但方向是对的</td></tr><tr><td>investment thesis</td><td>「我知道什么别人不知道」，Reid Hoffman 用它决定坚持还是转向</td></tr><tr><td>hyper growth</td><td>超高速增长。本课所有建议只适用于追求这类增长的公司</td></tr></tbody></table></div><div class="gloss-group"><h4>组织与管理术语</h4><table class="gtbl"><tbody><tr><td>vesting</td><td>股权分 4 年逐月兑现，防合伙人干半年就走还带走一大块</td></tr><tr><td>cliff</td><td>满 1 年才兑现第一笔，1 年内离开一股不拿。标准组合：4 年 vesting + 1 年 cliff</td></tr><tr><td>near-equal</td><td>联合创始人股权近乎均分，反对「谁想出点子谁多拿」</td></tr><tr><td>refresher</td><td>每年再给老员工约 3%–5% 股权，防止被稀释后失去动力</td></tr><tr><td>barrel / ammunition</td><td>桶与弹药：多数人只是弹药，能把想法从概念带到上线的「桶」才是稀缺产能</td></tr><tr><td>pairing indicator</td><td>任何单一指标都配一个反向指标，防止为好看而作弊</td></tr><tr><td>Hero Mode</td><td>创始人凡事亲自救火。20 人还行，30 人就崩</td></tr><tr><td>repeatable innovation</td><td>从「偶尔做出好东西」变成「能持续做出好东西」</td></tr><tr><td>cofounder dating</td><td>临时速配式找联合创始人，Sam Altman 明确反对</td></tr></tbody></table></div><div class="gloss-group"><h4>融资·法务·财务（均为美国法域）</h4><table class="gtbl"><tbody><tr><td>Delaware C-Corp</td><td>美国特拉华州股份公司，VC 投资的标准载体，几乎一律用它</td></tr><tr><td>SAFE</td><td>未来股权简单协议：先投钱不定价，下一轮定价时再转股。YC 推出</td></tr><tr><td>cap / 估值上限</td><td>SAFE 里约定的最高转股估值。cap 偏低 + 后续定价轮会让早期股份大幅稀释</td></tr><tr><td>稀释 / dilution</td><td>每融一轮创始人与老股东占比下降。种子建议 ≤15%、A 轮 ≤30%</td></tr><tr><td>83(b) Election</td><td>拿到受限股权后 30 天内申报，让税基按「现在几乎不值钱」算。漏报可能背巨额税单，须留存寄送凭证</td></tr><tr><td>accredited investors</td><td>美国「合格投资人」（收入/资产达标）。向不合格者募资会违法</td></tr><tr><td>W2 / 1099</td><td>美国两类用工报税表：W2=正式雇员，1099=外包 contractor。分错有税务与劳动法风险</td></tr><tr><td>pitch / 30/70</td><td>投资人简短陈述，主张 30 秒三句：做什么 / 市场多大 / traction；销售通话你讲 30%、让对方讲 70%</td></tr><tr><td>Stock Purchase Agreement</td><td>股权购买协议，签完才算真拿到股份</td></tr></tbody></table></div><div class="gloss-group"><h4>易混淆提醒</h4><table class="gtbl"><tbody><tr><td>Paul Graham ≠ Peter Thiel</td><td>前者讲「怎么有点子」，后者讲「垄断」</td></tr><tr><td>Kevin Hale ≠ Keith Rabois</td><td>前者 L7 讲产品与客服，后者 L14 讲运营</td></tr><tr><td>Ben Silbermann ≠ Ben Horowitz</td><td>前者 Pinterest（L11），后者 a16z（L15）</td></tr><tr><td>Justin Kan / Emmett Shear</td><td>都出自 Justin.tv / Twitch，但分别出现在 L8 与 L16</td></tr><tr><td>「垄断」不是作恶</td><td>指没有竞争对手所以有利润做长期事，靠技术好 10 倍获得，不是打压对手</td></tr><tr><td>「不招人」不是永远</td><td>只限定早期 / PMF 之前；PMF 后 L20 明确要求转成组织与流程</td></tr></tbody></table></div>
+  <div class="gloss-group"><h4>课程与机构</h4><table class="gtbl"><tbody><tr><td>CS183B</td><td>斯坦福计算机系 2014 年秋课程编号，全名 How to Start a Startup。给想创业的工程师开的「一门课顶一门商科」速成课</td></tr><tr><td>Y Combinator / YC</td><td>美国顶级创业孵化器，2005 年由 Paul Graham 等创办。投一小笔钱 + 3 个月密集辅导 + Demo Day。Airbnb、Stripe、Dropbox、Twitch 都出自 YC</td></tr><tr><td>Sam Altman</td><td>2014 年任 YC 总裁，本课程发起人与 L1/L2/L20 主讲；后来成为 OpenAI CEO</td></tr><tr><td>B 站 BV1c84y1R7DU</td><td>你正在看的中文重剪版，20 集、970 分钟。分P中文标题是重编者自拟，不是官方英文原题，按 L 号对照更准</td></tr><tr><td>17 场客座讲座</td><td>准确说是「17 场由客座讲者主讲的讲座」；多讲为多人同台，按人头算官方署名约 25–27 人</td></tr></tbody></table></div><div class="gloss-group"><h4>投资机构</h4><table class="gtbl"><tbody><tr><td>Sequoia / 红杉资本</td><td>顶级 VC，Alfred Lin 时任合伙人；「Why now」是其经典提问</td></tr><tr><td>a16z</td><td>Andreessen Horowitz，Marc Andreessen 与 Ben Horowitz 创办的 VC</td></tr><tr><td>SV Angel</td><td>Ron Conway 的天使投资机构</td></tr><tr><td>Greylock</td><td>Reid Hoffman 所在 VC</td></tr><tr><td>Khosla Ventures</td><td>Keith Rabois 所在 VC</td></tr><tr><td>Founders Fund</td><td>Peter Thiel 的基金</td></tr></tbody></table></div><div class="gloss-group"><h4>当案例的公司</h4><table class="gtbl"><tbody><tr><td>Wufoo</td><td>Kevin Hale 创办的在线表单工具。10 人、融资约 11.8 万美元、零广告费，2011 年被 SurveyMonkey 以约 3500 万美元收购，回报 29,561%</td></tr><tr><td>Homejoy / Pathjoy</td><td>Adora Cheung 创办的家政平台。用来讲一句话定位、付费验证、第 13 个点子</td></tr><tr><td>Airbnb</td><td>短租平台。招第一名工程师花约半年、免费专业摄影、拒绝克隆公司、先于招人设计文化</td></tr><tr><td>Stripe</td><td>在线支付。工程师第一天就提交代码（push people off the cliff）、书面文化</td></tr><tr><td>DoorDash</td><td>外卖平台。PDF 菜单 + 手机号 1 小时上线，创始人亲自送第一单</td></tr><tr><td>Zappos</td><td>鞋类电商，以客服文化著称。37 条价值观花一整年精简到 10 条</td></tr><tr><td>Twitch / Justin.tv</td><td>游戏直播。用户访谈要找 non-users，资源投到「没人提过」的地方</td></tr><tr><td>Jawbone / Jambox</td><td>无线音箱与可穿戴。不问意愿问行为、WHYS、Hero Experiences</td></tr><tr><td>Kayak</td><td>旅游搜索。工程区装红色热线，客服来电直接触发修 bug</td></tr><tr><td>Rocket Internet / Samwer 兄弟</td><td>德国克隆公司，30 天雇 400 人复制 Airbnb，被 Airbnb 拒绝收购</td></tr></tbody></table></div><div class="gloss-group"><h4>增长与数据术语</h4><table class="gtbl"><tbody><tr><td>PMF</td><td>Product-Market Fit，产品市场契合。判断标准不是「有人说好」，而是留存曲线能趋平</td></tr><tr><td>留存 / Retention</td><td>用户过一段时间后还在用。增长的地基</td></tr><tr><td>cohort / 同期群</td><td>同一批（如同月注册）的用户。按它画留存曲线才看得出趋势</td></tr><tr><td>churn / 流失</td><td>用户停止使用。与转化率同等重要：增长 = 转化率 − 流失</td></tr><tr><td>CLV / LTV</td><td>客户终身价值：一个客户整个使用期带来的总利润</td></tr><tr><td>CAC</td><td>获客成本：平均花多少钱得到一个客户。CAC = CPC ÷ 转化率</td></tr><tr><td>CLV − CAC > 0</td><td>单位经济。回本 ≤3 个月算安全，>12 个月危险</td></tr><tr><td>北极星指标</td><td>全公司只认一个核心指标（MAU / sends / nights booked / GMV），长期不改</td></tr><tr><td>magic moment</td><td>魔力时刻：用户「啊，原来这东西是干这个的」那一瞬。Facebook 是「看到朋友的脸」</td></tr><tr><td>病毒系数 K</td><td>每个用户平均带来几个新用户。K<1 衰减（0.99 走平死掉），K>1 放大（1.01 指数增长）</td></tr><tr><td>power user / 边际用户</td><td>重度用户 / 几乎不用快流失的人。做产品盯前者，驱动增长要盯后者</td></tr><tr><td>detractor / champion</td><td>贬损者 / 拥护者。一个体验极差的贬损者足以抵消十个拥护者</td></tr><tr><td>vanity metric</td><td>虚荣指标：好看但不指导决策的数字，如累计注册数、PR 曝光</td></tr><tr><td>traction</td><td>真实增长证据：用户 / 留存 / 收入在涨。pitch 里必须有</td></tr></tbody></table></div><div class="gloss-group"><h4>产品与用户术语</h4><table class="gtbl"><tbody><tr><td>MVP</td><td>最小可用产品。重点在 viable（真能解决问题），不是「功能少」</td></tr><tr><td>pivot</td><td>转型换做法。课程提醒：别把频繁 pivot 当勤奋</td></tr><tr><td>stealth</td><td>隐身秘密开发。课程认为除非起步要几千万美元，否则毫无意义</td></tr><tr><td>non-users</td><td>完全不用你产品的人。访谈时最容易被忽略，却最能指出市场为什么做不大</td></tr><tr><td>Mom test</td><td>别问「你会用吗」（妈妈也会说会），只问对方过去真实做过什么</td></tr><tr><td>「更快的马」</td><td>亨利·福特典故：问用户要什么，他只会说要一匹更快的马。所以别问功能，问现状行为</td></tr><tr><td>SDD</td><td>Support Driven Development：让写代码的人轮流做客服，被问题折磨到主动去修</td></tr><tr><td>knowledge gap</td><td>用户「不懂怎么用」与产品「假定他懂」之间的落差</td></tr><tr><td>WHYS / Hero Experiences</td><td>Jawbone 方法：找到用户「离了就活不了」的关键时刻，资源全押上去</td></tr><tr><td>SISP</td><td>Solution In Search of Problem：先有解法再找问题，YC 眼里的大忌</td></tr></tbody></table></div><div class="gloss-group"><h4>战略与市场术语</h4><table class="gtbl"><tbody><tr><td>last mover</td><td>与先发相反：最后进场并长期待着的人。Thiel 认为值钱的是持久性</td></tr><tr><td>「竞争是留给失败者的」</td><td>Thiel 名言：竞争吃掉利润，垄断才有余力做长期事</td></tr><tr><td>从小垄断起步</td><td>先在小到几乎无价值的市场里两三个月拿下 25%+ 份额，再扩张</td></tr><tr><td>DCF / 现金流折现</td><td>把未来多年利润折算成今天的价值。Thiel 指出约 3/4 价值来自十年后</td></tr><tr><td>价值 = X × Y%</td><td>X=创造的价值，Y=捕获的比例，两者独立。航空业 X 大、Y≈0</td></tr><tr><td>wedge / 楔子</td><td>切入企业市场的一个极窄口子，做在位者做不到或不愿做的事</td></tr><tr><td>Why now</td><td>为什么是现在：两年前做不成、两年后太晚。答不上就别动手</td></tr><tr><td>Unpopular but right</td><td>好点子起初听起来很糟、没人认同，但方向是对的</td></tr><tr><td>investment thesis</td><td>「我知道什么别人不知道」，Reid Hoffman 用它决定坚持还是转向</td></tr><tr><td>hyper growth</td><td>超高速增长。本课所有建议只适用于追求这类增长的公司</td></tr></tbody></table></div><div class="gloss-group"><h4>组织与管理术语</h4><table class="gtbl"><tbody><tr><td>vesting</td><td>股权分 4 年逐月兑现，防合伙人干半年就走还带走一大块</td></tr><tr><td>cliff</td><td>满 1 年才兑现第一笔，1 年内离开一股不拿。标准组合：4 年 vesting + 1 年 cliff</td></tr><tr><td>near-equal</td><td>联合创始人股权近乎均分，反对「谁想出点子谁多拿」</td></tr><tr><td>refresher</td><td>每年再给老员工约 3%–5% 股权，防止被稀释后失去动力</td></tr><tr><td>barrel / ammunition</td><td>桶与弹药：多数人只是弹药，能把想法从概念带到上线的「桶」才是稀缺产能</td></tr><tr><td>pairing indicator</td><td>任何单一指标都配一个反向指标，防止为好看而作弊</td></tr><tr><td>Hero Mode</td><td>创始人凡事亲自救火。20 人还行，30 人就崩</td></tr><tr><td>repeatable innovation</td><td>从「偶尔做出好东西」变成「能持续做出好东西」</td></tr><tr><td>cofounder dating</td><td>临时速配式找联合创始人，Sam Altman 明确反对</td></tr></tbody></table></div><div class="gloss-group"><h4>融资·法务·财务（均为美国法域）</h4><table class="gtbl"><tbody><tr><td>Delaware C-Corp</td><td>美国特拉华州股份公司，VC 投资的标准载体，几乎一律用它</td></tr><tr><td>SAFE</td><td>未来股权简单协议：先投钱不定价，下一轮定价时再转股。YC 推出</td></tr><tr><td>cap / 估值上限</td><td>SAFE 里约定的最高转股估值。cap 偏低 + 后续定价轮会让早期股份大幅稀释</td></tr><tr><td>稀释 / dilution</td><td>每融一轮创始人与老股东占比下降。种子建议 ≤15%、A 轮 ≤30%</td></tr><tr><td>83(b) Election</td><td>拿到受限股权后 30 天内申报，让税基按「现在几乎不值钱」算。漏报可能背巨额税单，须留存寄送凭证</td></tr><tr><td>accredited investors</td><td>美国「合格投资人」（收入/资产达标）。向不合格者募资会违法</td></tr><tr><td>W2 / 1099</td><td>美国两类用工报税表：W2=正式雇员，1099=外包 contractor。分错有税务与劳动法风险</td></tr><tr><td>pitch / 30/70</td><td>投资人简短陈述，主张 30 秒三句：做什么 / 市场多大 / traction；销售通话你讲 30%、让对方讲 70%</td></tr><tr><td>Stock Purchase Agreement</td><td>股权购买协议，签完才算真拿到股份</td></tr></tbody></table></div><div class="gloss-group"><h4>易混淆提醒</h4><table class="gtbl"><tbody><tr><td>Paul Graham ≠ Peter Thiel</td><td>前者讲「怎么有点子」，后者讲「垄断」</td></tr><tr><td>Kevin Hale ≠ Keith Rabois</td><td>前者 L7 讲产品与客服，后者 L14 讲运营</td></tr><tr><td>Ben Silbermann ≠ Ben Horowitz</td><td>前者 Pinterest（L11），后者 a16z（L15）</td></tr><tr><td>Justin Kan / Emmett Shear</td><td>都出自 Justin.tv / Twitch，但分别出现在 L8 与 L16</td></tr><tr><td>「垄断」不是作恶</td><td>指没有竞争对手所以有利润做长期事，靠技术好 10 倍获得，不是打压对手</td></tr><tr><td>「不招人」不是永远</td><td>只限定早期 / PMF 之前；PMF 后 L20 明确要求转成组织与流程</td></tr></tbody></table></div>
 </section>
 
 <footer>
-  源文档：《如何创业_YC_斯坦福公开课(20集).docx》 · 二次提炼与播客生成于 2026-11-11 · 内容仅作学习整理，版权归原课程与讲者所有。
+  源文档：《如何创业_YC_斯坦福公开课(20集).docx》 · 笔记整理与播客录制于 2026-11-11 · 只作学习用途，版权归原课程与讲者所有。
   <div class="files">
-    <a href="如何创业_YC二十讲_精华提炼版.md">📄 精华提炼版（Markdown）</a>
-    <a href="播客逐字稿与ShowNotes.md">📄 播客逐字稿 + Show Notes</a>
-    <a href="YC二十讲_零基础白话解读.md">📖 零基础白话解读</a>
-    <a href="YC二十讲_人物事件名词注解.md">🔤 人物事件名词注解</a>
-    <a href="YC二十讲_内容准确性核对报告.md">✅ 内容准确性核对报告</a>
-    <a href="podcast/YC20_full.mp3">🎧 全集 MP3</a>
+    <a href="如何创业_YC二十讲_精华提炼版.md">精华提炼版（Markdown）</a>
+    <a href="播客逐字稿与ShowNotes.md">播客逐字稿 + Show Notes</a>
+    <a href="YC二十讲_零基础白话解读.md">零基础白话解读</a>
+    <a href="YC二十讲_人物事件名词注解.md">人物事件名词注解</a>
+    <a href="YC二十讲_内容准确性核对报告.md">内容准确性核对报告</a>
+    <a href="podcast/YC20_full.mp3">全集 MP3</a>
+    <a href="brand/预览.html">播客 Logo 与品牌素材</a>
+    <a href="brand/品牌与延展规范.md">品牌规范</a>
   </div>
 </footer>
 </div>
 <script>
-const EPS = [{"id": "EP00", "file": "podcast/EP00_opening.mp3", "title": "开场 · 为什么 2014 年的一门课今天还值得听", "subtitle": "二十讲的坐标、适用边界与收听路线", "notes": ["Stanford CS183B《How to Start a Startup》(2014)：20 讲、16 小时 10 分、17 位客座讲者", "主讲阵容：Sam Altman、Paul Graham、Peter Thiel、Reid Hoffman、Marc Andreessen 等", "适用边界：只适用于追求超高速增长的公司；案例与数字集中在 2014 年前；法务为美国法域", "收听路线：五编对应五个创业阶段，判断 / 产品 / 增长 / 组织 / 资本"], "duration": 104.0, "turns": 10}, {"id": "EP01", "file": "podcast/EP01_direction.mp3", "title": "EP01 · 判断与方向：该不该做，做什么", "subtitle": "第 I 编｜L1 / L3 / L5 / L13", "notes": ["成败公式：创意 × 产品 × 团队 × 执行 × 运气，运气是零到一万的随机数", "创意先行、创业其次；好公司通常要熬十年；好点子起初听起来很糟", "市场看增长率不看规模，且市场造不出来；Why now 答不上就别动手", "PG：别硬想点子，活在未来，只管去学；Growth Hacks 在心里译成胡扯", "Thiel：价值 = 创造 X × 捕获 Y%；从小市场 25% 份额起步，做 last mover，技术好十倍", "Reid：拆掉全能创始人神话，用投资论点驾驭坚持与转向"], "duration": 386.8, "turns": 36}, {"id": "EP02", "file": "podcast/EP02_product.mp3", "title": "EP02 · 产品与用户：造什么，给谁，怎么验证", "subtitle": "第 II 编｜L4 / L7 / L16 / L17", "notes": ["一句话说清问题，先当行业里的一颗螺丝钉；MVP 里被跳过的是 viable", "诚实曲线：付费才拿到真话；一次只跑一个渠道；CLV − CAC，三个月回本", "增长 = 转化率 − 流失；SDD 让开发做客服；三成工程时间投文档", "访谈只问现状行为，找谁聊和问什么同样重要；六到八人够；刻意找非用户", "不问意愿问行为；Jambox 从零到七成八；WHYS 与 Hero Experiences"], "duration": 479.3, "turns": 48}, {"id": "EP03", "file": "podcast/EP03_growth.mp3", "title": "EP03 · 增长与市场：怎么获客，怎么卖", "subtitle": "第 III 编｜L6 / L8 / L12 / L19", "notes": ["留存是增长第一要务；按 cohort 画曲线，趋平才有产品市场契合", "只留一个北极星指标；magic moment 是十四天加十个好友；增长要盯边际用户", "DoorDash 一小时落地页验证需求；一个贬损者抵十个拥护者；别免费送", "企业 IT 三点七万亿美元 vs 消费约一千七百亿；底层要素变化 + 楔子 + 非对称", "创始人就是第一个销售；创新者只占百分之二点五；三十比七十法则；maybes 致命"], "duration": 522.7, "turns": 54}, {"id": "EP04", "file": "podcast/EP04_team.mp3", "title": "EP04 · 团队与组织：谁来干，怎么管", "subtitle": "第 IV 编｜L2 / L10 / L11 / L14 / L15 / L20", "notes": ["联合创始人闹翻是头号死因；九家临时加人的团队一年内全部散伙", "近乎均分股权、四年归属加一年 cliff；尽量不招人；前 10 人给约 10% 股权", "执行 = 聚焦 + 强度；病毒系数零点九九死、一点零一指数增长", "文化是实际奖惩什么；最佳雇主回报 11.8%，近大盘两倍；文化更像园艺", "领导者是编辑；桶与弹药；成对指标；关键决策要透过全公司每个人的眼睛看", "20 人还行、30 人就崩；走出 Hero Mode；每年再发 3% 到 5% 股权"], "duration": 582.2, "turns": 53}, {"id": "EP05", "file": "podcast/EP05_capital.mp3", "title": "EP05 · 资本与合规，以及全课收束", "subtitle": "第 V 编｜L9 / L18 ＋ 五编总结", "notes": ["每年约 4000 家想融、200 家拿到顶级 VC、15 家贡献约 97% 回报", "投强项而非无弱点；风险洋葱逐层剥离；生意做好胜过路演讲好", "种子稀释 10%–15%，A 轮 20%–30%；承诺后立刻邮件确认", "一律特拉华州 C 类股份公司；83(b) 留凭证；四年归属加一年 cliff", "SAFE 叠加稀释可达 45%；只向合格投资人募资；别拿投资人的钱去拉斯维加斯", "全课三句话总结与今天就能动手的三件事"], "duration": 393.0, "turns": 38}];
+const EPS = [{"id": "EP00", "file": "podcast/EP00_opening.mp3", "title": "开场 · 先把话说在前头", "subtitle": "这门课讲什么、不讲什么，以及我们为什么重做了一版", "notes": ["斯坦福 CS183B《How to Start a Startup》，2014 年秋，20 讲共 16 小时 10 分", "20 讲里 17 场是客座讲座，前后二十几位讲者，多数做成过十亿美元级公司", "适用边界：只讲追求超高速增长的创业；案例数字集中在 2014 年前；法务为美国法域", "重排方式：不按课号，按创业时问题冒出来的顺序，共 5 段 + 本集开场 = 6 集", "这一版多讲故事、少抛结论，上一版反馈「听不懂」的地方都补了来龙去脉"], "duration": 155.5, "turns": 19}, {"id": "EP01", "file": "podcast/EP01_direction.mp3", "title": "判断与方向 · 该不该做，做什么", "subtitle": "对应 L1 / L3 / L5 / L13", "notes": ["Sam Altman 的成败公式：创意 × 产品 × 团队 × 执行 × 运气，只有前四项能控", "创意先行、公司其次；做成一家好公司通常要熬十年", "好点子起初听起来都很糟：Google 是第 13 个搜索引擎，Airbnb 是「睡陌生人的沙发」", "Why now：为什么两年前做不成、两年后太晚；市场看增长率不看当前规模", "Paul Graham：别硬想点子，活在未来；「增长黑客」听到就在心里译成胡扯", "Peter Thiel：价值 = 创造的 X × 捕获的 Y%；从小垄断起步，做 last mover", "Reid Hoffman：别信全能创始人神话，用投资论点决定坚持还是转向"], "duration": 445.0, "turns": 53}, {"id": "EP02", "file": "podcast/EP02_product.mp3", "title": "产品与用户 · 造什么，给谁，怎么知道对了", "subtitle": "对应 L4 / L7 / L16 / L17", "notes": ["一句话说清问题；先去行业里当一两个月「螺丝钉」", "MVP 里最常被跳过的是 viable（真能解决问题），不是「功能少」", "「更快的马」：别问用户要什么功能，问他们过去真实怎么做的", "访谈 6 到 8 人就够，但得刻意找完全不用你产品的人", "付费是最强的验证；DoorDash 用 PDF 菜单加手机号一小时上线，第一单创始人自己送", "Wufoo 让写代码的人轮流做客服，被同一个问题问烦了就主动去修 bug", "增长 = 转化率 − 流失；约三成工程时间投在帮助文档上", "Jambox 从零做到无线音箱市场七成八；不问意愿问行为，找 WHYS 与 Hero Experiences"], "duration": 349.3, "turns": 46}, {"id": "EP03", "file": "podcast/EP03_growth.mp3", "title": "增长与市场 · 怎么让人来，怎么卖出去", "subtitle": "对应 L6 / L8 / L12 / L19", "notes": ["留存是增长第一要务；按同期群画曲线，走平了才叫产品市场契合", "全公司只留一个北极星指标，长期不改；把用户最快送到魔力时刻", "做产品盯重度用户，做增长要盯一年收不到一条通知的边际用户", "一个体验极差的贬损者，足以抵消十个拥护者；别靠免费送拉新", "首批用户只能创始人一个一个磕；做不可规模化的事是早期最大优势", "企业软件：底层要素变了 + 楔子 + 非对称竞争", "创始人就是第一个销售；30/70 法则；极简 pitch；「也许吧」最致命"], "duration": 281.8, "turns": 34}, {"id": "EP04", "file": "podcast/EP04_team.mp3", "title": "团队与组织 · 找谁一起干，大了怎么办", "subtitle": "对应 L2 / L10 / L11 / L14 / L15 / L20", "notes": ["联合创始人闹翻是早期头号死因；临时速配的九家团队一年内全散了", "只从多年熟识的人里挑合伙人，股权近乎均分，四年归属 + 一年 cliff", "尽量少招人；Airbnb 招第一名工程师约半年、几百场面试；前 10 人给约 10% 股权", "文化不是墙上标语，是你实际奖励什么、容忍什么；Zappos 用一整年把 37 条价值观删到 10 条", "11.8% 那份「最佳雇主」回报是 2014 年前的老统计，年份口径各版本有出入，当量级看", "领导者像编辑；桶与弹药；每个指标配一个反向指标", "关键决策要透过公司里每个人的眼睛看一遍", "20 人还行、30 人就崩；走出凡事亲自救火的状态，每人恰好一个经理"], "duration": 313.6, "turns": 40}, {"id": "EP05", "file": "podcast/EP05_capital.mp3", "title": "资本与合规 · 钱、手续，以及整门课收个尾", "subtitle": "对应 L9 / L18 ＋ 全课收束", "notes": ["融资是创始人所有事里最容易的一件；把生意做好，比把路演讲好划算", "漏斗量级：每年约 4000 家想融风投、约 200 家拿到顶级 VC、约 15 家做到 1 亿美元营收", "约 97% 的行业回报来自十几家离群值公司；VC 挑的就是这个", "稀释参考：种子轮建议不超过 15%，A 轮不超过 30%", "风险洋葱：每轮钱只用来剥掉两三层风险，融资额跟要消除的风险对齐", "法务全是美国法域：特拉华州公司、SAFE 与 cap、83(b) 三十天内申报并留凭证、W2/1099、合格投资人", "注册出错可能赔上几十万美元律师费；低 cap 叠加后续定价轮可能让出大块股权"], "duration": 276.6, "turns": 35}];
 const nav=document.getElementById('nav');
 nav.addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b)return;
@@ -486,7 +588,7 @@ function filter(inputId,tbodyId){
     [...tb.rows].forEach(r=>r.style.display=(!q||r.textContent.toLowerCase().includes(q))?'':'none');
   });
 }
-filter('qContra','tbContra');filter('qNum','tbNum');filter('qLec','tbLec');
+filter('qContra','tbContra');filter('qLec','tbLec');
 (function(){
   var inp=document.getElementById('qGloss'); if(!inp)return;
   var rows=[...document.querySelectorAll('.gloss-group tr')];
@@ -507,12 +609,167 @@ filter('qContra','tbContra');filter('qNum','tbNum');filter('qLec','tbLec');
     empty.style.display=total?'none':'block';
   });
 })();
-let asc=true;
-document.getElementById('thVal').onclick=()=>{
-  const tb=document.getElementById('tbNum');
-  const rows=[...tb.rows].sort((a,b)=>asc?(+a.cells[0].textContent)-(+b.cells[0].textContent):(+b.cells[0].textContent)-(+a.cells[0].textContent));
-  asc=!asc; rows.forEach(r=>tb.appendChild(r));
-  document.querySelector('#thVal .arrow').textContent=asc?'↑':'↓';
-};
+
 </script>
+<div id="termPop" role="dialog" aria-label="词条解释"></div>
+
+<script>
+/* ===== 全站点击注解 ===== */
+let TERMS ={"CS183B": "斯坦福 2014 年秋的创业课编号，全名 How to Start a Startup。给想创业的工程师开的入门课，不是商学院课程。", "Y Combinator": "简称 YC，美国顶级创业孵化器，2005 年由 Paul Graham 等人创办。投一小笔钱、三个月密集辅导，最后办 Demo Day。Airbnb、Stripe、Dropbox 都出自这里。", "YC": "Y Combinator 的简称，美国顶级创业孵化器。这门课就是它和斯坦福一起开的。", "Stanford": "斯坦福大学。课程 CS183B 在这里开设，2014 年秋。", "OpenAI": "人工智能公司。Sam Altman 后来去做 CEO 的就是这家。", "Demo Day": "YC 每期结束时的路演日，创业公司集中向投资人展示。", "Sequoia": "红杉资本，顶级风投。「为什么是现在（Why now）」是它经典的提问。", "a16z": "Andreessen Horowitz 的简称，Marc Andreessen 与 Ben Horowitz 创办的风投。", "SV Angel": "Ron Conway 的天使投资机构。", "Greylock": "Reid Hoffman 所在的风投机构。", "Khosla Ventures": "Keith Rabois 所在的风投机构。", "Founders Fund": "Peter Thiel 创办的基金。", "SurveyMonkey": "在线问卷公司，2011 年收购了 Wufoo。", "Rocket Internet": "德国的「克隆公司」，以快速复制美国成功创业公司著称。曾想复制 Airbnb，被拒绝收购。", "Samwer": "Samwer 兄弟，德国 Rocket Internet 的创办者，以快速复制创业公司出名。", "Sam Altman": "2014 年任 YC 总裁，这门课的发起人，主讲 L1 / L2 / L20；后来成为 OpenAI CEO。", "Dustin Moskovitz": "Facebook 联合创始人，后来创办 Asana。L1 里讲「当 CEO 其实所有人都是你老板」。", "Paul Graham": "YC 创办人、程序员兼随笔作家。L3 讲「别硬想点子，活在未来」。文中简写 PG。", "PG": "Paul Graham 的缩写，YC 创办人。L3 主讲。", "Peter Thiel": "PayPal 联合创始人、Founders Fund 创办人。L5 讲垄断与竞争，名言「竞争是留给失败者的」。", "Reid Hoffman": "LinkedIn 联合创始人、Greylock 合伙人。L13 讲怎么在坚持与转向之间做判断。", "Marc Andreessen": "网景浏览器创办人、a16z 联合创办人。L9 讲融资。", "Adora Cheung": "Homejoy 联合创始人。L4 讲从零用户到增长：验证问题、做 MVP、跑渠道。", "Alex Schultz": "Facebook 早期增长负责人。L6 讲留存、北极星指标与魔法时刻。", "Kevin Hale": "Wufoo 联合创始人。L7 讲让用户热爱产品，主张让工程师轮流做客服。", "Walker Williams": "Teespring 联合创始人。L8 讲做不可规模化的事、公关与起步。", "Justin Kan": "Justin.tv / Twitch 联合创始人。L8 客座讲者。", "Stanley Tang": "DoorDash 联合创始人。L8 讲手工验证起步。", "Ron Conway": "SV Angel 创办人，知名天使投资人。L9 讲融资。", "Parker Conrad": "Zenefits / Rippling 创办人。L9 客座讲者。", "Alfred Lin": "红杉资本合伙人，曾任 Zappos COO。L10 讲公司文化。", "Brian Chesky": "Airbnb 联合创始人。L10 讲文化，那句「乔布斯不会来睡你家沙发，但我会」就是他说的。", "Patrick Collison": "Stripe 联合创始人（弟弟）。L11 讲前 10 名员工怎么找。", "John Collison": "Stripe 联合创始人（哥哥）。L11 客座讲者。", "Ben Silbermann": "Pinterest 联合创始人。L11 讲早期招人。", "Aaron Levie": "Box 联合创始人。L12 讲企业软件为什么是当时最好的时机。", "Emmett Shear": "Justin.tv / Twitch 联合创始人。L16 讲怎么做用户访谈。", "Hosain Rahman": "Jawbone 创办人。L17 讲硬件全栈与 WHYS 方法。", "Kirsty Nathoo": "YC 财务负责人。L18 讲法务财务人事的实务坑。", "Carolynn Levy": "YC 法务负责人，SAFE 协议的推动者之一。L18 客座讲者。", "Tyler Bosmeny": "Clever 联合创始人。L19 讲创始人亲自销售与极简 pitch。", "Keith Rabois": "Khosla Ventures 投资人，曾任 Square / OpenDoor 高管。L14 讲运营。", "Ben Horowitz": "a16z 联合创办人。L15 讲管理，主张关键决策要透过全公司每个人的眼睛看。", "YC Partners": "YC 的合伙人团队，L19 里参与投资人会谈模拟。", "Airbnb": "短租平台。课里反复出现：睡陌生人沙发的点子、免费替房东拍专业照、花约半年招第一名工程师、拒绝被克隆公司收购。", "Stripe": "在线支付公司。课里的例子是「让工程师第一天就提交代码」，以及重视书面文化。", "DoorDash": "外卖平台。最早把餐厅菜单做成 PDF、留个手机号，一小时上线，第一单创始人自己开车送。", "Wufoo": "Kevin Hale 创办的在线表单工具。十个人、融资约 11.8 万美元、几乎零广告费，靠口碑增长，被收购时回报约 29,561%。", "Homejoy": "Adora Cheung 创办的家政平台。用来讲一句话定位、付费验证，以及「最终成的是第 13 个点子」。", "Pathjoy": "Homejoy 的前身/早期名称，Adora Cheung 的同一个家政创业项目。", "Zappos": "卖鞋起家的电商，以客服文化著称。曾把 37 条价值观花一整年精简到 10 条。", "Twitch": "游戏直播平台，从 Justin.tv 拆分出来。L8 / L16 都拿它当例子。", "Justin.tv": "Justin Kan 等人创办的直播网站，Twitch 的前身。", "Jawbone": "做无线音箱与可穿戴设备的公司，Jambox 是它的产品。L17 案例。", "Jambox": "Jawbone 的无线音箱。发布时无线音箱品类占比几乎为零，到 2013 年圣诞已占音箱市场约 78%。", "Kayak": "旅游搜索引擎。工程区装了红色热线，客服一接电话就直接触发工程师修 bug。", "Facebook": "社交网络。课里的关键例子：14 天加到 10 个好友、社区 12 小时翻译完法语站、最终支持 104 种语言。", "Google": "搜索引擎公司。L5 里用来对比：搜索份额约 66%，却对外讲成「广告公司」只占 3.5%，显得竞争很激烈。", "Amazon": "电商公司。Thiel 举它起步只卖书，说明「从小垄断起步」。", "PayPal": "在线支付公司，Peter Thiel 联合创办。起步只盯易贝上约两万个大卖家。", "eBay": "易贝，拍卖电商网站。PayPal 最早就是从它的大卖家切进去的。", "Yahoo": "早期门户网站。Paul Graham 举它说明好点子常常是从副业长出来的。", "Apple": "苹果公司。同样被 PG 拿来当「副业长成大公司」的例子。", "iPhone": "苹果手机。Brian Chesky 那句玩笑：「你买 iPhone 时乔布斯不会来睡你家沙发，但我会。」", "SEO": "搜索引擎优化，让网站在搜索结果里排得更靠前的做法。", "PR": "公关（public relations）。课里的建议很反直觉：早期别雇公关公司，PR 常是虚荣指标。", "PMF": "Product-Market Fit，产品市场契合。判断标准不是「有人说好」，而是留存曲线能走平——有一批人真的离不开你。", "CLV": "Customer Lifetime Value，客户终身价值：一个客户整个使用期带来的总利润。也写作 LTV。", "LTV": "同 CLV，客户终身价值。", "CAC": "Customer Acquisition Cost，获客成本：平均花多少钱得到一个客户。CAC = CPC ÷ 转化率。", "CPC": "每次点击成本（Cost Per Click），广告投放里按点击计费的价格。", "CLV − CAC": "单位经济的最简判断：一个客户赚的必须多过获取他花的。课里还要求别等太久回本。", "CLV−CAC": "单位经济判断：一个客户赚的必须多过获取他花的，且回本别超过 3 个月。", "CLV/CAC": "客户终身价值与获客成本的比值，用来衡量一个客户划不划算。", "cohort": "同期群：同一批（比如同一个月注册）的用户。按它画留存曲线，才看得出趋势。", "churn": "流失，用户不再使用产品。增长 = 新进来的人 − 走掉的人，所以防流失和拉新等价。", "Retention": "留存：用户过一段时间后还在用。Alex Schultz 称它是增长里最重要的一件事。", "magic moment": "魔力时刻：用户第一次「啊，原来这东西是干这个的」那一瞬。Facebook 的是看到朋友的脸。", "北极星指标": "全公司只认一个核心指标（月活 / 订单 / 入住晚数等），长期不改，避免各报各好看的数字。", "vanity metric": "虚荣指标：好看但不指导决策的数字，比如累计注册数、媒体曝光量。", "traction": "真实增长证据：用户数、留存、收入在涨。pitch 里必须有，比形容词管用。", "detractor": "贬损者：体验很差、会到处说你坏话的用户。一个贬损者足以抵消十个拥护者。", "champion": "拥护者：极度满意、会主动推荐你的用户。", "power user": "重度用户，用得最多最深的那批人。做产品要盯他们，做增长反而要盯快流失的边际用户。", "growth": "增长。课里强调它必须建立在留存之上，否则就是往漏水的桶里加水。", "hyper growth": "超高速增长。这门课所有建议只适用于追求这类增长、想做成超大公司的创业。", "K": "病毒系数：每个用户平均带来几个新用户。小于 1 会衰减，大于 1 才能指数放大。", "MVP": "最小可用产品（Minimum Viable Product）。重点是 viable——真能解决问题，不是「功能少」就行。", "pivot": "转型：方向不对时换个做法。课里提醒别把频繁 pivot 当成勤奋。", "stealth": "隐身开发，悄悄做不对外说。课里认为除非起步就要几千万美元，否则毫无意义。", "non-users": "完全不用你产品的人。访谈时最容易被忽略，却最能说明市场为什么做不大。", "Mom test": "别问「你会用吗」（连妈妈都会说会），只问对方过去真实做过什么。用来避免被客气话骗到。", "SDD": "Support Driven Development，让写代码的人轮流做客服，被同一个问题问烦了就主动去修。", "knowledge gap": "用户「不懂怎么用」与产品「假定他懂」之间的落差，早期流失的常见原因。", "WHYS": "Jawbone 的方法：反复追问为什么，找到用户「离了就活不了」的关键时刻。", "Hero Experiences": "Jawbone 的说法：把资源全押在少数几个让用户觉得「太值了」的瞬间上。", "SISP": "Solution In Search of Problem：先有解法再去找问题，YC 眼里的大忌。", "QA": "质量保证 / 测试。课里说「让开发者亲自做客服是最优雅的 QA」。", "last mover": "与「先发优势」相反：最后进场并长期待着的人。Thiel 认为值钱的是持久性，约 3/4 价值来自十年后的利润。", "Why now": "为什么是现在：两年前为什么做不成，两年后为什么太晚。红杉的经典提问，答不上就先别动手。", "Unpopular but right": "「不受欢迎但正确」。PG 的说法：好点子起初听着都很糟，一听就好会招来一堆竞争者。", "investment thesis": "投资论点：「我知道什么别人还不知道」。Reid Hoffman 用它决定该坚持还是转向。", "DCF": "现金流折现，把未来多年的利润折算成今天的价值。Thiel 用它说明长期利润才是大头。", "wedge": "楔子：切入企业市场的一个极窄口子，做在位者做不到或不愿做的事。", "Competition is for losers": "「竞争是留给失败者的」。Thiel 名言：竞争会吃掉利润，垄断才有余力做长期的事。", "vesting": "股权归属：分 4 年逐月兑现，防止合伙人干半年就走还带走一大块。", "cliff": "满 1 年才兑现第一笔股权，1 年内离开一股不拿。标准组合是「4 年 vesting + 1 年 cliff」。", "refresher": "每年再补给老员工约 3%–5% 的股权，防止被稀释后失去动力。", "near-equal": "联合创始人股权近乎均分，反对「谁想出点子谁多拿」。", "Hero Mode": "创始人凡事亲自救火的状态。20 人还撑得住，30 人一定崩。", "pairing indicator": "成对指标：任何一个指标都配一个反向指标，防止为了好看而作弊。", "repeatable innovation": "从「偶尔做出好东西」变成「能持续做出好东西」，Sam Altman 认为这是后期最难的转身。", "cofounder dating": "临时速配式找联合创始人，Sam Altman 明确反对。", "Wiki": "公司内部共写的文档库。PMF 之后要把「怎么做、为什么」写进去，新员工必读。", "CEO": "首席执行官。课里反复说早期 CEO 就是第一个销售、也是增长负责人。", "Delaware C-Corp": "美国特拉华州注册的股份公司，VC 投资的标准载体，课里建议几乎一律用它。中国公司不适用。", "SAFE": "未来股权简单协议：先投钱、不定价，下一轮定价时再转成股份。由 YC 推出。", "cap": "估值上限，SAFE 里约定的最高转股估值。定得太低，后面接定价轮时早期股份会被大幅稀释。", "83(b)": "美国税法的一项选择：拿到受限股权后 30 天内申报，让税基按「现在几乎不值钱」算。漏报可能背巨额税单，且要留存寄送凭证。", "accredited investors": "美国「合格投资人」，收入或资产达到门槛的人。向不合格者募资会违法。", "W2": "美国正式雇员的报税表。与 1099（外包）分错会带来税务与劳动法风险。", "1099": "美国外包人员（contractor）的报税表，对应 W2 的正式雇员。", "payroll": "工资发放与代扣代缴系统。公司招人后必须正规接入，别用私人转账糊弄。", "pitch": "向投资人做的简短陈述。课里主张压到 30 秒三句：做什么、市场多大、有什么真实增长证据。", "30/70": "销售通话的时间分配：你讲 30%，让对方讲 70%。把功能宣讲换成开放式提问。", "Stock Purchase Agreement": "股权购买协议，签完才算真正拿到股份。", "VC": "风险投资（Venture Capital），也指风险投资机构。", "Show Notes": "播客每集的文字说明，列出本集要点与时间线。", "MP3": "最常见的音频文件格式，这里的播客音频都是 MP3。", "PDF": "便携式文档格式。DoorDash 最早就是把餐厅菜单做成 PDF 挂上网。", "batch": "YC 每年分批次孵化创业公司，一期叫一个 batch。", "champions": "拥护者（champion 的复数）：极度满意、会主动推荐你的用户。", "cofounder": "联合创始人。课里说宁可没有，也别要个糟糕的；找合伙人只从多年熟识的人里挑。", "employees": "员工、雇员。Sam Altman 用「20 人还行、30 人就崩」说明组织规模阈值。"};
+let TERM_RE = null;
+function escRe(k){ return k.replace(/[.*+?^${}()|[\]\\/]/g, '\$&'); }
+function rebuildRE(){
+  const ks = Object.keys(TERMS).sort(function(a,b){ return b.length - a.length; });
+  TERM_RE = new RegExp('(^|[^A-Za-z0-9])(' + ks.map(escRe).join('|') + ')(?![A-Za-z0-9])', 'g');
+}
+rebuildRE();
+
+const SKIP = 'script,style,input,textarea,select,a,.gloss-group,.files,#termPop,#termTip,.term,abbr';
+const pop = document.getElementById('termPop');
+
+function annotate(root){
+  if(!root) return;
+  const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+  const nodes = [];
+  while(tw.nextNode()) nodes.push(tw.currentNode);
+  nodes.forEach(function(n){
+    if(!n.nodeValue || !n.nodeValue.trim()) return;
+    const p = n.parentNode;
+    if(!p || p.closest(SKIP)) return;
+    const txt = n.nodeValue;
+    TERM_RE.lastIndex = 0;
+    if(!TERM_RE.test(txt)) return;
+    TERM_RE.lastIndex = 0;
+    const frag = document.createDocumentFragment();
+    let last = 0, mm, hit = 0;
+    while((mm = TERM_RE.exec(txt)) !== null){
+      const pre = mm[1], word = mm[2], start = mm.index + pre.length;
+      if(start < last) continue;
+      if(start > last) frag.appendChild(document.createTextNode(txt.slice(last, start)));
+      const sp = document.createElement('span');
+      sp.className = 'term'; sp.textContent = word;
+      sp.setAttribute('role','button'); sp.setAttribute('tabindex','0');
+      sp.dataset.k = word;
+      frag.appendChild(sp);
+      last = start + word.length; hit++;
+      TERM_RE.lastIndex = last;
+    }
+    if(!hit) return;
+    if(last < txt.length) frag.appendChild(document.createTextNode(txt.slice(last)));
+    n.parentNode.replaceChild(frag, n);
+  });
+}
+
+function showPop(el){
+  const k = el.dataset.k, v = TERMS[k];
+  if(!v) return;
+  pop.innerHTML = '<button class="tp-x" aria-label="关闭">×</button>'
+    + '<div class="tp-k"></div><div class="tp-v"></div>'
+    + '<div class="tp-h">点空白处关闭 · 更多词条见「名词注解」</div>';
+  pop.querySelector('.tp-k').textContent = k;
+  pop.querySelector('.tp-v').textContent = v;
+  pop.style.display = 'block';
+  const r = el.getBoundingClientRect();
+  const w = pop.offsetWidth, h = pop.offsetHeight;
+  let left = r.left, top = r.bottom + 8;
+  if(left + w > window.innerWidth - 12) left = window.innerWidth - w - 12;
+  if(left < 12) left = 12;
+  if(top + h > window.innerHeight - 12) top = Math.max(12, r.top - h - 8);
+  pop.style.left = left + 'px'; pop.style.top = top + 'px';
+  pop.querySelector('.tp-x').onclick = hidePop;
+}
+function hidePop(){ pop.style.display = 'none'; }
+
+document.addEventListener('click', function(e){
+  const x = e.target.closest && e.target.closest('.term');
+  if(x){ e.stopPropagation(); showPop(x); return; }
+  if(pop && !pop.contains(e.target)) hidePop();
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') hidePop();
+  if((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('term')){
+    e.preventDefault(); showPop(e.target);
+  }
+});
+window.addEventListener('scroll', hidePop, true);
+window.addEventListener('resize', hidePop);
+
+/* 兜底：若仍有旧式悬停注解，把解释并入词典再交给统一逻辑 */
+document.querySelectorAll('abbr[title]').forEach(function(a){
+  const k = a.textContent.trim();
+  if(k && !TERMS[k]) TERMS[k] = a.getAttribute('title');
+  a.parentNode.replaceChild(document.createTextNode(a.textContent), a);
+});
+rebuildRE();
+annotate(document.body);
+
+/* 切换分集后 Show Notes 重新生成，需要再扫一次 */
+const _select = window.select;
+window.select = function(i){ _select(i); annotate(document.getElementById('notes')); };
+annotate(document.getElementById('notes'));
+</script>
+
+
+<script>
+/* ===== 关键数字视图切换 ===== */
+(function(){
+  const body=document.getElementById('numBody'); if(!body)return;
+  const rows=[...body.querySelectorAll('.num-row')];
+  const groups=[...body.querySelectorAll('.num-group[data-g]')];
+  const all=document.getElementById('numAll');
+  const allRows=all.querySelector('.num-rows');
+  const note=document.getElementById('numNote');
+  const empty=document.getElementById('numEmpty');
+  const inp=document.getElementById('qNum');
+  const views=document.getElementById('numViews');
+  let view='group';
+
+  function restore(){
+    groups.forEach(function(g){
+      const box=g.querySelector('.num-rows');
+      const mine=rows.filter(function(r){return r.dataset.g===g.dataset.g;});
+      mine.sort(function(a,b){return (+a.dataset.i)-(+b.dataset.i);});
+      mine.forEach(function(r){box.appendChild(r);});
+    });
+  }
+  function render(){
+    const q=(inp.value||'').trim().toLowerCase();
+    rows.forEach(function(r){
+      const hit=!q||r.dataset.text.toLowerCase().includes(q);
+      r.style.display=hit?'':'none';
+    });
+    if(view==='group'){
+      all.style.display='none';
+      groups.forEach(function(g){
+        const any=[...g.querySelectorAll('.num-row')].some(function(r){return r.style.display!=='none';});
+        g.style.display=any?'':'none';
+      });
+      note.textContent='默认按创业阶段分组，顺序就是故事的顺序。每组开头那句话，是这组数字想回答的问题。';
+    }else{
+      groups.forEach(function(g){g.style.display='none';});
+      all.style.display='';
+      const sorted=rows.slice().sort(view==='value'
+        ? function(a,b){return (+b.dataset.n)-(+a.dataset.n);}
+        : function(a,b){return (+a.dataset.lec)-(+b.dataset.lec) || (+a.dataset.i)-(+b.dataset.i);});
+      sorted.forEach(function(r){allRows.appendChild(r);});
+      note.textContent = view==='value'
+        ? '注意：这里把 %、年、人、万美元等不同量纲放在一起排大小，只能用来快速找极值，彼此不能比较。'
+        : '按讲次从 L1 到 L20 排，方便对照原课顺序回看。';
+    }
+    const visible=rows.filter(function(r){return r.style.display!=='none';}).length;
+    empty.style.display=visible?'none':'block';
+    all.style.display = (view==='group'||visible===0)?'none':all.style.display;
+  }
+  views.addEventListener('click',function(e){
+    const b=e.target.closest('button'); if(!b)return;
+    [...views.querySelectorAll('button')].forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on'); view=b.dataset.v;
+    if(view==='group') restore();
+    render();
+  });
+  inp.addEventListener('input',render);
+  render();
+})();
+</script>
+
 </body></html>
