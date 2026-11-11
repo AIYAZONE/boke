@@ -113,7 +113,12 @@ audio{width:100%;height:44px;border-radius:9px;background:#3a3531}
 .dl{display:inline-flex;gap:14px;margin-top:14px;font-size:12.5px}
 .dl a{color:#ffb489}
 .notes{margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
-.notes h4{font-size:14px;margin:0 0 12px;color:var(--ink)}
+.notes h4{font-size:14px;margin:0 0 12px;color:var(--ink);cursor:pointer;user-select:none;
+  display:flex;align-items:center;gap:8px;outline:none}
+.notes h4:focus-visible{color:var(--accent)}
+.notes .chev{display:inline-block;font-size:12px;color:var(--muted);transition:transform .2s}
+.notes.collapsed .chev{transform:rotate(-90deg)}
+.notes.collapsed ul{display:none}
 .notes ul{margin:0;padding-left:18px}
 .notes li{font-size:13.5px;color:#4d4741;padding:5px 0}
 .bound{background:#fbf3ec;border:1px solid #f0dccb;border-radius:14px;padding:20px 22px;margin-top:26px}
@@ -279,6 +284,16 @@ header .term{border-bottom-color:rgba(255,183,140,.6)}
 
 /* 手机：词条解释改为底部弹层 + 遮罩，点空白处关闭 */
 @media(max-width:640px){
+  /* 吸顶导航：单列横滑，始终吸附顶部 */
+  nav{top:0;margin-bottom:16px}
+  .nav-inner{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:4px;
+    padding:8px 12px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .nav-inner::-webkit-scrollbar{display:none}
+  .nav-inner{scrollbar-width:none;-ms-overflow-style:none}
+  .nav-inner button{width:auto;flex:0 0 auto;min-height:42px;padding:8px 14px;
+    font-size:13.5px;scroll-snap-align:center}
+  .t-full{display:none}
+  .t-short{display:inline}
   #termPop{left:12px!important;right:12px;top:auto!important;
     bottom:calc(12px + env(safe-area-inset-bottom));width:auto;max-width:none;
     padding:18px 18px 16px;border-radius:16px;font-size:14px;
@@ -343,7 +358,7 @@ header .term{border-bottom-color:rgba(255,183,140,.6)}
           <a href="podcast/YC20_full.mp3" download>↓ 下载全集连播（约 30 分钟）</a>
         </div>
       </div>
-      <div class="notes"><h4>本集 Show Notes</h4><ul id="notes"></ul></div>
+      <div class="notes collapsed" id="notesBox"><h4 id="notesHead" role="button" tabindex="0" aria-expanded="false" aria-controls="notes">本集 Show Notes <span class="chev" aria-hidden="true">▾</span></h4><ul id="notes"></ul></div>
     </div>
   </div>
   <div class="bound">
@@ -628,8 +643,8 @@ header .term{border-bottom-color:rgba(255,183,140,.6)}
   <div class="gloss-group"><h4>课程与机构</h4><table class="gtbl"><tbody><tr><td>CS183B</td><td>斯坦福计算机系 2014 年秋课程编号，全名 How to Start a Startup。给想创业的工程师开的「一门课顶一门商科」速成课</td></tr><tr><td>Y Combinator / YC</td><td>美国顶级创业孵化器，2005 年由 Paul Graham 等创办。投一小笔钱 + 3 个月密集辅导 + Demo Day。Airbnb、Stripe、Dropbox、Twitch 都出自 YC</td></tr><tr><td>Sam Altman</td><td>2014 年任 YC 总裁，本课程发起人与 L1/L2/L20 主讲；后来成为 OpenAI CEO</td></tr><tr><td>B 站 BV1c84y1R7DU</td><td>你正在看的中文重剪版，20 集、970 分钟。分P中文标题是重编者自拟，不是官方英文原题，按 L 号对照更准</td></tr><tr><td>17 场客座讲座</td><td>准确说是「17 场由客座讲者主讲的讲座」；多讲为多人同台，按人头算官方署名约 25–27 人</td></tr></tbody></table></div><div class="gloss-group"><h4>投资机构</h4><table class="gtbl"><tbody><tr><td>Sequoia / 红杉资本</td><td>顶级 VC，Alfred Lin 时任合伙人；「Why now」是其经典提问</td></tr><tr><td>a16z</td><td>Andreessen Horowitz，Marc Andreessen 与 Ben Horowitz 创办的 VC</td></tr><tr><td>SV Angel</td><td>Ron Conway 的天使投资机构</td></tr><tr><td>Greylock</td><td>Reid Hoffman 所在 VC</td></tr><tr><td>Khosla Ventures</td><td>Keith Rabois 所在 VC</td></tr><tr><td>Founders Fund</td><td>Peter Thiel 的基金</td></tr></tbody></table></div><div class="gloss-group"><h4>当案例的公司</h4><table class="gtbl"><tbody><tr><td>Wufoo</td><td>Kevin Hale 创办的在线表单工具。10 人、融资约 11.8 万美元、零广告费，2011 年被 SurveyMonkey 以约 3500 万美元收购，回报 29,561%</td></tr><tr><td>Homejoy / Pathjoy</td><td>Adora Cheung 创办的家政平台。用来讲一句话定位、付费验证、第 13 个点子</td></tr><tr><td>Airbnb</td><td>短租平台。招第一名工程师花约半年、免费专业摄影、拒绝克隆公司、先于招人设计文化</td></tr><tr><td>Stripe</td><td>在线支付。工程师第一天就提交代码（push people off the cliff）、书面文化</td></tr><tr><td>DoorDash</td><td>外卖平台。PDF 菜单 + 手机号 1 小时上线，创始人亲自送第一单</td></tr><tr><td>Zappos</td><td>鞋类电商，以客服文化著称。37 条价值观花一整年精简到 10 条</td></tr><tr><td>Twitch / Justin.tv</td><td>游戏直播。用户访谈要找 non-users，资源投到「没人提过」的地方</td></tr><tr><td>Jawbone / Jambox</td><td>无线音箱与可穿戴。不问意愿问行为、WHYS、Hero Experiences</td></tr><tr><td>Kayak</td><td>旅游搜索。工程区装红色热线，客服来电直接触发修 bug</td></tr><tr><td>Rocket Internet / Samwer 兄弟</td><td>德国克隆公司，30 天雇 400 人复制 Airbnb，被 Airbnb 拒绝收购</td></tr></tbody></table></div><div class="gloss-group"><h4>增长与数据术语</h4><table class="gtbl"><tbody><tr><td>PMF</td><td>Product-Market Fit，产品市场契合。判断标准不是「有人说好」，而是留存曲线能趋平</td></tr><tr><td>留存 / Retention</td><td>用户过一段时间后还在用。增长的地基</td></tr><tr><td>cohort / 同期群</td><td>同一批（如同月注册）的用户。按它画留存曲线才看得出趋势</td></tr><tr><td>churn / 流失</td><td>用户停止使用。与转化率同等重要：增长 = 转化率 − 流失</td></tr><tr><td>CLV / LTV</td><td>客户终身价值：一个客户整个使用期带来的总利润</td></tr><tr><td>CAC</td><td>获客成本：平均花多少钱得到一个客户。CAC = CPC ÷ 转化率</td></tr><tr><td>CLV − CAC > 0</td><td>单位经济。回本 ≤3 个月算安全，>12 个月危险</td></tr><tr><td>北极星指标</td><td>全公司只认一个核心指标（MAU / sends / nights booked / GMV），长期不改</td></tr><tr><td>magic moment</td><td>魔力时刻：用户「啊，原来这东西是干这个的」那一瞬。Facebook 是「看到朋友的脸」</td></tr><tr><td>病毒系数 K</td><td>每个用户平均带来几个新用户。K<1 衰减（0.99 走平死掉），K>1 放大（1.01 指数增长）</td></tr><tr><td>power user / 边际用户</td><td>重度用户 / 几乎不用快流失的人。做产品盯前者，驱动增长要盯后者</td></tr><tr><td>detractor / champion</td><td>贬损者 / 拥护者。一个体验极差的贬损者足以抵消十个拥护者</td></tr><tr><td>vanity metric</td><td>虚荣指标：好看但不指导决策的数字，如累计注册数、PR 曝光</td></tr><tr><td>traction</td><td>真实增长证据：用户 / 留存 / 收入在涨。pitch 里必须有</td></tr></tbody></table></div><div class="gloss-group"><h4>产品与用户术语</h4><table class="gtbl"><tbody><tr><td>MVP</td><td>最小可用产品。重点在 viable（真能解决问题），不是「功能少」</td></tr><tr><td>pivot</td><td>转型换做法。课程提醒：别把频繁 pivot 当勤奋</td></tr><tr><td>stealth</td><td>隐身秘密开发。课程认为除非起步要几千万美元，否则毫无意义</td></tr><tr><td>non-users</td><td>完全不用你产品的人。访谈时最容易被忽略，却最能指出市场为什么做不大</td></tr><tr><td>Mom test</td><td>别问「你会用吗」（妈妈也会说会），只问对方过去真实做过什么</td></tr><tr><td>「更快的马」</td><td>亨利·福特典故：问用户要什么，他只会说要一匹更快的马。所以别问功能，问现状行为</td></tr><tr><td>SDD</td><td>Support Driven Development：让写代码的人轮流做客服，被问题折磨到主动去修</td></tr><tr><td>knowledge gap</td><td>用户「不懂怎么用」与产品「假定他懂」之间的落差</td></tr><tr><td>WHYS / Hero Experiences</td><td>Jawbone 方法：找到用户「离了就活不了」的关键时刻，资源全押上去</td></tr><tr><td>SISP</td><td>Solution In Search of Problem：先有解法再找问题，YC 眼里的大忌</td></tr></tbody></table></div><div class="gloss-group"><h4>战略与市场术语</h4><table class="gtbl"><tbody><tr><td>last mover</td><td>与先发相反：最后进场并长期待着的人。Thiel 认为值钱的是持久性</td></tr><tr><td>「竞争是留给失败者的」</td><td>Thiel 名言：竞争吃掉利润，垄断才有余力做长期事</td></tr><tr><td>从小垄断起步</td><td>先在小到几乎无价值的市场里两三个月拿下 25%+ 份额，再扩张</td></tr><tr><td>DCF / 现金流折现</td><td>把未来多年利润折算成今天的价值。Thiel 指出约 3/4 价值来自十年后</td></tr><tr><td>价值 = X × Y%</td><td>X=创造的价值，Y=捕获的比例，两者独立。航空业 X 大、Y≈0</td></tr><tr><td>wedge / 楔子</td><td>切入企业市场的一个极窄口子，做在位者做不到或不愿做的事</td></tr><tr><td>Why now</td><td>为什么是现在：两年前做不成、两年后太晚。答不上就别动手</td></tr><tr><td>Unpopular but right</td><td>好点子起初听起来很糟、没人认同，但方向是对的</td></tr><tr><td>investment thesis</td><td>「我知道什么别人不知道」，Reid Hoffman 用它决定坚持还是转向</td></tr><tr><td>hyper growth</td><td>超高速增长。本课所有建议只适用于追求这类增长的公司</td></tr></tbody></table></div><div class="gloss-group"><h4>组织与管理术语</h4><table class="gtbl"><tbody><tr><td>vesting</td><td>股权分 4 年逐月兑现，防合伙人干半年就走还带走一大块</td></tr><tr><td>cliff</td><td>满 1 年才兑现第一笔，1 年内离开一股不拿。标准组合：4 年 vesting + 1 年 cliff</td></tr><tr><td>near-equal</td><td>联合创始人股权近乎均分，反对「谁想出点子谁多拿」</td></tr><tr><td>refresher</td><td>每年再给老员工约 3%–5% 股权，防止被稀释后失去动力</td></tr><tr><td>barrel / ammunition</td><td>桶与弹药：多数人只是弹药，能把想法从概念带到上线的「桶」才是稀缺产能</td></tr><tr><td>pairing indicator</td><td>任何单一指标都配一个反向指标，防止为好看而作弊</td></tr><tr><td>Hero Mode</td><td>创始人凡事亲自救火。20 人还行，30 人就崩</td></tr><tr><td>repeatable innovation</td><td>从「偶尔做出好东西」变成「能持续做出好东西」</td></tr><tr><td>cofounder dating</td><td>临时速配式找联合创始人，Sam Altman 明确反对</td></tr></tbody></table></div><div class="gloss-group"><h4>融资·法务·财务（均为美国法域）</h4><table class="gtbl"><tbody><tr><td>Delaware C-Corp</td><td>美国特拉华州股份公司，VC 投资的标准载体，几乎一律用它</td></tr><tr><td>SAFE</td><td>未来股权简单协议：先投钱不定价，下一轮定价时再转股。YC 推出</td></tr><tr><td>cap / 估值上限</td><td>SAFE 里约定的最高转股估值。cap 偏低 + 后续定价轮会让早期股份大幅稀释</td></tr><tr><td>稀释 / dilution</td><td>每融一轮创始人与老股东占比下降。种子建议 ≤15%、A 轮 ≤30%</td></tr><tr><td>83(b) Election</td><td>拿到受限股权后 30 天内申报，让税基按「现在几乎不值钱」算。漏报可能背巨额税单，须留存寄送凭证</td></tr><tr><td>accredited investors</td><td>美国「合格投资人」（收入/资产达标）。向不合格者募资会违法</td></tr><tr><td>W2 / 1099</td><td>美国两类用工报税表：W2=正式雇员，1099=外包 contractor。分错有税务与劳动法风险</td></tr><tr><td>pitch / 30/70</td><td>投资人简短陈述，主张 30 秒三句：做什么 / 市场多大 / traction；销售通话你讲 30%、让对方讲 70%</td></tr><tr><td>Stock Purchase Agreement</td><td>股权购买协议，签完才算真拿到股份</td></tr></tbody></table></div><div class="gloss-group"><h4>易混淆提醒</h4><table class="gtbl"><tbody><tr><td>Paul Graham ≠ Peter Thiel</td><td>前者讲「怎么有点子」，后者讲「垄断」</td></tr><tr><td>Kevin Hale ≠ Keith Rabois</td><td>前者 L7 讲产品与客服，后者 L14 讲运营</td></tr><tr><td>Ben Silbermann ≠ Ben Horowitz</td><td>前者 Pinterest（L11），后者 a16z（L15）</td></tr><tr><td>Justin Kan / Emmett Shear</td><td>都出自 Justin.tv / Twitch，但分别出现在 L8 与 L16</td></tr><tr><td>「垄断」不是作恶</td><td>指没有竞争对手所以有利润做长期事，靠技术好 10 倍获得，不是打压对手</td></tr><tr><td>「不招人」不是永远</td><td>只限定早期 / PMF 之前；PMF 后 L20 明确要求转成组织与流程</td></tr></tbody></table></div>
 </section>
 
-<footer>
-  源文档：《如何创业_YC_斯坦福公开课(20集).docx》 · 笔记整理与播客录制于 2026-11-11 · 只作学习用途，版权归原课程与讲者所有。
+  <footer>
+    源文档：《如何创业_YC_斯坦福公开课(20集).docx》，整理自斯坦福 2014 年课程 CS183B《How to Start a Startup》（Y Combinator 出品）。本页为个人学习向的中文笔记与播客，与 Stanford / Y Combinator 无隶属关系，未获其授权或背书；内容仅作学习交流，版权归原课程与讲者所有，如涉不当可随时下架。
   <div class="files">
     <a href="如何创业_YC二十讲_精华提炼版.md">精华提炼版（Markdown）</a>
     <a href="播客逐字稿与ShowNotes.md">播客逐字稿 + Show Notes</a>
@@ -649,12 +664,28 @@ nav.addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b)return;
   document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');
+  const inner=nav.querySelector('.nav-inner');
+  if(inner && inner.scrollWidth>inner.clientWidth+4){
+    const ir=inner.getBoundingClientRect(), br=b.getBoundingClientRect();
+    inner.scrollTo({left:Math.max(0,inner.scrollLeft+(br.left+br.width/2-ir.left-ir.width/2)),behavior:'smooth'});
+  }
   document.querySelectorAll('section').forEach(s=>s.classList.remove('on'));
   document.getElementById(b.dataset.t).classList.add('on');
   if(window.innerWidth<=820){
     window.scrollTo({top:Math.max(0,nav.offsetTop),behavior:'auto'});
   }
 });
+/* Show Notes 默认折叠，点击标题展开/收起 */
+(function(){
+  var box=document.getElementById('notesBox'), head=document.getElementById('notesHead');
+  if(!box||!head)return;
+  function toggle(){
+    var c=box.classList.toggle('collapsed');
+    head.setAttribute('aria-expanded', String(!c));
+  }
+  head.addEventListener('click',toggle);
+  head.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();} });
+})();
 const list=document.getElementById('eplist');
 const audio=document.getElementById('audio');
 EPS.forEach((ep,i)=>{
